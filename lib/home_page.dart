@@ -4,6 +4,7 @@ import 'package:carousel_pro/carousel_pro.dart';
 
 // My Own imports
 import 'package:shopapp_tut/components/horizontal_listview.dart';
+import 'package:shopapp_tut/components/products.dart';
 import 'package:shopapp_tut/pages/quienes_somos.dart';
 
 //void main() {
@@ -79,8 +80,8 @@ class _HomePageState extends State<HomePage> {
           children: <Widget>[
             //header
             UserAccountsDrawerHeader(
-              accountName: Text('Omar'),
-              accountEmail: Text('omar.ss@gmail.com'),
+              accountName: Text('YUKA'),
+              accountEmail: Text('App Tienda Virtual'),
               currentAccountPicture: GestureDetector(
                 child: CircleAvatar(
                   backgroundColor: Colors.grey,
@@ -175,7 +176,7 @@ class _HomePageState extends State<HomePage> {
 
           // Padding Productos Recientes Widget
           Padding(
-            padding: const EdgeInsets.all(8.0),
+            padding: const EdgeInsets.all(20.0),
             child: Text(
               'Productos Recientes',
               style: TextStyle(
@@ -184,6 +185,13 @@ class _HomePageState extends State<HomePage> {
               ),
             ),
           ),
+
+          // Grid View
+          Container(
+            height: 320.0,
+            child: Products(),
+          ),
+
 
         ],
       ),
