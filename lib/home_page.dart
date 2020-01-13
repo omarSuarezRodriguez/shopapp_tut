@@ -6,6 +6,7 @@ import 'package:carousel_pro/carousel_pro.dart';
 import 'package:shopapp_tut/components/horizontal_listview.dart';
 import 'package:shopapp_tut/components/products.dart';
 import 'package:shopapp_tut/pages/quienes_somos.dart';
+import 'package:shopapp_tut/pages/comprar.dart';
 
 //void main() {
 //  runApp(MaterialApp(
@@ -21,6 +22,12 @@ import 'package:shopapp_tut/pages/quienes_somos.dart';
 //}
 
 class HomePage extends StatefulWidget {
+  // Título de ventana
+  HomePage({this.title = 'YUKA'});
+
+  final String title;
+
+  // Final título de ventana app
   @override
   _HomePageState createState() => _HomePageState();
 }
@@ -72,7 +79,13 @@ class _HomePageState extends State<HomePage> {
               icon: Icon(Icons.search, color: Colors.white), onPressed: () {}),
           IconButton(
               icon: Icon(Icons.shopping_cart, color: Colors.white),
-              onPressed: () {}),
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  // Quienes somos
+                  MaterialPageRoute(builder: (context) => ProfileTwoPage()),
+                );
+              }),
         ],
       ),
       drawer: Drawer(
@@ -84,8 +97,20 @@ class _HomePageState extends State<HomePage> {
               accountEmail: Text('App Tienda Virtual'),
               currentAccountPicture: GestureDetector(
                 child: CircleAvatar(
-                  backgroundColor: Colors.grey,
-                  child: Icon(Icons.person, color: Colors.white),
+                  minRadius: 80,
+                  backgroundColor: Colors.blueGrey,
+                  child: CircleAvatar(
+                    backgroundImage: AssetImage("images/logo.jpg"),
+                    minRadius: 70,
+                  ),
+//                  backgroundColor: Colors.grey,
+//                  radius: ,
+//                  child: Image.asset(
+//                    'images/logo.jpg',
+//                    width: 80.0,
+//                    height: 70.0,
+//                  ),
+//                  child: Icon(Icons.person, color: Colors.white),
                 ),
               ),
               decoration: BoxDecoration(
@@ -95,10 +120,15 @@ class _HomePageState extends State<HomePage> {
 
             //body
             InkWell(
-              onTap: () {},
+              onTap: () {
+                Navigator.pop(context);
+              },
               child: ListTile(
-                title: Text('Home Page'),
-                leading: Icon(Icons.home),
+                title: Text('Catálogo'),
+                leading: Icon(
+                  Icons.home,
+                  color: Colors.redAccent,
+                ),
               ),
             ),
             InkWell(
@@ -126,7 +156,7 @@ class _HomePageState extends State<HomePage> {
               onTap: () {},
               child: ListTile(
                 title: Text('Favoritos'),
-                leading: Icon(Icons.favorite, color: Colors.red),
+                leading: Icon(Icons.favorite_border, color: Colors.red),
               ),
             ),
             InkWell(
@@ -167,7 +197,7 @@ class _HomePageState extends State<HomePage> {
               style: TextStyle(
 //                fontSize: 20.0, // Tamaño de letra
 //                fontWeight: FontWeight.bold, // Texto negrita, bold
-              ),
+                  ),
             ),
           ),
 
@@ -182,7 +212,7 @@ class _HomePageState extends State<HomePage> {
               style: TextStyle(
 //                fontSize: 20.0, // Tamaño de letra
 //                fontWeight: FontWeight.bold, // Texto negrita, bold
-              ),
+                  ),
             ),
           ),
 
@@ -191,8 +221,6 @@ class _HomePageState extends State<HomePage> {
             height: 320.0,
             child: Products(),
           ),
-
-
         ],
       ),
     );
