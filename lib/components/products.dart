@@ -7,18 +7,150 @@ class Products extends StatefulWidget {
 
 class _ProductsState extends State<Products> {
   var product_list = [
+//    {
+//      "name": "Zapatos",
+//      "picture": "images/products/tia_1.jpeg",
+//      "old_price": "120",
+//      "price": "50.000",
+//    },
+//    {
+//      "name": "Tenis",
+//      "picture": "images/products/tia_2.jpeg",
+//      "old_price": "120",
+//      "price": "45.000",
+//    },
+//    {
+//      "name": "Bolsos",
+//      "picture": "images/products/tia_3.jpeg",
+//      "old_price": "120",
+//      "price": "70.000",
+//    },
+//    {
+//      "name": "Tacones",
+//      "picture": "images/products/tia_4.jpeg",
+//      "old_price": "120",
+//      "price": "45.000",
+//    },
+//    {
+//      "name": "Tacones",
+//      "picture": "images/products/tia_5.jpeg",
+//      "old_price": "120",
+//      "price": "55.000",
+//    },
+//    {
+//      "name": "Tenis Hombre",
+//      "picture": "images/products/tia_6.jpeg",
+//      "old_price": "120",
+//      "price": "60.000",
+//    },
+//    {
+//      "name": "Tenis",
+//      "picture": "images/products/tia_7.jpeg",
+//      "old_price": "120",
+//      "price": "50.000",
+//    },
+//    {
+//      "name": "Tenis",
+//      "picture": "images/products/tia_8.jpeg",
+//      "old_price": "120",
+//      "price": "60.000",
+//    },
+//    {
+//      "name": "Zapatos",
+//      "picture": "images/products/tia_9.jpeg",
+//      "old_price": "120",
+//      "price": "55.000",
+//    },
+//    {
+//      "name": "Tenis",
+//      "picture": "images/products/tia_10.jpeg",
+//      "old_price": "120",
+//      "price": "40.000",
+//    },
+//    {
+//      "name": "Zapatos",
+//      "picture": "images/products/tia_11.jpeg",
+//      "old_price": "120",
+//      "price": "60.000",
+//    },
+//    {
+//      "name": "Tenis",
+//      "picture": "images/products/tia_12.jpeg",
+//      "old_price": "120",
+//      "price": "55.000",
+//    }
     {
-      "name": "Blazer",
-      "picture": "images/products/blazer1.jpeg",
+      "name": "Zapatos",
+      "picture": "images/products/tia1.jpg",
       "old_price": "120",
-      "price": "85",
+      "price": "50.000",
     },
     {
-      "name": "Red Dress",
-      "picture": "images/products/dress1.jpeg",
+      "name": "Bolsos",
+      "picture": "images/products/tia_3.jpeg",
+      "old_price": "120",
+      "price": "55.000",
+    },
+    {
+      "name": "Tacones",
+      "picture": "images/products/tia_4.jpeg",
+      "old_price": "120",
+      "price": "50.000",
+    },
+    {
+      "name": "Tacones Dorados",
+      "picture": "images/products/tia_5.jpeg",
+      "old_price": "120",
+      "price": "55.000",
+    },
+    {
+      "name": "Producto 5",
+      "picture": "images/products/tia2.jpg",
       "old_price": "100",
-      "price": "50",
+      "price": "40.000",
+    },
+    {
+      "name": "Producto 6",
+      "picture": "images/products/tia_6.jpeg",
+      "old_price": "100",
+      "price": "45.000",
+    },
+    {
+      "name": "Producto 7",
+      "picture": "images/products/tia_7.jpeg",
+      "old_price": "100",
+      "price": "50.000",
+    },
+    {
+      "name": "Producto 8",
+      "picture": "images/products/tia_8.jpeg",
+      "old_price": "100",
+      "price": "60.000",
+    },
+    {
+      "name": "Producto 9",
+      "picture": "images/products/tia_9.jpeg",
+      "old_price": "100",
+      "price": "45.000",
+    },
+    {
+      "name": "Producto 10",
+      "picture": "images/products/tia_10.jpeg",
+      "old_price": "100",
+      "price": "55.000",
     }
+//    {
+//      "name": "Blazer",
+//      "picture": "images/products/blazer1.jpeg",
+//      "old_price": "120",
+//      "price": "85",
+//    },
+//    {
+//      "name": "Red Dress",
+//      "picture": "images/products/dress1.jpeg",
+//      "old_price": "100",
+//      "price": "50",
+//    }
   ];
 
   @override
@@ -53,8 +185,40 @@ class Single_prod extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      child: Text("test"),
+    return Card(
+      child: Hero(
+        tag: prod_name,
+        child: Material(
+          child: InkWell(
+            onTap: () {},
+            child: GridTile(
+                footer: Container(
+                  color: Colors.white70,
+                  child: ListTile(
+//                    leading: Text(
+//                      prod_name,
+//                      style: TextStyle(fontWeight: FontWeight.bold),
+//                    ),
+                    title: Text(
+                      prod_name,
+                      style: TextStyle(fontWeight: FontWeight.bold),
+                    ),
+                    subtitle: Text(
+                      "\$$prod_price",
+                      style: TextStyle(
+//                        decoration: TextDecoration.lineThrough,
+                          color: Colors.red,
+                          fontWeight: FontWeight.bold),
+                    ),
+                  ),
+                ),
+                child: Image.asset(
+                  prod_pricture,
+                  fit: BoxFit.cover,
+                )),
+          ),
+        ),
+      ),
     );
   }
 }

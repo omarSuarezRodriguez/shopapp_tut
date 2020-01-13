@@ -5,6 +5,7 @@
 
 //import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 //import 'package:flutter_ui_challenges/core/presentation/res/assets.dart';
 //import 'package:flutter_ui_challenges/src/widgets/network_image.dart';
@@ -44,7 +45,10 @@ class ProfileTwoPage extends StatelessWidget {
         title: Text('Comprar'),
 //        title: Text(widget.title),
         leading: IconButton(
-          icon: Icon(Icons.arrow_back),
+          icon: Icon(
+            Icons.arrow_back,
+            color: Colors.white,
+          ),
           onPressed: () {
             Navigator.pop(context);
           },
@@ -172,12 +176,12 @@ class ProfileTwoPage extends StatelessWidget {
                   SizedBox(
                     height: 5.0,
                   ),
-                  Text("Gerente Comercial"),
+                  Text("Gerente"),
                   SizedBox(
                     height: 16.0,
                   ),
                   Container(
-                    height: 40.0,
+                    height: 50.0,
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: <Widget>[

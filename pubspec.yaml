@@ -52,6 +52,8 @@ flutter:
     - images/
     - images/cats/
     - images/products/
+#    - images/products/tia1.jpeg
+#    - images/products/tia2.jpeg
     - videos/IntroVideo.mp4
 
   # An image asset can refer to one or more resolution-specific "variants", see

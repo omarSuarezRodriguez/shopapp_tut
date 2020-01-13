@@ -4,7 +4,6 @@ import 'package:flutter/services.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:video_player/video_player.dart';
-//import 'package:shopapp_tut/home_page.dart';
 
 void main() {
   runApp(

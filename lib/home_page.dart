@@ -1,6 +1,10 @@
+import 'dart:ui';
+
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:carousel_pro/carousel_pro.dart';
+import 'package:flutter/widgets.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 // My Own imports
 import 'package:shopapp_tut/components/horizontal_listview.dart';
@@ -71,14 +75,36 @@ class _HomePageState extends State<HomePage> {
     //Scaffold
     return Scaffold(
       appBar: AppBar(
+        leading: Builder(
+          builder: (context) =>
+              IconButton(
+                // Icono Drawer Menu
+                icon: Icon(FontAwesomeIcons.bars),
+                onPressed: () => Scaffold.of(context).openDrawer(),
+              ),
+        ),
         elevation: 0.1,
         backgroundColor: Colors.red,
-        title: Text('YUKA TiendApp'),
+
+        title: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text(
+              "YUKA TiendApp",
+              style: TextStyle(color: Colors.white, fontSize: 20.0),
+            ),
+          ],
+        ),
+//        title: Text('YUKA TiendApp'),
+
         actions: <Widget>[
+          // Icono de buscar
+          IconButton(icon: Icon(FontAwesomeIcons.search), onPressed: () {}),
+
+          // Icono de comprar
           IconButton(
-              icon: Icon(Icons.search, color: Colors.white), onPressed: () {}),
-          IconButton(
-              icon: Icon(Icons.shopping_cart, color: Colors.white),
+              icon: Icon(FontAwesomeIcons.shoppingCart),
               onPressed: () {
                 Navigator.push(
                   context,
@@ -91,9 +117,13 @@ class _HomePageState extends State<HomePage> {
       drawer: Drawer(
         child: ListView(
           children: <Widget>[
-            //header
+
+            //header Menu Drawer
             UserAccountsDrawerHeader(
-              accountName: Text('YUKA'),
+              accountName: Text(
+                "YUKA",
+                style: TextStyle(color: Colors.white, fontSize: 18.0),
+              ),
               accountEmail: Text('App Tienda Virtual'),
               currentAccountPicture: GestureDetector(
                 child: CircleAvatar(
@@ -125,45 +155,65 @@ class _HomePageState extends State<HomePage> {
               },
               child: ListTile(
                 title: Text('Catálogo'),
+                // Icono Home
                 leading: Icon(
-                  Icons.home,
+                  FontAwesomeIcons.home,
                   color: Colors.redAccent,
+                ),
+              ),
+            ),
+//            InkWell(
+//              onTap: () {},
+//              child: ListTile(
+//                title: Text('My Account'),
+//                leading: Icon(Icons.person),
+//              ),
+//            ),
+//            InkWell(
+//              onTap: () {},
+//              child: ListTile(
+//                title: Text('My Orders'),
+//                leading: Icon(Icons.shopping_basket),
+//              ),
+//            ),
+            InkWell(
+              onTap: () {},
+              child: ListTile(
+                title: Text('Categorías'),
+                // Icono de Categorias
+//                leading: Icon(
+//                  FontAwesomeIcons.boxes,
+//                  color: Colors.redAccent,
+//                ),
+                leading: Icon(
+                  Icons.dashboard,
+                  color: Colors.lightBlueAccent,
                 ),
               ),
             ),
             InkWell(
               onTap: () {},
               child: ListTile(
-                title: Text('My Account'),
-                leading: Icon(Icons.person),
-              ),
-            ),
-            InkWell(
-              onTap: () {},
-              child: ListTile(
-                title: Text('My Orders'),
-                leading: Icon(Icons.shopping_basket),
-              ),
-            ),
-            InkWell(
-              onTap: () {},
-              child: ListTile(
-                title: Text('Categorías'),
-                leading: Icon(Icons.dashboard),
-              ),
-            ),
-            InkWell(
-              onTap: () {},
-              child: ListTile(
                 title: Text('Favoritos'),
-                leading: Icon(Icons.favorite_border, color: Colors.red),
+                leading: Icon(
+                  FontAwesomeIcons.heart,
+                  color: Colors.redAccent,
+                ),
+//                leading: Icon(
+//                  Icons.favorite_border,
+//                  color: Colors.red,
+//                ),
               ),
             ),
             InkWell(
               onTap: () {},
               child: ListTile(
-                title: Text('Settings'),
-                leading: Icon(Icons.settings, color: Colors.blue),
+                title: Text('Ajustes'),
+//                leading: Icon(
+//                  FontAwesomeIcons.dev,
+//                  color: Colors.redAccent,
+//                ),
+                leading: Icon(Icons.settings),
               ),
             ),
             InkWell(
@@ -191,13 +241,13 @@ class _HomePageState extends State<HomePage> {
 
           // Padding Categorias Widget
           Padding(
-            padding: const EdgeInsets.all(8.0),
+            padding: const EdgeInsets.all(13.0),
             child: Text(
               'Categorías',
               style: TextStyle(
-//                fontSize: 20.0, // Tamaño de letra
-//                fontWeight: FontWeight.bold, // Texto negrita, bold
-                  ),
+                fontSize: 17.0, // Tamaño de letra
+                fontWeight: FontWeight.bold, // Texto negrita, bold
+              ),
             ),
           ),
 
@@ -206,15 +256,18 @@ class _HomePageState extends State<HomePage> {
 
           // Padding Productos Recientes Widget
           Padding(
-            padding: const EdgeInsets.all(20.0),
+            padding: const EdgeInsets.all(13.0),
             child: Text(
               'Productos Recientes',
               style: TextStyle(
-//                fontSize: 20.0, // Tamaño de letra
-//                fontWeight: FontWeight.bold, // Texto negrita, bold
-                  ),
+                fontSize: 17.0, // Tamaño de letra
+                fontWeight: FontWeight.bold, // Texto negrita, bold
+              ),
             ),
           ),
+
+
+
 
           // Grid View
           Container(
