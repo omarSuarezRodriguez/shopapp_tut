@@ -9,7 +9,9 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 // My Own imports
 import 'package:shopapp_tut/components/horizontal_listview.dart';
 import 'package:shopapp_tut/components/products.dart';
+import 'package:shopapp_tut/pages/productos_recientes.dart';
 import 'package:shopapp_tut/pages/quienes_somos.dart';
+import 'package:shopapp_tut/pages/categorias.dart';
 import 'package:shopapp_tut/pages/comprar.dart';
 
 //void main() {
@@ -76,12 +78,11 @@ class _HomePageState extends State<HomePage> {
     return Scaffold(
       appBar: AppBar(
         leading: Builder(
-          builder: (context) =>
-              IconButton(
-                // Icono Drawer Menu
-                icon: Icon(FontAwesomeIcons.bars),
-                onPressed: () => Scaffold.of(context).openDrawer(),
-              ),
+          builder: (context) => IconButton(
+            // Icono Drawer Menu
+            icon: Icon(FontAwesomeIcons.bars),
+            onPressed: () => Scaffold.of(context).openDrawer(),
+          ),
         ),
         elevation: 0.1,
         backgroundColor: Colors.red,
@@ -117,7 +118,6 @@ class _HomePageState extends State<HomePage> {
       drawer: Drawer(
         child: ListView(
           children: <Widget>[
-
             //header Menu Drawer
             UserAccountsDrawerHeader(
               accountName: Text(
@@ -239,35 +239,63 @@ class _HomePageState extends State<HomePage> {
           // Image Carousel begins here
           image_carousel,
 
-          // Padding Categorias Widget
+          // Padding Categorias Text Widget
           Padding(
-            padding: const EdgeInsets.all(13.0),
-            child: Text(
-              'Categorías',
-              style: TextStyle(
-                fontSize: 17.0, // Tamaño de letra
-                fontWeight: FontWeight.bold, // Texto negrita, bold
+            padding: const EdgeInsets.all(1.0),
+            child: FlatButton(
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  // Quienes somos
+                  MaterialPageRoute(builder: (context) => Categorias()),
+                );
+              },
+              child: Align(
+                alignment: Alignment.centerLeft,
+                child: Text(
+                  "Categorías",
+                  style: TextStyle(fontSize: 19.0),
+                ),
               ),
             ),
           ),
+
+
+//          // Padding Categorias Widget
+//          Padding(
+//            padding: const EdgeInsets.all(13.0),
+//            child: Text(
+//              'Categorías',
+//              style: TextStyle(
+//                fontSize: 17.0, // Tamaño de letra
+//                fontWeight: FontWeight.bold, // Texto negrita, bold
+//              ),
+//            ),
+//          ),
 
           // Horizontal ListView Begins
           HorizontalList(),
 
-          // Padding Productos Recientes Widget
+          // Padding Productos Recientes Text Widget
           Padding(
-            padding: const EdgeInsets.all(13.0),
-            child: Text(
-              'Productos Recientes',
-              style: TextStyle(
-                fontSize: 17.0, // Tamaño de letra
-                fontWeight: FontWeight.bold, // Texto negrita, bold
+            padding: const EdgeInsets.all(1.0),
+            child: FlatButton(
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  // Quienes somos
+                  MaterialPageRoute(builder: (context) => ProductosRecientes()),
+                );
+              },
+              child: Align(
+                alignment: Alignment.centerLeft,
+                child: Text(
+                  "Productos Recientes",
+                  style: TextStyle(fontSize: 19.0),
+                ),
               ),
             ),
           ),
-
-
-
 
           // Grid View
           Container(
