@@ -1,3 +1,4 @@
+import 'dart:io';
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
@@ -13,10 +14,12 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 // My Own imports
 import 'package:shopapp_tut/components/horizontal_listview.dart';
 import 'package:shopapp_tut/components/products.dart';
+import 'package:shopapp_tut/main_2.dart';
 import 'package:shopapp_tut/pages/productos_recientes.dart';
 import 'package:shopapp_tut/pages/quienes_somos.dart';
 import 'package:shopapp_tut/pages/categorias.dart';
 import 'package:shopapp_tut/pages/comprar.dart';
+import 'main.dart';
 
 //void main() {
 //  runApp(MaterialApp(
@@ -43,11 +46,13 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-//  Products productos = new Products();
+  // Widget para cerrar App
+  Future<bool> _onBackPressed() {
+    exit(0);
+  }
 
   @override
   Widget build(BuildContext context) {
-
     //Color de status bar
     SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle.light.copyWith(
       statusBarColor: Colors.red, //or set color with: Color(0xFF0000FF)
@@ -308,37 +313,40 @@ class _HomePageState extends State<HomePage> {
       ),
 
       //body de la app, lo que va debajo de la AppBar, ListView
-      body: ListView(
-        children: <Widget>[
-          // Image Carousel begins here
-          image_carousel,
+      // Metodo para cerrar app si se da click hacia atrás
+      body: WillPopScope(
+        onWillPop: _onBackPressed,
+        child: ListView(
+          children: <Widget>[
+            // Image Carousel begins here
+            image_carousel,
 
-          // Padding Categorias Text Widget
-          Padding(
-            padding: const EdgeInsets.all(1.0),
-            child: FlatButton(
-              onPressed: () {
+            // Padding Categorias Text Widget
+            Padding(
+              padding: const EdgeInsets.all(1.0),
+              child: FlatButton(
+                onPressed: () {
 //                Navigator.push(
 //                    context,
 //                    PageTransition(
 //                        type: PageTransitionType.rightToLeft,
 //                        child: Categorias()));
 
-                Navigator.push(
-                  context,
-                  // Quienes somos
-                  MaterialPageRoute(builder: (context) => Categorias()),
-                );
-              },
-              child: Align(
-                alignment: Alignment.centerLeft,
-                child: Text(
-                  "Categorías",
-                  style: TextStyle(fontSize: 19.0),
+                  Navigator.push(
+                    context,
+                    // Quienes somos
+                    MaterialPageRoute(builder: (context) => Categorias()),
+                  );
+                },
+                child: Align(
+                  alignment: Alignment.centerLeft,
+                  child: Text(
+                    "Categorías",
+                    style: TextStyle(fontSize: 19.0),
+                  ),
                 ),
               ),
             ),
-          ),
 
 //          // Padding Categorias Widget
 //          Padding(
@@ -352,45 +360,76 @@ class _HomePageState extends State<HomePage> {
 //            ),
 //          ),
 
-          // Horizontal ListView Begins
-          HorizontalList(),
+            // Horizontal ListView Begins
+            HorizontalList(),
 
-          // Padding Productos Recientes Text Widget
-          Padding(
-            padding: const EdgeInsets.all(1.0),
-            child: FlatButton(
-              onPressed: () {
+            // Padding Productos Recientes Text Widget
+            Padding(
+              padding: const EdgeInsets.all(1.0),
+              child: FlatButton(
+                onPressed: () {
 //                Navigator.push(
 //                    context,
 //                    PageTransition(
 //                        type: PageTransitionType.rightToLeft,
 //                        child: ProductosRecientes()));
 
-                Navigator.push(
-                  context,
-                  // Quienes somos
-                  MaterialPageRoute(builder: (context) => ProductosRecientes()),
-                );
-              },
-              child: Align(
-                alignment: Alignment.centerLeft,
-                child: Text(
-                  "Productos Recientes",
-                  style: TextStyle(fontSize: 19.0),
+                  Navigator.push(
+                    context,
+                    // Quienes somos
+                    MaterialPageRoute(
+                        builder: (context) => ProductosRecientes()),
+                  );
+                },
+                child: Align(
+                  alignment: Alignment.centerLeft,
+                  child: Text(
+                    "Productos Recientes",
+                    style: TextStyle(fontSize: 19.0),
+                  ),
                 ),
               ),
             ),
-          ),
 
-          // Grid View
-          Container(
-            height: 320.0,
-            child: Products(),
-          ),
-        ],
+            // Grid View
+            Container(
+              height: 320.0,
+              child: Products(),
+            ),
+          ],
+        ),
       ),
     );
   }
+
+//   Widget onBackPressed - Cuando se da click atrás pregunta si cerrar o no
+//  Metodo para mostrar showDialog que cierra la App
+//
+//  Future<bool> _onBackPressed() {
+//    return showDialog(
+//        context: context,
+//        builder: (BuildContext context) {
+//          return AlertDialog(
+//            title: Text('Salir'),
+//            content: Text('¿Desea salir?'),
+//            actions: <Widget>[
+//              FlatButton(
+//                child: Text('Si'),
+//                onPressed: () {
+//                  exit(0);
+//                },
+//              ),
+//              FlatButton(
+//                child: Text('No'),
+//                onPressed: () {
+//                  Navigator.of(context).pop(false);
+//                },
+//              ),
+//            ],
+//          );
+//        });
+//  }
+
 }
 //
 ////    AnnotatedRegion<SystemUiOverlayStyle>(
