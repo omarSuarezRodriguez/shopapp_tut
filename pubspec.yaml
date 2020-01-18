@@ -27,6 +27,7 @@ dependencies:
   video_player:
   chewie: ^0.9.7
   font_awesome_flutter: ^8.5.0
+#  page_transition:
 
 dev_dependencies:
   flutter_test:
@@ -52,8 +53,6 @@ flutter:
     - images/
     - images/cats/
     - images/products/
-#    - images/products/tia1.jpeg
-#    - images/products/tia2.jpeg
     - videos/IntroVideo.mp4
 
   # An image asset can refer to one or more resolution-specific "variants", see

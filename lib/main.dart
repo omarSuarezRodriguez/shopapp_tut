@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'home_page.dart';
 import 'dart:async';
 
@@ -27,7 +28,7 @@ class _MyAppState extends State<MyApp> {
     // Image splash Screen
     Future.delayed(
       Duration(milliseconds: 1200),
-          () {
+      () {
         Navigator.push(
           context,
           MaterialPageRoute(
@@ -52,46 +53,6 @@ class _MyAppState extends State<MyApp> {
     );
   }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 //import 'package:flutter/material.dart';
 //import 'package:flutter/services.dart';

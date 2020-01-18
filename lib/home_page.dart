@@ -5,6 +5,10 @@ import 'package:flutter/services.dart';
 import 'package:carousel_pro/carousel_pro.dart';
 import 'package:flutter/widgets.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+//import 'package:page_transition/page_transition.dart';
+
+//import 'package:t';
+//import 'package:';
 
 // My Own imports
 import 'package:shopapp_tut/components/horizontal_listview.dart';
@@ -39,11 +43,15 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+//  Products productos = new Products();
+
   @override
   Widget build(BuildContext context) {
+
     //Color de status bar
     SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle.light.copyWith(
       statusBarColor: Colors.red, //or set color with: Color(0xFF0000FF)
+      systemNavigationBarColor: Colors.red,
     ));
     //Fin color status bar
 
@@ -107,6 +115,12 @@ class _HomePageState extends State<HomePage> {
           IconButton(
               icon: Icon(FontAwesomeIcons.shoppingCart),
               onPressed: () {
+//                Navigator.push(
+//                    context,
+//                    PageTransition(
+//                        type: PageTransitionType.rightToLeft,
+//                        child: ProfileTwoPage()));
+
                 Navigator.push(
                   context,
                   // Quienes somos
@@ -177,7 +191,19 @@ class _HomePageState extends State<HomePage> {
 //              ),
 //            ),
             InkWell(
-              onTap: () {},
+              onTap: () {
+//                Navigator.push(
+//                    context,
+//                    PageTransition(
+//                        type: PageTransitionType.rightToLeft,
+//                        child: Categorias()));
+
+                Navigator.push(
+                  context,
+                  // Quienes somos
+                  MaterialPageRoute(builder: (context) => Categorias()),
+                );
+              },
               child: ListTile(
                 title: Text('Categorías'),
                 // Icono de Categorias
@@ -187,6 +213,33 @@ class _HomePageState extends State<HomePage> {
 //                ),
                 leading: Icon(
                   Icons.dashboard,
+                  color: Colors.lightBlueAccent,
+                ),
+              ),
+            ),
+            InkWell(
+              onTap: () {
+//                Navigator.push(
+//                    context,
+//                    PageTransition(
+//                        type: PageTransitionType.rightToLeft,
+//                        child: ProductosRecientes()));
+
+                Navigator.push(
+                  context,
+                  // Quienes somos
+                  MaterialPageRoute(builder: (context) => ProductosRecientes()),
+                );
+              },
+              child: ListTile(
+                title: Text('Productos Recientes'),
+                // Icono de Categorias
+//                leading: Icon(
+//                  FontAwesomeIcons.boxes,
+//                  color: Colors.redAccent,
+//                ),
+                leading: Icon(
+                  FontAwesomeIcons.levelDownAlt,
                   color: Colors.lightBlueAccent,
                 ),
               ),
@@ -217,7 +270,28 @@ class _HomePageState extends State<HomePage> {
               ),
             ),
             InkWell(
+              onTap: () {},
+              child: ListTile(
+                title: Text('Mis Datos Principales'),
+                // Icono de Categorias
+//                leading: Icon(
+//                  FontAwesomeIcons.boxes,
+//                  color: Colors.redAccent,
+//                ),
+                leading: Icon(
+                  Icons.person_outline,
+                  color: Colors.indigo,
+                ),
+              ),
+            ),
+            InkWell(
               onTap: () {
+//                Navigator.push(
+//                    context,
+//                    PageTransition(
+//                        type: PageTransitionType.rightToLeft,
+//                        child: ChewieDemo()));
+
                 Navigator.push(
                   context,
                   // Quienes somos
@@ -244,6 +318,12 @@ class _HomePageState extends State<HomePage> {
             padding: const EdgeInsets.all(1.0),
             child: FlatButton(
               onPressed: () {
+//                Navigator.push(
+//                    context,
+//                    PageTransition(
+//                        type: PageTransitionType.rightToLeft,
+//                        child: Categorias()));
+
                 Navigator.push(
                   context,
                   // Quienes somos
@@ -259,7 +339,6 @@ class _HomePageState extends State<HomePage> {
               ),
             ),
           ),
-
 
 //          // Padding Categorias Widget
 //          Padding(
@@ -281,6 +360,12 @@ class _HomePageState extends State<HomePage> {
             padding: const EdgeInsets.all(1.0),
             child: FlatButton(
               onPressed: () {
+//                Navigator.push(
+//                    context,
+//                    PageTransition(
+//                        type: PageTransitionType.rightToLeft,
+//                        child: ProductosRecientes()));
+
                 Navigator.push(
                   context,
                   // Quienes somos
