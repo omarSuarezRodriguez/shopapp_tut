@@ -27,7 +27,7 @@ class _MyAppState extends State<MyApp> {
     super.initState();
     // Image splash Screen
     Future.delayed(
-      Duration(milliseconds: 1200),
+      Duration(milliseconds: 1400),
       () {
         Navigator.push(
           context,

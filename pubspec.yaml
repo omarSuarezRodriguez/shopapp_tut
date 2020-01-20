@@ -27,11 +27,26 @@ dependencies:
   video_player:
   chewie: ^0.9.7
   font_awesome_flutter: ^8.5.0
+
 #  page_transition:
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
+  ##Para poner icon a la app
+  flutter_launcher_icons: "^0.7.3"
+
+##Se le agrega esto también
+flutter_icons:
+  android: "launcher_icon"
+  ios: true
+  image_path: "images/logo.png"
+  # 1. Packages get
+  # 2. (in console) "flutter packages pub run flutter_launcher_icons:main"
+
+
+
+
 
 
 # For information on the generic Dart part of this file, see the
