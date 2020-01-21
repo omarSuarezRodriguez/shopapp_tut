@@ -3,18 +3,14 @@ import 'home_page.dart';
 import 'dart:async';
 
 //
-//
 // Classes here
 //
 // main
 // MyApp
 // _MyAppState
-//
 
 //
-//
 // Class Principal main
-//
 void main() {
   runApp(MaterialApp(
     debugShowCheckedModeBanner: false, // Disable Banner - Desactivar
@@ -29,11 +25,8 @@ void main() {
 } // End of Class Principal main
 
 //
-//
 // Class MyApp
-//
 class MyApp extends StatefulWidget {
-  //
   // App title
   // (Change here and in home_page.dart)
   MyApp({this.title = 'YUKA TiendApp'});
@@ -41,16 +34,13 @@ class MyApp extends StatefulWidget {
   final String title;
 
   // End of App title
-  //
 
   @override
   _MyAppState createState() => _MyAppState();
 } // End of Class MyApp
 
 //
-//
 // Class _MyAppState
-//
 class _MyAppState extends State<MyApp> {
   TargetPlatform _platform;
 

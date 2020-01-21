@@ -7,9 +7,7 @@ import 'package:flutter/widgets.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 //
-//
 // My Own imports
-//
 import 'package:shopapp_tut/components/horizontal_listview.dart';
 import 'package:shopapp_tut/components/products.dart';
 import 'package:shopapp_tut/pages/productos_recientes.dart';
@@ -18,19 +16,14 @@ import 'package:shopapp_tut/pages/categorias.dart';
 import 'package:shopapp_tut/pages/comprar.dart';
 
 //
-//
 // Classes Here
 //
 // HomePage
 // _HomePageState
-//
 
 //
-//
 // Class HomePage
-//
 class HomePage extends StatefulWidget {
-  //
   // App title
   // (Change here and in main.dart)
   HomePage({this.title = 'YUKA TiendApp'});
@@ -38,23 +31,19 @@ class HomePage extends StatefulWidget {
   final String title;
 
   // End of App title
-  //
 
   @override
   _HomePageState createState() => _HomePageState();
 } // End of class HomePage
 
 //
-//
 // Class _HomePageState
-//
 class _HomePageState extends State<HomePage> {
   // Widget para cerrar App
   Future<bool> _onBackPressed() {
     exit(0);
   }
 
-  //
   // Widget build
   @override
   Widget build(BuildContext context) {
@@ -89,7 +78,6 @@ class _HomePageState extends State<HomePage> {
     );
     // Fin Widget Image Carousel
 
-    //
     // Scaffold
     return Scaffold(
       // AppBar
