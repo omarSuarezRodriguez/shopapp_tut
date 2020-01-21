@@ -1,56 +1,61 @@
 import 'dart:io';
 import 'dart:ui';
-
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:carousel_pro/carousel_pro.dart';
 import 'package:flutter/widgets.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-//import 'package:page_transition/page_transition.dart';
 
-//import 'package:t';
-//import 'package:';
-
+//
+//
 // My Own imports
+//
 import 'package:shopapp_tut/components/horizontal_listview.dart';
 import 'package:shopapp_tut/components/products.dart';
-import 'package:shopapp_tut/main_2.dart';
 import 'package:shopapp_tut/pages/productos_recientes.dart';
 import 'package:shopapp_tut/pages/quienes_somos.dart';
 import 'package:shopapp_tut/pages/categorias.dart';
 import 'package:shopapp_tut/pages/comprar.dart';
-import 'main.dart';
 
-//void main() {
-//  runApp(MaterialApp(
-//    debugShowCheckedModeBanner: false, //Desactivar Banner
-//    home: SafeArea(
-//      top: true,
-//      bottom: true,
-//      left: true,
-//      right: true,
-//      child: HomePage(),
-//    ),
-//  ));
-//}
+//
+//
+// Classes Here
+//
+// HomePage
+// _HomePageState
+//
 
+//
+//
+// Class HomePage
+//
 class HomePage extends StatefulWidget {
-  // Título de ventana
-  HomePage({this.title = 'YUKA'});
+  //
+  // App title
+  // (Change here and in main.dart)
+  HomePage({this.title = 'YUKA TiendApp'});
 
   final String title;
 
-  // Final título de ventana app
+  // End of App title
+  //
+
   @override
   _HomePageState createState() => _HomePageState();
-}
+} // End of class HomePage
 
+//
+//
+// Class _HomePageState
+//
 class _HomePageState extends State<HomePage> {
   // Widget para cerrar App
   Future<bool> _onBackPressed() {
     exit(0);
   }
 
+  //
+  // Widget build
   @override
   Widget build(BuildContext context) {
     //Color de status bar
@@ -69,8 +74,6 @@ class _HomePageState extends State<HomePage> {
           AssetImage('images/slider.png'),
           AssetImage('images/w3.jpeg'),
           AssetImage('images/c1.jpg'),
-//          AssetImage('images/w4.jpeg'),
-//          AssetImage('images/m2.jpg'),
         ],
         autoplay: true,
         animationCurve: Curves.fastOutSlowIn,
@@ -79,16 +82,17 @@ class _HomePageState extends State<HomePage> {
         dotIncreasedColor: Colors.redAccent,
         dotSize: 5.5,
         indicatorBgPadding: 4.0,
-//        dotVerticalPadding: -14,
         autoplayDuration: Duration(milliseconds: 6000),
-        // Duración c/u
+        // Duración por imagen
         animationDuration: Duration(milliseconds: 800), // Duración animación
       ),
     );
     // Fin Widget Image Carousel
 
-    //Scaffold
+    //
+    // Scaffold
     return Scaffold(
+      // AppBar
       appBar: AppBar(
         leading: Builder(
           builder: (context) => IconButton(
@@ -99,19 +103,16 @@ class _HomePageState extends State<HomePage> {
         ),
         elevation: 0.1,
         backgroundColor: Colors.red,
-
         title: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text(
-              "YUKA TiendApp",
+              widget.title, // Título de App
               style: TextStyle(color: Colors.white, fontSize: 20.0),
             ),
           ],
         ),
-//        title: Text('YUKA TiendApp'),
-
         actions: <Widget>[
           // Icono de buscar
           IconButton(icon: Icon(FontAwesomeIcons.search), onPressed: () {}),
@@ -120,20 +121,16 @@ class _HomePageState extends State<HomePage> {
           IconButton(
               icon: Icon(FontAwesomeIcons.shoppingCart),
               onPressed: () {
-//                Navigator.push(
-//                    context,
-//                    PageTransition(
-//                        type: PageTransitionType.rightToLeft,
-//                        child: ProfileTwoPage()));
-
                 Navigator.push(
                   context,
-                  // Quienes somos
+                  // Quienes somos Page
                   MaterialPageRoute(builder: (context) => ProfileTwoPage()),
                 );
               }),
         ],
       ),
+
+      // Menu Drawer
       drawer: Drawer(
         child: ListView(
           children: <Widget>[
@@ -224,25 +221,14 @@ class _HomePageState extends State<HomePage> {
             ),
             InkWell(
               onTap: () {
-//                Navigator.push(
-//                    context,
-//                    PageTransition(
-//                        type: PageTransitionType.rightToLeft,
-//                        child: ProductosRecientes()));
-
                 Navigator.push(
                   context,
-                  // Quienes somos
+                  // Productos Recientes Page
                   MaterialPageRoute(builder: (context) => ProductosRecientes()),
                 );
               },
               child: ListTile(
                 title: Text('Productos Recientes'),
-                // Icono de Categorias
-//                leading: Icon(
-//                  FontAwesomeIcons.boxes,
-//                  color: Colors.redAccent,
-//                ),
                 leading: Icon(
                   FontAwesomeIcons.levelDownAlt,
                   color: Colors.lightBlueAccent,
@@ -257,20 +243,12 @@ class _HomePageState extends State<HomePage> {
                   FontAwesomeIcons.heart,
                   color: Colors.redAccent,
                 ),
-//                leading: Icon(
-//                  Icons.favorite_border,
-//                  color: Colors.red,
-//                ),
               ),
             ),
             InkWell(
               onTap: () {},
               child: ListTile(
                 title: Text('Ajustes'),
-//                leading: Icon(
-//                  FontAwesomeIcons.dev,
-//                  color: Colors.redAccent,
-//                ),
                 leading: Icon(Icons.settings),
               ),
             ),
@@ -278,11 +256,6 @@ class _HomePageState extends State<HomePage> {
               onTap: () {},
               child: ListTile(
                 title: Text('Mis Datos Principales'),
-                // Icono de Categorias
-//                leading: Icon(
-//                  FontAwesomeIcons.boxes,
-//                  color: Colors.redAccent,
-//                ),
                 leading: Icon(
                   Icons.person_outline,
                   color: Colors.indigo,
@@ -291,12 +264,6 @@ class _HomePageState extends State<HomePage> {
             ),
             InkWell(
               onTap: () {
-//                Navigator.push(
-//                    context,
-//                    PageTransition(
-//                        type: PageTransitionType.rightToLeft,
-//                        child: ChewieDemo()));
-
                 Navigator.push(
                   context,
                   // Quienes somos
@@ -326,12 +293,6 @@ class _HomePageState extends State<HomePage> {
               padding: const EdgeInsets.all(1.0),
               child: FlatButton(
                 onPressed: () {
-//                Navigator.push(
-//                    context,
-//                    PageTransition(
-//                        type: PageTransitionType.rightToLeft,
-//                        child: Categorias()));
-
                   Navigator.push(
                     context,
                     // Quienes somos
@@ -400,45 +361,6 @@ class _HomePageState extends State<HomePage> {
         ),
       ),
     );
-  }
+  } // End of Widget build
 
-//   Widget onBackPressed - Cuando se da click atrás pregunta si cerrar o no
-//  Metodo para mostrar showDialog que cierra la App
-//
-//  Future<bool> _onBackPressed() {
-//    return showDialog(
-//        context: context,
-//        builder: (BuildContext context) {
-//          return AlertDialog(
-//            title: Text('Salir'),
-//            content: Text('¿Desea salir?'),
-//            actions: <Widget>[
-//              FlatButton(
-//                child: Text('Si'),
-//                onPressed: () {
-//                  exit(0);
-//                },
-//              ),
-//              FlatButton(
-//                child: Text('No'),
-//                onPressed: () {
-//                  Navigator.of(context).pop(false);
-//                },
-//              ),
-//            ],
-//          );
-//        });
-//  }
-
-}
-//
-////    AnnotatedRegion<SystemUiOverlayStyle>(
-////      value: SystemUiOverlayStyle(
-////        statusBarColor: Colors.red, // transparent status bar
-//////        systemNavigationBarColor: Colors.black, // navigation bar color
-//////        statusBarIconBrightness: Brightness.light, // status bar icons' color
-//////        systemNavigationBarIconBrightness: Brightness.light, //navigation bar icons' color
-////        statusBarBrightness: Brightness.light,
-////      ),
-////      child: ,
-////    ),
+} // End of Class _HomePageState
