@@ -31,24 +31,24 @@ class _ProductDetailsState extends State<ProductDetails> {
       appBar: AppBar(
         elevation: 0.1,
         backgroundColor: Colors.red,
-        title: InkWell(
-          onTap: () {
-            Navigator.push(context,
-                MaterialPageRoute(builder: (context) => new HomePage()));
-          },
-          child: Text("YUKA TiendApp"),
-        ),
-
-//        title: Column(
-//          mainAxisAlignment: MainAxisAlignment.center,
-//          crossAxisAlignment: CrossAxisAlignment.start,
-//          children: [
-//            Text(
-//              "YUKA TiendApp",
-//              style: TextStyle(color: Colors.white, fontSize: 20.0),
-//            ),
-//          ],
+//        title: InkWell(
+//          onTap: () {
+//            Navigator.push(context,
+//                MaterialPageRoute(builder: (context) => new HomePage()));
+//          },
+//          child: Text("YUKA TiendApp"),
 //        ),
+
+        title: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text(
+              "YUKA TiendApp",
+              style: TextStyle(color: Colors.white, fontSize: 20.0),
+            ),
+          ],
+        ),
         actions: <Widget>[
           // Icono de buscar
           IconButton(icon: Icon(FontAwesomeIcons.search), onPressed: () {}),
