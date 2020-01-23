@@ -49,20 +49,22 @@ class _ProductDetailsState extends State<ProductDetails> {
             ),
           ],
         ),
-        actions: <Widget>[
-          // Icono de buscar
-          IconButton(icon: Icon(FontAwesomeIcons.search), onPressed: () {}),
-          // Icono de comprar
-          IconButton(
-              icon: Icon(FontAwesomeIcons.shoppingCart),
-              onPressed: () {
-                Navigator.push(
-                  context,
-                  // Quienes somos
-                  MaterialPageRoute(builder: (context) => ProfileTwoPage()),
-                );
-              }),
-        ],
+
+          // Iconos
+//        actions: <Widget>[
+//          // Icono de buscar
+//          IconButton(icon: Icon(FontAwesomeIcons.search), onPressed: () {}),
+//          // Icono de comprar
+//          IconButton(
+//              icon: Icon(FontAwesomeIcons.shoppingCart),
+//              onPressed: () {
+//                Navigator.push(
+//                  context,
+//                  // Quienes somos
+//                  MaterialPageRoute(builder: (context) => ProfileTwoPage()),
+//                );
+//              }),
+//        ],
       ),
 
       // ================= body =================
