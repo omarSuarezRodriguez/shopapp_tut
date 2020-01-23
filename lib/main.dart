@@ -14,12 +14,13 @@ import 'dart:async';
 void main() {
   runApp(MaterialApp(
     debugShowCheckedModeBanner: false, // Disable Banner - Desactivar
+    // home: SafeArea Evita el uso de espacio de la interfaz del S.O del movil
     home: SafeArea(
       top: true,
       bottom: true,
       left: true,
       right: true,
-      child: MyApp(),
+      child: MyApp(), // MyApp, TODO está aquí
     ),
   ));
 } // End of Class Principal main
@@ -42,8 +43,9 @@ class MyApp extends StatefulWidget {
 //
 // Class _MyAppState
 class _MyAppState extends State<MyApp> {
-  TargetPlatform _platform;
+  TargetPlatform _platform; // Target Platform
 
+  // initState
   @override
   void initState() {
     super.initState();
@@ -59,16 +61,18 @@ class _MyAppState extends State<MyApp> {
         );
       },
     );
-  }
+  } // End of initState
 
+  // Widget build
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      debugShowCheckedModeBanner: false, //Desactivar Banner
-      title: widget.title,
+      debugShowCheckedModeBanner: false, // Disable Banner
+      title: widget.title, // App title
       theme: ThemeData.light().copyWith(
         platform: _platform ?? Theme.of(context).platform,
       ),
+      // home
       home: Scaffold(
         backgroundColor: Colors.white,
         body: Center(
@@ -80,5 +84,6 @@ class _MyAppState extends State<MyApp> {
         ),
       ),
     );
-  }
+  } // End of Widget build
+
 } // End of _MyAppState

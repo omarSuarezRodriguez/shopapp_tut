@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:shopapp_tut/pages/comprar.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:shopapp_tut/home_page.dart';
 
 class ProductDetails extends StatefulWidget {
+  // Con esto recibimos los valores del otro Widget/Page
   final product_detail_name;
   final product_detail_new_price;
   final product_detail_old_price;
@@ -14,6 +16,8 @@ class ProductDetails extends StatefulWidget {
       this.product_detail_old_price,
       this.product_detail_picture});
 
+  // Hasta aquí se reciben los valores del otro Widget/Page
+
   @override
   _ProductDetailsState createState() => _ProductDetailsState();
 }
@@ -21,37 +25,37 @@ class ProductDetails extends StatefulWidget {
 class _ProductDetailsState extends State<ProductDetails> {
   @override
   Widget build(BuildContext context) {
+    // Scaffold
     return Scaffold(
+      // ================= appBar =================
       appBar: AppBar(
         elevation: 0.1,
         backgroundColor: Colors.red,
-
-        title: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Text(
-              "YUKA TiendApp",
-              style: TextStyle(color: Colors.white, fontSize: 20.0),
-            ),
-          ],
+        title: InkWell(
+          onTap: () {
+            Navigator.push(context,
+                MaterialPageRoute(builder: (context) => new HomePage()));
+          },
+          child: Text("YUKA TiendApp"),
         ),
-//        title: Text('YUKA TiendApp'),
 
+//        title: Column(
+//          mainAxisAlignment: MainAxisAlignment.center,
+//          crossAxisAlignment: CrossAxisAlignment.start,
+//          children: [
+//            Text(
+//              "YUKA TiendApp",
+//              style: TextStyle(color: Colors.white, fontSize: 20.0),
+//            ),
+//          ],
+//        ),
         actions: <Widget>[
           // Icono de buscar
           IconButton(icon: Icon(FontAwesomeIcons.search), onPressed: () {}),
-
           // Icono de comprar
           IconButton(
               icon: Icon(FontAwesomeIcons.shoppingCart),
               onPressed: () {
-//                Navigator.push(
-//                    context,
-//                    PageTransition(
-//                        type: PageTransitionType.rightToLeft,
-//                        child: ProfileTwoPage()));
-
                 Navigator.push(
                   context,
                   // Quienes somos
@@ -60,7 +64,8 @@ class _ProductDetailsState extends State<ProductDetails> {
               }),
         ],
       ),
-//      body: HeroApp(),
+
+      // ================= body =================
       body: ListView(
         children: <Widget>[
           Container(
@@ -111,7 +116,24 @@ class _ProductDetailsState extends State<ProductDetails> {
 //            ========= The Size Button =========
               Expanded(
                 child: MaterialButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    showDialog(
+                        context: context,
+                        builder: (context) {
+                          return new AlertDialog(
+                            title: Text('Size'),
+                            content: Text('Choose the size'),
+                            actions: <Widget>[
+                              MaterialButton(
+                                onPressed: () {
+                                  Navigator.of(context).pop(context);
+                                },
+                                child: Text('Close'),
+                              ),
+                            ],
+                          );
+                        });
+                  },
                   color: Colors.white,
                   textColor: Colors.grey,
                   elevation: 0.2,
@@ -124,10 +146,27 @@ class _ProductDetailsState extends State<ProductDetails> {
                 ),
               ),
 
-//            ========= The Size Button =========
+//            ========= The Color Button =========
               Expanded(
                 child: MaterialButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    showDialog(
+                        context: context,
+                        builder: (context) {
+                          return new AlertDialog(
+                            title: Text('Colors'),
+                            content: Text('Choose the color'),
+                            actions: <Widget>[
+                              MaterialButton(
+                                onPressed: () {
+                                  Navigator.of(context).pop(context);
+                                },
+                                child: Text('Close'),
+                              ),
+                            ],
+                          );
+                        });
+                  },
                   color: Colors.white,
                   textColor: Colors.grey,
                   elevation: 0.2,
@@ -140,10 +179,27 @@ class _ProductDetailsState extends State<ProductDetails> {
                 ),
               ),
 
-//            ========= The Size Button =========
+//            ========= The Qty Button =========
               Expanded(
                 child: MaterialButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    showDialog(
+                        context: context,
+                        builder: (context) {
+                          return new AlertDialog(
+                            title: Text('Quantity'),
+                            content: Text('Choose the quantity'),
+                            actions: <Widget>[
+                              MaterialButton(
+                                onPressed: () {
+                                  Navigator.of(context).pop(context);
+                                },
+                                child: Text('Close'),
+                              ),
+                            ],
+                          );
+                        });
+                  },
                   color: Colors.white,
                   textColor: Colors.grey,
                   elevation: 0.2,
@@ -185,6 +241,73 @@ class _ProductDetailsState extends State<ProductDetails> {
                 icon: Icon(Icons.favorite_border),
                 color: Colors.red,
                 onPressed: () {},
+              ),
+            ],
+          ),
+
+          // Divider
+          Divider(),
+
+          // ListTile
+          ListTile(
+            title: Text('Product details'),
+            subtitle: Text(
+                "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset"),
+          ),
+
+          // Divider
+          Divider(),
+
+          // Row Product Name
+          Row(
+            children: <Widget>[
+              Padding(
+                padding: const EdgeInsets.fromLTRB(12.0, 5.0, 5.0, 5.0),
+                child: Text(
+                  "Product name",
+                  style: TextStyle(color: Colors.grey),
+                ),
+              ),
+              Padding(
+                padding: EdgeInsets.all(5.0),
+                child: Text(widget.product_detail_name),
+              ),
+            ],
+          ),
+
+          // Row Product Brand
+          Row(
+            children: <Widget>[
+              Padding(
+                padding: const EdgeInsets.fromLTRB(12.0, 5.0, 5.0, 5.0),
+                child: Text(
+                  "Product brand",
+                  style: TextStyle(color: Colors.grey),
+                ),
+              ),
+
+              // REMEMBER TO CREATE THE PRODUCT BRAND
+              Padding(
+                padding: EdgeInsets.all(5.0),
+                child: Text("Brand X"),
+              ),
+            ],
+          ),
+
+          // Row Product Condition
+          // ADD THE PRODUCT CONDITION
+          Row(
+            children: <Widget>[
+              Padding(
+                padding: const EdgeInsets.fromLTRB(12.0, 5.0, 5.0, 5.0),
+                child: Text(
+                  "Product condition",
+                  style: TextStyle(color: Colors.grey),
+                ),
+              ),
+              Padding(
+                padding: EdgeInsets.all(5.0),
+                child: Text("NEW"),
               ),
             ],
           ),

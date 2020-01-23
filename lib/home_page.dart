@@ -15,6 +15,13 @@ import 'package:shopapp_tut/pages/quienes_somos.dart';
 import 'package:shopapp_tut/pages/categorias.dart';
 import 'package:shopapp_tut/pages/comprar.dart';
 
+import 'package:getflutter/colors/gf_color.dart';
+import 'package:getflutter/components/appbar/gf_appbar.dart';
+import 'package:getflutter/components/button/gf_button.dart';
+import 'package:getflutter/components/button/gf_icon_button.dart';
+import 'package:getflutter/components/badge/gf_button_badge.dart';
+import 'package:getflutter/components/badge/gf_badge.dart';
+
 //
 // Classes Here
 //

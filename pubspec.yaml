@@ -27,6 +27,7 @@ dependencies:
   video_player:
   chewie: ^0.9.7
   font_awesome_flutter: ^8.5.0
+  getflutter: ^1.0.0-dev.1
 
 #  page_transition:
 
