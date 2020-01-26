@@ -8,6 +8,7 @@ import 'pages/comprar.dart';
 import 'pages/product_details.dart';
 import 'pages/productos_recientes.dart';
 import 'pages/quienes_somos.dart';
+import 'pages/cart.dart';
 
 //
 // Classes here
@@ -51,7 +52,7 @@ void main() {
       // When navigating to the "/homepage" route, build the HomePage widget.
       '/homepage': (context) => HomePage(),
 
-      // When navigating to the "/second" route, build the SecondScreen widget.
+      // When navigating to the "/categorias" route, build the SecondScreen widget.
       '/categorias': (context) => Categorias(),
 
       // When navigating to the "/second" route, build the SecondScreen widget.
@@ -65,6 +66,9 @@ void main() {
 
       // When navigating to the "/second" route, build the SecondScreen widget.
       '/quienessomos': (context) => ChewieDemo(),
+
+      // When navigating to the "/second" route, build the SecondScreen widget.
+      '/cart': (context) => Cart(),
     },
   ));
 } // End of Class Principal main
