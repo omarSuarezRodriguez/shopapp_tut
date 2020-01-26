@@ -4,6 +4,7 @@ import 'package:flutter/services.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:video_player/video_player.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 void main() {
   runApp(
@@ -68,16 +69,86 @@ class _ChewieDemoState extends State<ChewieDemo> {
           automaticallyImplyLeading: true,
           backgroundColor: Colors.red,
           title: Text(widget.title),
-          leading: IconButton(
-            icon: Icon(Icons.arrow_back),
-            onPressed: () {
-              Navigator.pop(context);
-            },
-          ),
-//          actions: <Widget>[
-//            // action button
-//
-//          ],
+          actions: <Widget>[
+            PopupMenuButton(
+              icon: Icon(FontAwesomeIcons.ellipsisV),
+              itemBuilder: (context) => [
+                PopupMenuItem(
+                  child: InkWell(
+                    onTap: () {
+                      // CATALOGO
+
+                      // ================= IMPORTANTE ROUTE =============
+
+                      // Sirve para ir a la raiz de la ruta, cerrando el resto
+                      // This will basically push a home and remove all the routes
+                      // behind the new one
+                      Navigator.pushNamedAndRemoveUntil(
+                          context, '/homepage', (_) => false);
+
+//                    Navigator.pushReplacementNamed(context, '/homepage');
+//                    Navigator.pushNamed(context, '/homepage');
+//                    Navigator.popUntil(context, ModalRoute.withName(Navigator.defaultRouteName));
+
+//                    Navigator.popUntil(
+//                        context,
+//                        ModalRoute.withName(
+//                            "homepage"));
+//                    Navigator.push(
+//                        context,
+//                        MaterialPageRoute(
+//                            builder: (context) => new HomePage()));
+                    },
+                    child: ListTile(
+                      title: Text('Catálogo'),
+                      // Icono Home
+                      leading: Icon(
+                        FontAwesomeIcons.home,
+                        color: Colors.redAccent,
+                      ),
+                    ),
+                  ),
+                ),
+
+                // COMPRAR
+                PopupMenuItem(
+                  child: InkWell(
+                    onTap: () {
+                      // ================= IMPORTANTE ROUTE =============
+
+                      // Sirve para ir a la raiz de la ruta, cerrando el resto
+                      // This will basically push a home and remove all the routes
+                      // behind the new one
+
+//                    Navigator.pushNamedAndRemoveUntil(
+//                        context, '/comprar', (_) => false);
+
+                      Navigator.pushReplacementNamed(context, '/comprar');
+//                    Navigator.pushNamed(context, '/homepage');
+//                    Navigator.popUntil(context, ModalRoute.withName(Navigator.defaultRouteName));
+
+//                    Navigator.popUntil(
+//                        context,
+//                        ModalRoute.withName(
+//                            "homepage"));
+//                    Navigator.push(
+//                        context,
+//                        MaterialPageRoute(
+//                            builder: (context) => new HomePage()));
+                    },
+                    child: ListTile(
+                      title: Text('Comprar'),
+                      // Icono Home
+                      leading: Icon(
+                        FontAwesomeIcons.shoppingCart,
+                        color: Colors.redAccent,
+                      ),
+                    ),
+                  ),
+                ),
+              ],
+            ),
+          ],
         ),
         body: Container(
           child: Column(

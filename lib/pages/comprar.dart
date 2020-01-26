@@ -5,6 +5,7 @@
 
 //import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 //import 'package:flutter_ui_challenges/core/presentation/res/assets.dart';
 //import 'package:flutter_ui_challenges/src/widgets/network_image.dart';
@@ -52,6 +53,54 @@ class ProfileTwoPage extends StatelessWidget {
             Navigator.pop(context);
           },
         ),
+
+        actions: <Widget>[
+          PopupMenuButton(
+            icon: Icon(FontAwesomeIcons.ellipsisV),
+            itemBuilder: (context) =>
+            [
+              PopupMenuItem(
+                child: InkWell(
+                  onTap: () {
+                    // CATALOGO
+
+                    // ================= IMPORTANTE ROUTE =============
+
+                    // Sirve para ir a la raiz de la ruta, cerrando el resto
+                    // This will basically push a home and remove all the routes
+                    // behind the new one
+                    Navigator.pushNamedAndRemoveUntil(
+                        context, '/homepage', (_) => false);
+
+//                    Navigator.pushReplacementNamed(context, '/homepage');
+//                    Navigator.pushNamed(context, '/homepage');
+//                    Navigator.popUntil(context, ModalRoute.withName(Navigator.defaultRouteName));
+
+//                    Navigator.popUntil(
+//                        context,
+//                        ModalRoute.withName(
+//                            "homepage"));
+//                    Navigator.push(
+//                        context,
+//                        MaterialPageRoute(
+//                            builder: (context) => new HomePage()));
+                  },
+                  child: ListTile(
+                    title: Text('Catálogo'),
+                    // Icono Home
+                    leading: Icon(
+                      FontAwesomeIcons.home,
+                      color: Colors.redAccent,
+                    ),
+                  ),
+                ),
+              ),
+
+
+            ],
+          ),
+        ],
+
 //          actions: <Widget>[
 //            // action button
 //

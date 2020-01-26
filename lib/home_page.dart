@@ -187,46 +187,76 @@ class _HomePageState extends State<HomePage> {
 //                leading: Icon(Icons.shopping_basket),
 //              ),
 //            ),
-            InkWell(
-              onTap: () {
+//            InkWell(
+//              onTap: () {
+////                Navigator.push(
+////                    context,
+////                    PageTransition(
+////                        type: PageTransitionType.rightToLeft,
+////                        child: Categorias()));
+//
 //                Navigator.push(
-//                    context,
-//                    PageTransition(
-//                        type: PageTransitionType.rightToLeft,
-//                        child: Categorias()));
-
-                Navigator.push(
-                  context,
-                  // Quienes somos
-                  MaterialPageRoute(builder: (context) => Categorias()),
-                );
-              },
-              child: ListTile(
-                title: Text('Categorías'),
-                // Icono de Categorias
+//                  context,
+//                  // Quienes somos
+//                  MaterialPageRoute(builder: (context) => Categorias()),
+//                );
+//              },
+//              child: ListTile(
+//                title: Text('Categorías'),
+//                // Icono de Categorias
+////                leading: Icon(
+////                  FontAwesomeIcons.boxes,
+////                  color: Colors.redAccent,
+////                ),
 //                leading: Icon(
-//                  FontAwesomeIcons.boxes,
-//                  color: Colors.redAccent,
+//                  Icons.dashboard,
+//                  color: Colors.lightBlueAccent,
 //                ),
+//              ),
+//            ),
+//            InkWell(
+//              onTap: () {
+//                Navigator.push(
+//                  context,
+//                  // Productos Recientes Page
+//                  MaterialPageRoute(builder: (context) => ProductosRecientes()),
+//                );
+//              },
+//              child: ListTile(
+//                title: Text('Productos Recientes'),
+//                leading: Icon(
+//                  FontAwesomeIcons.levelDownAlt,
+//                  color: Colors.lightBlueAccent,
+//                ),
+//              ),
+//            ),
+            InkWell(
+              onTap: () {},
+              child: ListTile(
+                title: Text('My Account'),
                 leading: Icon(
-                  Icons.dashboard,
-                  color: Colors.lightBlueAccent,
+                  FontAwesomeIcons.userAlt,
+                  color: Colors.redAccent,
                 ),
               ),
             ),
             InkWell(
-              onTap: () {
-                Navigator.push(
-                  context,
-                  // Productos Recientes Page
-                  MaterialPageRoute(builder: (context) => ProductosRecientes()),
-                );
-              },
+              onTap: () {},
               child: ListTile(
-                title: Text('Productos Recientes'),
+                title: Text('My Orders'),
                 leading: Icon(
-                  FontAwesomeIcons.levelDownAlt,
-                  color: Colors.lightBlueAccent,
+                  FontAwesomeIcons.shoppingBag,
+                  color: Colors.redAccent,
+                ),
+              ),
+            ),
+            InkWell(
+              onTap: () {},
+              child: ListTile(
+                title: Text('Shopping Cart'),
+                leading: Icon(
+                  FontAwesomeIcons.shoppingCart,
+                  color: Colors.redAccent,
                 ),
               ),
             ),
@@ -235,28 +265,31 @@ class _HomePageState extends State<HomePage> {
               child: ListTile(
                 title: Text('Favoritos'),
                 leading: Icon(
-                  FontAwesomeIcons.heart,
+                  FontAwesomeIcons.solidHeart,
                   color: Colors.redAccent,
                 ),
               ),
             ),
+            Divider(),
             InkWell(
               onTap: () {},
               child: ListTile(
                 title: Text('Ajustes'),
-                leading: Icon(Icons.settings),
-              ),
-            ),
-            InkWell(
-              onTap: () {},
-              child: ListTile(
-                title: Text('Mis Datos Principales'),
                 leading: Icon(
-                  Icons.person_outline,
-                  color: Colors.indigo,
+                  FontAwesomeIcons.cog,
                 ),
               ),
             ),
+//            InkWell(
+//              onTap: () {},
+//              child: ListTile(
+//                title: Text('Mis Datos Principales'),
+//                leading: Icon(
+//                  Icons.person_outline,
+//                  color: Colors.indigo,
+//                ),
+//              ),
+//            ),
             InkWell(
               onTap: () {
                 Navigator.push(
@@ -267,7 +300,8 @@ class _HomePageState extends State<HomePage> {
               },
               child: ListTile(
                 title: Text('Quienes Somos'),
-                leading: Icon(Icons.help, color: Colors.green),
+                leading: Icon(FontAwesomeIcons.solidQuestionCircle,
+                    color: Colors.green),
               ),
             ),
           ],
@@ -324,18 +358,20 @@ class _HomePageState extends State<HomePage> {
               padding: const EdgeInsets.all(1.0),
               child: FlatButton(
                 onPressed: () {
+                  Navigator.pushNamed(context, '/productosrecientes');
+
+//                  Navigator.push(
+//                    context,
+//                    // Quienes somos
+//                    MaterialPageRoute(
+//                        builder: (context) => ProductosRecientes()),
+//                  );
+
 //                Navigator.push(
 //                    context,
 //                    PageTransition(
 //                        type: PageTransitionType.rightToLeft,
 //                        child: ProductosRecientes()));
-
-                  Navigator.push(
-                    context,
-                    // Quienes somos
-                    MaterialPageRoute(
-                        builder: (context) => ProductosRecientes()),
-                  );
                 },
                 child: Align(
                   alignment: Alignment.centerLeft,

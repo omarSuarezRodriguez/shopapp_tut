@@ -39,6 +39,7 @@ class _ProductDetailsState extends State<ProductDetails> {
 //          child: Text("YUKA TiendApp"),
 //        ),
 
+        // TITULO
         title: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -50,7 +51,100 @@ class _ProductDetailsState extends State<ProductDetails> {
           ],
         ),
 
-          // Iconos
+        // FLECHA ATRAS
+        leading: IconButton(
+          icon: Icon(
+            Icons.arrow_back,
+            color: Colors.white,
+          ),
+          onPressed: () {
+            Navigator.pop(context);
+          },
+        ),
+
+        // LISTA DE ACCIONES, BOTON A LA DERECHA
+        actions: <Widget>[
+          PopupMenuButton(
+            icon: Icon(FontAwesomeIcons.ellipsisV),
+            itemBuilder: (context) => [
+              PopupMenuItem(
+                child: InkWell(
+                  onTap: () {
+                    // CATALOGO
+
+                    // ================= IMPORTANTE ROUTE =============
+
+                    // Sirve para ir a la raiz de la ruta, cerrando el resto
+                    // This will basically push a home and remove all the routes
+                    // behind the new one
+                    Navigator.pushNamedAndRemoveUntil(
+                        context, '/homepage', (_) => false);
+
+//                    Navigator.pushReplacementNamed(context, '/homepage');
+//                    Navigator.pushNamed(context, '/homepage');
+//                    Navigator.popUntil(context, ModalRoute.withName(Navigator.defaultRouteName));
+
+//                    Navigator.popUntil(
+//                        context,
+//                        ModalRoute.withName(
+//                            "homepage"));
+//                    Navigator.push(
+//                        context,
+//                        MaterialPageRoute(
+//                            builder: (context) => new HomePage()));
+                  },
+                  child: ListTile(
+                    title: Text('Catálogo'),
+                    // Icono Home
+                    leading: Icon(
+                      FontAwesomeIcons.home,
+                      color: Colors.redAccent,
+                    ),
+                  ),
+                ),
+              ),
+
+              // COMPRAR
+              PopupMenuItem(
+                child: InkWell(
+                  onTap: () {
+                    // ================= IMPORTANTE ROUTE =============
+
+                    // Sirve para ir a la raiz de la ruta, cerrando el resto
+                    // This will basically push a home and remove all the routes
+                    // behind the new one
+
+//                    Navigator.pushNamedAndRemoveUntil(
+//                        context, '/comprar', (_) => false);
+
+                    Navigator.pushReplacementNamed(context, '/comprar');
+//                    Navigator.pushNamed(context, '/homepage');
+//                    Navigator.popUntil(context, ModalRoute.withName(Navigator.defaultRouteName));
+
+//                    Navigator.popUntil(
+//                        context,
+//                        ModalRoute.withName(
+//                            "homepage"));
+//                    Navigator.push(
+//                        context,
+//                        MaterialPageRoute(
+//                            builder: (context) => new HomePage()));
+                  },
+                  child: ListTile(
+                    title: Text('Comprar'),
+                    // Icono Home
+                    leading: Icon(
+                      FontAwesomeIcons.shoppingCart,
+                      color: Colors.redAccent,
+                    ),
+                  ),
+                ),
+              ),
+            ],
+          ),
+        ],
+
+        // Iconos
 //        actions: <Widget>[
 //          // Icono de buscar
 //          IconButton(icon: Icon(FontAwesomeIcons.search), onPressed: () {}),
@@ -313,7 +407,148 @@ class _ProductDetailsState extends State<ProductDetails> {
               ),
             ],
           ),
+
+          Divider(),
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Text("Similar Products"),
+          ),
+
+          // SIMILAR PRODUCTS SECTION
+          Container(
+            height: 340.0,
+            child: Similar_products(),
+          ),
         ],
+      ),
+    );
+  }
+}
+
+class Similar_products extends StatefulWidget {
+  @override
+  _Similar_productsState createState() => _Similar_productsState();
+}
+
+class _Similar_productsState extends State<Similar_products> {
+  var product_list = [
+    {
+      "name": "Blazer",
+      "picture": "images/products/blazer1.jpeg",
+      "old_price": "120",
+      "price": "85",
+    },
+    {
+      "name": "Red Dress",
+      "picture": "images/products/hills1.jpeg",
+      "old_price": "100",
+      "price": "50",
+    },
+    {
+      "name": "Red Dress",
+      "picture": "images/products/dress2.jpeg",
+      "old_price": "100",
+      "price": "50",
+    },
+  ];
+
+  @override
+  Widget build(BuildContext context) {
+    return GridView.builder(
+      itemCount: product_list.length,
+      gridDelegate:
+          SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 2),
+      itemBuilder: (BuildContext context, int index) {
+        return Similar_single_prod(
+          prod_name: product_list[index]['name'],
+          prod_pricture: product_list[index]['picture'],
+          prod_old_price: product_list[index]['old_price'],
+          prod_price: product_list[index]['price'],
+        );
+      },
+    );
+  }
+}
+
+class Similar_single_prod extends StatelessWidget {
+  final prod_name;
+  final prod_pricture;
+  final prod_old_price;
+  final prod_price;
+
+  Similar_single_prod({
+    this.prod_name,
+    this.prod_pricture,
+    this.prod_old_price,
+    this.prod_price,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Card(
+      child: Hero(
+        tag: Text("hero 1"),
+        child: Material(
+          child: InkWell(
+            onTap: () => Navigator.of(context).push(
+              new MaterialPageRoute(
+                // Here we are passing the values of the product to the product
+                // details page
+                builder: (context) => new ProductDetails(
+                  product_detail_name: prod_name,
+                  product_detail_new_price: prod_price,
+                  product_detail_old_price: prod_old_price,
+                  product_detail_picture: prod_pricture,
+                ),
+              ),
+            ),
+            child: GridTile(
+                footer: Container(
+                  color: Colors.white70,
+
+                  child: Row(
+                    children: <Widget>[
+                      Expanded(
+                        child: Text(
+                          prod_name,
+                          style: TextStyle(
+                              fontWeight: FontWeight.bold, fontSize: 16.0),
+                        ),
+                      ),
+                      Text(
+                        "\$${prod_price}",
+                        style: TextStyle(
+                            color: Colors.red, fontWeight: FontWeight.bold),
+                      ),
+                    ],
+                  ),
+//                  child: ListTile(
+//                    leading: Text(
+//                      prod_name,
+//                      style: TextStyle(fontWeight: FontWeight.bold),
+//                    ),
+//                    title: Text(
+//                      "\$$prod_price",
+//                      style: TextStyle(
+//                          color: Colors.red, fontWeight: FontWeight.w800),
+//                    ),
+//                    subtitle: Text(
+//                      "\$$prod_old_price",
+//                      style: TextStyle(
+////                        decoration: TextDecoration.lineThrough,
+//                        color: Colors.black54,
+//                        fontWeight: FontWeight.w800,
+//                        decoration: TextDecoration.lineThrough,
+//                      ),
+//                    ),
+//                  ),
+                ),
+                child: Image.asset(
+                  prod_pricture,
+                  fit: BoxFit.cover,
+                )),
+          ),
+        ),
       ),
     );
   }

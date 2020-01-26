@@ -5,6 +5,7 @@
 
 //import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:shopapp_tut/components/products.dart';
 
 //import 'package:flutter_ui_challenges/core/presentation/res/assets.dart';
@@ -44,19 +45,86 @@ class Categorias extends StatelessWidget {
         backgroundColor: Colors.red,
         title: Text('Categorías'),
 //        title: Text(widget.title),
-        leading: IconButton(
-          icon: Icon(
-            Icons.arrow_back,
-            color: Colors.white,
+        actions: <Widget>[
+          PopupMenuButton(
+            icon: Icon(FontAwesomeIcons.ellipsisV),
+            itemBuilder: (context) => [
+              PopupMenuItem(
+                child: InkWell(
+                  onTap: () {
+                    // CATALOGO
+
+                    // ================= IMPORTANTE ROUTE =============
+
+                    // Sirve para ir a la raiz de la ruta, cerrando el resto
+                    // This will basically push a home and remove all the routes
+                    // behind the new one
+                    Navigator.pushNamedAndRemoveUntil(
+                        context, '/homepage', (_) => false);
+
+//                    Navigator.pushReplacementNamed(context, '/homepage');
+//                    Navigator.pushNamed(context, '/homepage');
+//                    Navigator.popUntil(context, ModalRoute.withName(Navigator.defaultRouteName));
+
+//                    Navigator.popUntil(
+//                        context,
+//                        ModalRoute.withName(
+//                            "homepage"));
+//                    Navigator.push(
+//                        context,
+//                        MaterialPageRoute(
+//                            builder: (context) => new HomePage()));
+                  },
+                  child: ListTile(
+                    title: Text('Catálogo'),
+                    // Icono Home
+                    leading: Icon(
+                      FontAwesomeIcons.home,
+                      color: Colors.redAccent,
+                    ),
+                  ),
+                ),
+              ),
+
+              // COMPRAR
+              PopupMenuItem(
+                child: InkWell(
+                  onTap: () {
+                    // ================= IMPORTANTE ROUTE =============
+
+                    // Sirve para ir a la raiz de la ruta, cerrando el resto
+                    // This will basically push a home and remove all the routes
+                    // behind the new one
+
+//                    Navigator.pushNamedAndRemoveUntil(
+//                        context, '/comprar', (_) => false);
+
+                    Navigator.pushReplacementNamed(context, '/comprar');
+//                    Navigator.pushNamed(context, '/homepage');
+//                    Navigator.popUntil(context, ModalRoute.withName(Navigator.defaultRouteName));
+
+//                    Navigator.popUntil(
+//                        context,
+//                        ModalRoute.withName(
+//                            "homepage"));
+//                    Navigator.push(
+//                        context,
+//                        MaterialPageRoute(
+//                            builder: (context) => new HomePage()));
+                  },
+                  child: ListTile(
+                    title: Text('Comprar'),
+                    // Icono Home
+                    leading: Icon(
+                      FontAwesomeIcons.shoppingCart,
+                      color: Colors.redAccent,
+                    ),
+                  ),
+                ),
+              ),
+            ],
           ),
-          onPressed: () {
-            Navigator.pop(context);
-          },
-        ),
-//          actions: <Widget>[
-//            // action button
-//
-//          ],
+        ],
       ),
       body: Center(
         child: Text("En Desarrollo"),

@@ -1,6 +1,13 @@
 import 'package:flutter/material.dart';
-import 'home_page.dart';
 import 'dart:async';
+
+// My Own Imports
+import 'home_page.dart';
+import 'pages/categorias.dart';
+import 'pages/comprar.dart';
+import 'pages/product_details.dart';
+import 'pages/productos_recientes.dart';
+import 'pages/quienes_somos.dart';
 
 //
 // Classes here
@@ -14,14 +21,51 @@ import 'dart:async';
 void main() {
   runApp(MaterialApp(
     debugShowCheckedModeBanner: false, // Disable Banner - Desactivar
+
     // home: SafeArea Evita el uso de espacio de la interfaz del S.O del movil
-    home: SafeArea(
-      top: true,
-      bottom: true,
-      left: true,
-      right: true,
-      child: MyApp(), // MyApp, TODO está aquí
-    ),
+//    home: SafeArea(
+//      top: true,
+//      bottom: true,
+//      left: true,
+//      right: true,
+//      child: MyApp(), // MyApp, TODO está aquí
+//    ),
+
+    // Ruta Inicial
+    initialRoute: '/',
+
+    // ====================== RUTAS =====================
+
+    routes: {
+      // MAIN
+      // When navigating to the "/" route, build the FirstScreen widget.
+      '/': (context) => SafeArea(
+            top: true,
+            bottom: true,
+            left: true,
+            right: true,
+            child: MyApp(), // MyApp, TODO está aquí
+          ),
+
+      // HOMEPAGE, el CATALOGO
+      // When navigating to the "/homepage" route, build the HomePage widget.
+      '/homepage': (context) => HomePage(),
+
+      // When navigating to the "/second" route, build the SecondScreen widget.
+      '/categorias': (context) => Categorias(),
+
+      // When navigating to the "/second" route, build the SecondScreen widget.
+      '/comprar': (context) => ProfileTwoPage(),
+
+      // When navigating to the "/second" route, build the SecondScreen widget.
+      '/productdetails': (context) => ProductDetails(),
+
+      // When navigating to the "/second" route, build the SecondScreen widget.
+      '/productosrecientes': (context) => ProductosRecientes(),
+
+      // When navigating to the "/second" route, build the SecondScreen widget.
+      '/quienessomos': (context) => ChewieDemo(),
+    },
   ));
 } // End of Class Principal main
 
@@ -67,8 +111,10 @@ class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      debugShowCheckedModeBanner: false, // Disable Banner
-      title: widget.title, // App title
+      debugShowCheckedModeBanner: false,
+      // Disable Banner
+      title: widget.title,
+      // App title
       theme: ThemeData.light().copyWith(
         platform: _platform ?? Theme.of(context).platform,
       ),
@@ -83,6 +129,9 @@ class _MyAppState extends State<MyApp> {
           ),
         ),
       ),
+      routes: {
+        'homepage': (context) => HomePage(title: 'HomePage'),
+      },
     );
   } // End of Widget build
 
