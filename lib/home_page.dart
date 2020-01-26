@@ -292,11 +292,14 @@ class _HomePageState extends State<HomePage> {
 //            ),
             InkWell(
               onTap: () {
-                Navigator.push(
-                  context,
-                  // Quienes somos
-                  MaterialPageRoute(builder: (context) => ChewieDemo()),
-                );
+
+                Navigator.pushNamed(context, '/quienessomos');
+
+//                Navigator.push(
+//                  context,
+//                  // Quienes somos
+//                  MaterialPageRoute(builder: (context) => ChewieDemo()),
+//                );
               },
               child: ListTile(
                 title: Text('Quienes Somos'),

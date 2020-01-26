@@ -6,12 +6,6 @@ import 'package:flutter/material.dart';
 import 'package:video_player/video_player.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
-void main() {
-  runApp(
-    ChewieDemo(),
-  );
-}
-
 class ChewieDemo extends StatefulWidget {
   ChewieDemo({this.title = 'Quienes Somos'});
 
@@ -57,34 +51,45 @@ class _ChewieDemoState extends State<ChewieDemo> {
     SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle.light.copyWith(
       statusBarColor: Colors.red, //or set color with: Color(0xFF0000FF)
     ));
-    return MaterialApp(
-      debugShowCheckedModeBanner: false, //Desactivar Banner
-      title: widget.title,
-      theme: ThemeData.light().copyWith(
-        platform: _platform ?? Theme.of(context).platform,
-      ),
-      home: Scaffold(
-        appBar: AppBar(
-          //Con esta configuración podemos implementar boton para atras en AppBar
-          automaticallyImplyLeading: true,
-          backgroundColor: Colors.red,
-          title: Text(widget.title),
-          actions: <Widget>[
-            PopupMenuButton(
-              icon: Icon(FontAwesomeIcons.ellipsisV),
-              itemBuilder: (context) => [
-                PopupMenuItem(
-                  child: InkWell(
-                    onTap: () {
-                      // CATALOGO
+    return Scaffold(
+      appBar: AppBar(
+        //Con esta configuración podemos implementar boton para atras en AppBar
+        automaticallyImplyLeading: true,
+        backgroundColor: Colors.red,
+//          title: Text(widget.title),
 
-                      // ================= IMPORTANTE ROUTE =============
+        title: Text(widget.title),
+//        title: Text(widget.title),
+        leading: IconButton(
+          icon: Icon(
+            FontAwesomeIcons.arrowLeft,
+            color: Colors.white,
+          ),
+          onPressed: () {
+            Navigator.pop(context);
+          },
+        ),
+//          actions: <Widget>[
+//            // action button
+//
+//          ],
 
-                      // Sirve para ir a la raiz de la ruta, cerrando el resto
-                      // This will basically push a home and remove all the routes
-                      // behind the new one
-                      Navigator.pushNamedAndRemoveUntil(
-                          context, '/homepage', (_) => false);
+        actions: <Widget>[
+          PopupMenuButton(
+            icon: Icon(FontAwesomeIcons.ellipsisV),
+            itemBuilder: (context) => [
+              PopupMenuItem(
+                child: InkWell(
+                  onTap: () {
+                    // CATALOGO
+
+                    // ================= IMPORTANTE ROUTE =============
+
+                    // Sirve para ir a la raiz de la ruta, cerrando el resto
+                    // This will basically push a home and remove all the routes
+                    // behind the new one
+                    Navigator.pushNamedAndRemoveUntil(
+                        context, '/homepage', (_) => false);
 
 //                    Navigator.pushReplacementNamed(context, '/homepage');
 //                    Navigator.pushNamed(context, '/homepage');
@@ -98,32 +103,37 @@ class _ChewieDemoState extends State<ChewieDemo> {
 //                        context,
 //                        MaterialPageRoute(
 //                            builder: (context) => new HomePage()));
-                    },
-                    child: ListTile(
-                      title: Text('Catálogo'),
-                      // Icono Home
-                      leading: Icon(
-                        FontAwesomeIcons.home,
-                        color: Colors.redAccent,
-                      ),
+                  },
+                  child: ListTile(
+                    title: Text('Catálogo'),
+                    // Icono Home
+                    leading: Icon(
+                      FontAwesomeIcons.home,
+                      color: Colors.redAccent,
                     ),
                   ),
                 ),
+              ),
 
-                // COMPRAR
-                PopupMenuItem(
-                  child: InkWell(
-                    onTap: () {
-                      // ================= IMPORTANTE ROUTE =============
+              // COMPRAR
+              PopupMenuItem(
+                child: InkWell(
+                  onTap: () {
+                    // ================= IMPORTANTE ROUTE =============
 
-                      // Sirve para ir a la raiz de la ruta, cerrando el resto
-                      // This will basically push a home and remove all the routes
-                      // behind the new one
+                    // Sirve para ir a la raiz de la ruta, cerrando el resto
+                    // This will basically push a home and remove all the routes
+                    // behind the new one
 
 //                    Navigator.pushNamedAndRemoveUntil(
 //                        context, '/comprar', (_) => false);
 
-                      Navigator.pushReplacementNamed(context, '/comprar');
+                    // Para poner pause al video
+                    _videoPlayerController1.pause();
+
+                    // Para ir hacia comprar
+                    Navigator.pushReplacementNamed(context, '/comprar');
+
 //                    Navigator.pushNamed(context, '/homepage');
 //                    Navigator.popUntil(context, ModalRoute.withName(Navigator.defaultRouteName));
 
@@ -135,31 +145,33 @@ class _ChewieDemoState extends State<ChewieDemo> {
 //                        context,
 //                        MaterialPageRoute(
 //                            builder: (context) => new HomePage()));
-                    },
-                    child: ListTile(
-                      title: Text('Comprar'),
-                      // Icono Home
-                      leading: Icon(
-                        FontAwesomeIcons.shoppingCart,
-                        color: Colors.redAccent,
-                      ),
+                  },
+                  child: ListTile(
+                    title: Text('Comprar'),
+                    // Icono Home
+                    leading: Icon(
+                      FontAwesomeIcons.shoppingCart,
+                      color: Colors.redAccent,
                     ),
                   ),
                 ),
-              ],
-            ),
-          ],
-        ),
-        body: Container(
-          child: Column(
-            children: <Widget>[
-              Expanded(
-                child: Center(
-                  child: Chewie(
-                    controller: _chewieController,
-                  ),
+              ),
+            ],
+          ),
+        ],
+      ),
+
+      // body
+      body: Container(
+        child: Column(
+          children: <Widget>[
+            Expanded(
+              child: Center(
+                child: Chewie(
+                  controller: _chewieController,
                 ),
               ),
+            ),
 //            FlatButton(
 //              onPressed: () {
 //                _chewieController.enterFullScreen();
@@ -242,11 +254,11 @@ class _ChewieDemoState extends State<ChewieDemo> {
 //                )
 //              ],
 //            )
-            ],
-          ),
+          ],
         ),
       ),
     );
+//    );
   }
 }
 
