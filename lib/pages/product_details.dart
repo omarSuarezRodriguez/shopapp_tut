@@ -44,7 +44,7 @@ class _ProductDetailsState extends State<ProductDetails> {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text(
-              "YUKA TiendApp",
+              widget.product_detail_name,
               style: TextStyle(color: Colors.white, fontSize: 20.0),
             ),
           ],
