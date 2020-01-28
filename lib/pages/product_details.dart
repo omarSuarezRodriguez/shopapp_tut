@@ -217,14 +217,14 @@ class _ProductDetailsState extends State<ProductDetails> {
                         context: context,
                         builder: (context) {
                           return new AlertDialog(
-                            title: Text('Size'),
-                            content: Text('Choose the size'),
+                            title: Text('Tallas'),
+                            content: Text('Selecciona la talla'),
                             actions: <Widget>[
                               MaterialButton(
                                 onPressed: () {
                                   Navigator.of(context).pop(context);
                                 },
-                                child: Text('Close'),
+                                child: Text('Cerrar'),
                               ),
                             ],
                           );
@@ -235,7 +235,7 @@ class _ProductDetailsState extends State<ProductDetails> {
                   elevation: 0.2,
                   child: Row(
                     children: <Widget>[
-                      Expanded(child: Text('Size')),
+                      Expanded(child: Text('Talla')),
                       Expanded(child: Icon(Icons.arrow_drop_down))
                     ],
                   ),
@@ -250,14 +250,14 @@ class _ProductDetailsState extends State<ProductDetails> {
                         context: context,
                         builder: (context) {
                           return new AlertDialog(
-                            title: Text('Colors'),
-                            content: Text('Choose the color'),
+                            title: Text('Colores'),
+                            content: Text('Selecciona el color'),
                             actions: <Widget>[
                               MaterialButton(
                                 onPressed: () {
                                   Navigator.of(context).pop(context);
                                 },
-                                child: Text('Close'),
+                                child: Text('Cerrar'),
                               ),
                             ],
                           );
@@ -283,14 +283,14 @@ class _ProductDetailsState extends State<ProductDetails> {
                         context: context,
                         builder: (context) {
                           return new AlertDialog(
-                            title: Text('Quantity'),
-                            content: Text('Choose the quantity'),
+                            title: Text('Cantidad'),
+                            content: Text('Seleccione la Cantidad'),
                             actions: <Widget>[
                               MaterialButton(
                                 onPressed: () {
                                   Navigator.of(context).pop(context);
                                 },
-                                child: Text('Close'),
+                                child: Text('Cerrar'),
                               ),
                             ],
                           );
@@ -301,7 +301,7 @@ class _ProductDetailsState extends State<ProductDetails> {
                   elevation: 0.2,
                   child: Row(
                     children: <Widget>[
-                      Expanded(child: Text('Qty')),
+                      Expanded(child: Text('Cantd')),
                       Expanded(child: Icon(Icons.arrow_drop_down))
                     ],
                   ),
@@ -323,7 +323,7 @@ class _ProductDetailsState extends State<ProductDetails> {
                   color: Colors.red,
                   textColor: Colors.white,
                   elevation: 0.2,
-                  child: Text("Buy Now"),
+                  child: Text("Comprar"),
                 ),
               ),
 
@@ -346,9 +346,10 @@ class _ProductDetailsState extends State<ProductDetails> {
 
           // ListTile
           ListTile(
-            title: Text('Product details'),
+            title: Text('Detalles del Producto'),
             subtitle: Text(
-                "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset"),
+                "Información relevante del producto Información relevante del"
+                " producto Información relevante del producto\nInformación relevante del producto"),
           ),
 
           // Divider
@@ -360,7 +361,7 @@ class _ProductDetailsState extends State<ProductDetails> {
               Padding(
                 padding: const EdgeInsets.fromLTRB(12.0, 5.0, 5.0, 5.0),
                 child: Text(
-                  "Product name",
+                  "Producto",
                   style: TextStyle(color: Colors.grey),
                 ),
               ),
@@ -377,7 +378,7 @@ class _ProductDetailsState extends State<ProductDetails> {
               Padding(
                 padding: const EdgeInsets.fromLTRB(12.0, 5.0, 5.0, 5.0),
                 child: Text(
-                  "Product brand",
+                  "Marca",
                   style: TextStyle(color: Colors.grey),
                 ),
               ),
@@ -385,7 +386,7 @@ class _ProductDetailsState extends State<ProductDetails> {
               // REMEMBER TO CREATE THE PRODUCT BRAND
               Padding(
                 padding: EdgeInsets.all(5.0),
-                child: Text("Brand X"),
+                child: Text("Marca X"),
               ),
             ],
           ),
@@ -397,13 +398,13 @@ class _ProductDetailsState extends State<ProductDetails> {
               Padding(
                 padding: const EdgeInsets.fromLTRB(12.0, 5.0, 5.0, 5.0),
                 child: Text(
-                  "Product condition",
+                  "Condición del Producto",
                   style: TextStyle(color: Colors.grey),
                 ),
               ),
               Padding(
                 padding: EdgeInsets.all(5.0),
-                child: Text("NEW"),
+                child: Text("Nuevo"),
               ),
             ],
           ),
@@ -411,7 +412,7 @@ class _ProductDetailsState extends State<ProductDetails> {
           Divider(),
           Padding(
             padding: const EdgeInsets.all(8.0),
-            child: Text("Similar Products"),
+            child: Text("Productos Similares"),
           ),
 
           // SIMILAR PRODUCTS SECTION
@@ -433,23 +434,41 @@ class Similar_products extends StatefulWidget {
 class _Similar_productsState extends State<Similar_products> {
   var product_list = [
     {
-      "name": "Blazer",
-      "picture": "images/products/blazer1.jpeg",
-      "old_price": "120",
-      "price": "85",
+      "name": "Tacones Dorados",
+      "picture": "images/products/9.jpeg",
+      "old_price": "100",
+      "price": "45.000",
     },
     {
-      "name": "Red Dress",
-      "picture": "images/products/hills1.jpeg",
+      "name": "Tenis",
+      "picture": "images/products/10.jpeg",
       "old_price": "100",
-      "price": "50",
+      "price": "55.000",
     },
     {
-      "name": "Red Dress",
-      "picture": "images/products/dress2.jpeg",
+      "name": "Producto 11",
+      "picture": "images/products/11.jpeg",
       "old_price": "100",
-      "price": "50",
+      "price": "40.000",
     },
+    {
+      "name": "Producto 12",
+      "picture": "images/products/12.jpeg",
+      "old_price": "100",
+      "price": "50.000",
+    },
+    {
+      "name": "Producto 13",
+      "picture": "images/products/13.jpeg",
+      "old_price": "100",
+      "price": "45.000",
+    },
+    {
+      "name": "Producto 19",
+      "picture": "images/products/19.jpeg",
+      "old_price": "100",
+      "price": "55.000",
+    }
   ];
 
   @override

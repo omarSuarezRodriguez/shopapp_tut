@@ -7,6 +7,7 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:shopapp_tut/home_page.dart';
+import 'package:shopapp_tut/pages/product_details.dart';
 
 import 'package:shopapp_tut/components/products.dart';
 
@@ -544,143 +545,133 @@ class ProductosRecientes extends StatelessWidget {
 //}
 
 class Productillos extends StatefulWidget {
+  // Hasta aquí se reciben los valores del otro Widget/Page
+
   @override
   _ProductillosState createState() => _ProductillosState();
 }
 
 class _ProductillosState extends State<Productillos> {
   var product_list = [
-//    {
-//      "name": "Zapatos",
-//      "picture": "images/products/tia_1.jpeg",
-//      "old_price": "120",
-//      "price": "50.000",
-//    },
-//    {
-//      "name": "Tenis",
-//      "picture": "images/products/tia_2.jpeg",
-//      "old_price": "120",
-//      "price": "45.000",
-//    },
-//    {
-//      "name": "Bolsos",
-//      "picture": "images/products/tia_3.jpeg",
-//      "old_price": "120",
-//      "price": "70.000",
-//    },
-//    {
-//      "name": "Tacones",
-//      "picture": "images/products/tia_4.jpeg",
-//      "old_price": "120",
-//      "price": "45.000",
-//    },
-//    {
-//      "name": "Tacones",
-//      "picture": "images/products/tia_5.jpeg",
-//      "old_price": "120",
-//      "price": "55.000",
-//    },
-//    {
-//      "name": "Tenis Hombre",
-//      "picture": "images/products/tia_6.jpeg",
-//      "old_price": "120",
-//      "price": "60.000",
-//    },
-//    {
-//      "name": "Tenis",
-//      "picture": "images/products/tia_7.jpeg",
-//      "old_price": "120",
-//      "price": "50.000",
-//    },
-//    {
-//      "name": "Tenis",
-//      "picture": "images/products/tia_8.jpeg",
-//      "old_price": "120",
-//      "price": "60.000",
-//    },
-//    {
-//      "name": "Zapatos",
-//      "picture": "images/products/tia_9.jpeg",
-//      "old_price": "120",
-//      "price": "55.000",
-//    },
-//    {
-//      "name": "Tenis",
-//      "picture": "images/products/tia_10.jpeg",
-//      "old_price": "120",
-//      "price": "40.000",
-//    },
-//    {
-//      "name": "Zapatos",
-//      "picture": "images/products/tia_11.jpeg",
-//      "old_price": "120",
-//      "price": "60.000",
-//    },
-//    {
-//      "name": "Tenis",
-//      "picture": "images/products/tia_12.jpeg",
-//      "old_price": "120",
-//      "price": "55.000",
-//    }
     {
-      "name": "Zapatos",
-      "picture": "images/products/tia1.jpg",
+      "name": "Tacones",
+      "picture": "images/products/1.jpeg",
       "old_price": "120",
       "price": "50.000",
     },
     {
-      "name": "Bolsos",
-      "picture": "images/products/tia_3.jpeg",
+      "name": "Tenis",
+      "picture": "images/products/2.jpeg",
       "old_price": "120",
       "price": "55.000",
     },
     {
       "name": "Tacones",
-      "picture": "images/products/tia_4.jpeg",
+      "picture": "images/products/3.jpeg",
       "old_price": "120",
       "price": "50.000",
     },
     {
-      "name": "Tacones Dorados",
-      "picture": "images/products/tia_5.jpeg",
+      "name": "Tacones",
+      "picture": "images/products/4.jpeg",
       "old_price": "120",
       "price": "55.000",
     },
     {
-      "name": "Producto 5",
-      "picture": "images/products/tia2.jpg",
+      "name": "Tenis",
+      "picture": "images/products/5.jpeg",
       "old_price": "100",
       "price": "40.000",
     },
     {
-      "name": "Producto 6",
-      "picture": "images/products/tia_6.jpeg",
+      "name": "Zapatos",
+      "picture": "images/products/6.jpeg",
       "old_price": "100",
       "price": "45.000",
     },
     {
-      "name": "Producto 7",
-      "picture": "images/products/tia_7.jpeg",
+      "name": "Bolsos",
+      "picture": "images/products/7.jpeg",
       "old_price": "100",
       "price": "50.000",
     },
     {
-      "name": "Producto 8",
-      "picture": "images/products/tia_8.jpeg",
+      "name": "Tacones",
+      "picture": "images/products/8.jpeg",
       "old_price": "100",
       "price": "60.000",
     },
     {
-      "name": "Producto 9",
-      "picture": "images/products/tia_9.jpeg",
+      "name": "Tacones Dorados",
+      "picture": "images/products/9.jpeg",
       "old_price": "100",
       "price": "45.000",
     },
     {
-      "name": "Producto 10",
-      "picture": "images/products/tia_10.jpeg",
+      "name": "Tenis",
+      "picture": "images/products/10.jpeg",
       "old_price": "100",
       "price": "55.000",
+    },
+    {
+      "name": "Producto 11",
+      "picture": "images/products/11.jpeg",
+      "old_price": "100",
+      "price": "40.000",
+    },
+    {
+      "name": "Producto 12",
+      "picture": "images/products/12.jpeg",
+      "old_price": "100",
+      "price": "50.000",
+    },
+    {
+      "name": "Producto 13",
+      "picture": "images/products/13.jpeg",
+      "old_price": "100",
+      "price": "45.000",
+    },
+    {
+      "name": "Producto 14",
+      "picture": "images/products/14.jpeg",
+      "old_price": "100",
+      "price": "55.000",
+    },
+    {
+      "name": "Producto 15",
+      "picture": "images/products/15.jpeg",
+      "old_price": "100",
+      "price": "60.000",
+    },
+    {
+      "name": "Producto 16",
+      "picture": "images/products/16.jpeg",
+      "old_price": "100",
+      "price": "40.000",
+    },
+    {
+      "name": "Producto 17",
+      "picture": "images/products/17.jpeg",
+      "old_price": "100",
+      "price": "55.000",
+    },
+    {
+      "name": "Producto 18",
+      "picture": "images/products/18.jpeg",
+      "old_price": "100",
+      "price": "40.000",
+    },
+    {
+      "name": "Producto 19",
+      "picture": "images/products/19.jpeg",
+      "old_price": "100",
+      "price": "55.000",
+    },
+    {
+      "name": "Producto 20",
+      "picture": "images/products/20.jpeg",
+      "old_price": "100",
+      "price": "60.000",
     }
 //    {
 //      "name": "Blazer",
@@ -730,30 +721,61 @@ class Single_prod extends StatelessWidget {
   Widget build(BuildContext context) {
     return Card(
       child: Hero(
-        tag: prod_name,
+        tag: Text("hero 1"),
         child: Material(
           child: InkWell(
-            onTap: () {},
+            onTap: () => Navigator.of(context).push(
+              new MaterialPageRoute(
+                // Here we are passing the values of the product to the product
+                // details page
+                builder: (context) => new ProductDetails(
+                  product_detail_name: prod_name,
+                  product_detail_new_price: prod_price,
+                  product_detail_old_price: prod_old_price,
+                  product_detail_picture: prod_pricture,
+                ),
+              ),
+            ),
             child: GridTile(
                 footer: Container(
                   color: Colors.white70,
-                  child: ListTile(
+
+                  child: Row(
+                    children: <Widget>[
+                      Expanded(
+                        child: Text(
+                          prod_name,
+                          style: TextStyle(
+                              fontWeight: FontWeight.bold, fontSize: 16.0),
+                        ),
+                      ),
+                      Text(
+                        "\$${prod_price}",
+                        style: TextStyle(
+                            color: Colors.red, fontWeight: FontWeight.bold),
+                      ),
+                    ],
+                  ),
+//                  child: ListTile(
 //                    leading: Text(
 //                      prod_name,
 //                      style: TextStyle(fontWeight: FontWeight.bold),
 //                    ),
-                    title: Text(
-                      prod_name,
-                      style: TextStyle(fontWeight: FontWeight.bold),
-                    ),
-                    subtitle: Text(
-                      "\$$prod_price",
-                      style: TextStyle(
+//                    title: Text(
+//                      "\$$prod_price",
+//                      style: TextStyle(
+//                          color: Colors.red, fontWeight: FontWeight.w800),
+//                    ),
+//                    subtitle: Text(
+//                      "\$$prod_old_price",
+//                      style: TextStyle(
+////                        decoration: TextDecoration.lineThrough,
+//                        color: Colors.black54,
+//                        fontWeight: FontWeight.w800,
 //                        decoration: TextDecoration.lineThrough,
-                          color: Colors.red,
-                          fontWeight: FontWeight.bold),
-                    ),
-                  ),
+//                      ),
+//                    ),
+//                  ),
                 ),
                 child: Image.asset(
                   prod_pricture,

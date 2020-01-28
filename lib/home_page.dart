@@ -173,6 +173,20 @@ class _HomePageState extends State<HomePage> {
                 ),
               ),
             ),
+
+            InkWell(
+              onTap: () {
+                Navigator.pushNamed(context, '/favoritos');
+              },
+              child: ListTile(
+                title: Text('Favoritos'),
+                leading: Icon(
+                  FontAwesomeIcons.heart,
+                  color: Colors.redAccent,
+                ),
+              ),
+            ),
+
 //            InkWell(
 //              onTap: () {},
 //              child: ListTile(
@@ -187,66 +201,54 @@ class _HomePageState extends State<HomePage> {
 //                leading: Icon(Icons.shopping_basket),
 //              ),
 //            ),
-//            InkWell(
-//              onTap: () {
-////                Navigator.push(
-////                    context,
-////                    PageTransition(
-////                        type: PageTransitionType.rightToLeft,
-////                        child: Categorias()));
-//
-//                Navigator.push(
-//                  context,
-//                  // Quienes somos
-//                  MaterialPageRoute(builder: (context) => Categorias()),
-//                );
-//              },
-//              child: ListTile(
-//                title: Text('Categorías'),
-//                // Icono de Categorias
-////                leading: Icon(
-////                  FontAwesomeIcons.boxes,
-////                  color: Colors.redAccent,
-////                ),
-//                leading: Icon(
-//                  Icons.dashboard,
-//                  color: Colors.lightBlueAccent,
-//                ),
-//              ),
-//            ),
-//            InkWell(
-//              onTap: () {
-//                Navigator.push(
-//                  context,
-//                  // Productos Recientes Page
-//                  MaterialPageRoute(builder: (context) => ProductosRecientes()),
-//                );
-//              },
-//              child: ListTile(
-//                title: Text('Productos Recientes'),
-//                leading: Icon(
-//                  FontAwesomeIcons.levelDownAlt,
-//                  color: Colors.lightBlueAccent,
-//                ),
-//              ),
-//            ),
             InkWell(
-              onTap: () {},
+              onTap: () {
+                Navigator.pushNamed(context, '/categorias');
+              },
               child: ListTile(
-                title: Text('My Account'),
+                title: Text('Categorías'),
+                // Icono de Categorias
+//                leading: Icon(
+//                  FontAwesomeIcons.boxes,
+//                  color: Colors.redAccent,
+//                ),
                 leading: Icon(
-                  FontAwesomeIcons.userAlt,
-                  color: Colors.redAccent,
+                  Icons.dashboard,
+                  color: Colors.lightBlueAccent,
                 ),
               ),
             ),
             InkWell(
-              onTap: () {},
+              onTap: () {
+                Navigator.pushNamed(context, '/productosrecientes');
+              },
               child: ListTile(
-                title: Text('My Orders'),
+                title: Text('Productos Recientes'),
+                leading: Icon(
+                  FontAwesomeIcons.history,
+                  color: Colors.lightBlueAccent,
+                ),
+              ),
+            ),
+//            InkWell(
+//              onTap: () {},
+//              child: ListTile(
+//                title: Text('My Account'),
+//                leading: Icon(
+//                  FontAwesomeIcons.userAlt,
+//                  color: Colors.redAccent,
+//                ),
+//              ),
+//            ),
+            InkWell(
+              onTap: () {
+                Navigator.pushNamed(context, '/pedidos');
+              },
+              child: ListTile(
+                title: Text('Mis Pedidos'),
                 leading: Icon(
                   FontAwesomeIcons.shoppingBag,
-                  color: Colors.redAccent,
+                  color: Colors.greenAccent,
                 ),
               ),
             ),
@@ -255,26 +257,31 @@ class _HomePageState extends State<HomePage> {
                 Navigator.pushNamed(context, '/cart');
               },
               child: ListTile(
-                title: Text('Shopping Cart'),
+                title: Text('Carrito'),
                 leading: Icon(
                   FontAwesomeIcons.shoppingCart,
-                  color: Colors.redAccent,
+                  color: Colors.greenAccent,
                 ),
               ),
             ),
-            InkWell(
-              onTap: () {},
-              child: ListTile(
-                title: Text('Favoritos'),
-                leading: Icon(
-                  FontAwesomeIcons.solidHeart,
-                  color: Colors.redAccent,
-                ),
-              ),
-            ),
+
             Divider(),
             InkWell(
-              onTap: () {},
+              onTap: () {
+                Navigator.pushNamed(context, '/datos');
+              },
+              child: ListTile(
+                title: Text('Mis Datos Principales'),
+                leading: Icon(
+                  FontAwesomeIcons.user,
+                  color: Colors.indigoAccent,
+                ),
+              ),
+            ),
+            InkWell(
+              onTap: () {
+                Navigator.pushNamed(context, '/ajustes');
+              },
               child: ListTile(
                 title: Text('Ajustes'),
                 leading: Icon(
@@ -282,19 +289,8 @@ class _HomePageState extends State<HomePage> {
                 ),
               ),
             ),
-//            InkWell(
-//              onTap: () {},
-//              child: ListTile(
-//                title: Text('Mis Datos Principales'),
-//                leading: Icon(
-//                  Icons.person_outline,
-//                  color: Colors.indigo,
-//                ),
-//              ),
-//            ),
             InkWell(
               onTap: () {
-
                 Navigator.pushNamed(context, '/quienessomos');
 
 //                Navigator.push(
@@ -306,7 +302,7 @@ class _HomePageState extends State<HomePage> {
               child: ListTile(
                 title: Text('Quienes Somos'),
                 leading: Icon(FontAwesomeIcons.solidQuestionCircle,
-                    color: Colors.green),
+                    color: Colors.lightGreen),
               ),
             ),
           ],

@@ -3,12 +3,16 @@ import 'dart:async';
 
 // My Own Imports
 import 'home_page.dart';
+import 'pages/favoritos.dart';
 import 'pages/categorias.dart';
 import 'pages/comprar.dart';
 import 'pages/product_details.dart';
 import 'pages/productos_recientes.dart';
 import 'pages/quienes_somos.dart';
 import 'pages/cart.dart';
+import 'pages/pedidos.dart';
+import 'pages/datos.dart';
+import 'pages/ajustes.dart';
 
 //
 // Classes here
@@ -52,6 +56,9 @@ void main() {
       // When navigating to the "/homepage" route, build the HomePage widget.
       '/homepage': (context) => HomePage(),
 
+      // When navigating to the "/favoritos" route, build the SecondScreen widget.
+      '/favoritos': (context) => Favoritos(),
+
       // When navigating to the "/categorias" route, build the SecondScreen widget.
       '/categorias': (context) => Categorias(),
 
@@ -63,6 +70,15 @@ void main() {
 
       // When navigating to the "/second" route, build the SecondScreen widget.
       '/productosrecientes': (context) => ProductosRecientes(),
+
+      // When navigating to the "/pedidos" route, build the SecondScreen widget.
+      '/pedidos': (context) => Pedidos(),
+
+      // MIS DATOS PRINCIPALES, PAGE
+      '/datos': (context) => Datos(),
+
+      // When navigating to the "/ajustes" route, build the SecondScreen widget.
+      '/ajustes': (context) => Ajustes(),
 
       // When navigating to the "/second" route, build the SecondScreen widget.
       '/quienessomos': (context) => ChewieDemo(),
