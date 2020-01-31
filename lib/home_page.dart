@@ -377,7 +377,7 @@ class _HomePageState extends State<HomePage> {
                 child: Align(
                   alignment: Alignment.centerLeft,
                   child: Text(
-                    "Productos Recientes",
+                    "Productos Recientess",
                     style: TextStyle(fontSize: 19.0),
                   ),
                 ),
