@@ -2,6 +2,12 @@ import 'package:flutter/material.dart';
 import 'dart:async';
 
 // My Own Imports
+import 'login.dart';
+
+// Admin side imports
+import 'admin_side/home_page_admin.dart';
+
+// Client side imports
 import 'home_page.dart';
 import 'pages/favoritos.dart';
 import 'pages/categorias.dart';
@@ -37,12 +43,13 @@ void main() {
 //    ),
 
     // Ruta Inicial
+//    initialRoute: '/homepageadmin',
     initialRoute: '/',
 
     // ====================== RUTAS =====================
 
     routes: {
-      // MAIN
+      // ========== MAIN =========
       // When navigating to the "/" route, build the FirstScreen widget.
       '/': (context) => SafeArea(
             top: true,
@@ -51,6 +58,14 @@ void main() {
             right: true,
             child: MyApp(), // MyApp, TODO está aquí
           ),
+
+      // ===== LOGIN ======
+      '/login': (context) => Login(),
+
+      // ========== ADMIN side Routes ==========
+      '/homepageadmin': (context) => HomePageAdmin(),
+
+      // ========== USER side Routes ==========
 
       // HOMEPAGE, el CATALOGO
       // When navigating to the "/homepage" route, build the HomePage widget.
@@ -117,12 +132,7 @@ class _MyAppState extends State<MyApp> {
     Future.delayed(
       Duration(milliseconds: 1400), // Show logo for 1400 milliseconds
       () {
-        Navigator.push(
-          context,
-          MaterialPageRoute(
-            builder: (context) => HomePage(),
-          ),
-        );
+        Navigator.pushNamed(context, '/login');
       },
     );
   } // End of initState
