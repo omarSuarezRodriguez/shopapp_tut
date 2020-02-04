@@ -45,16 +45,16 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
-  TargetPlatform _platform; // Target Platform
+//  TargetPlatform _platform; // Target Platform
   // Widget build
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: "YUKA TiendApp",
-        theme: ThemeData.light().copyWith(
-        platform: _platform ?? Theme.of(context).platform,
-      ),
+//      theme: ThemeData.light().copyWith(
+//        platform: _platform ?? Theme.of(context).platform,
+//      ),
 
       // ====================== RUTAS ======================
 
