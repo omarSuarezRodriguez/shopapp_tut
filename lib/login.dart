@@ -10,19 +10,19 @@ import 'package:shopapp_tut/home_page.dart';
 
 //void main() => runApp(MyApp());
 
-class Login extends StatelessWidget {
-  // This widget is the root of your application.
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Login',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
-      home: LoginPage(),
-    );
-  }
-}
+//class Login extends StatelessWidget {
+//  // This widget is the root of your application.
+//  @override
+//  Widget build(BuildContext context) {
+//    return MaterialApp(
+//      title: 'Login',
+//      theme: ThemeData(
+//        primarySwatch: Colors.blue,
+//      ),
+//      home: LoginPage(),
+//    );
+//  }
+//}
 
 class LoginPage extends StatefulWidget {
   static final String path = "lib/src/pages/login/login.dart";
@@ -77,15 +77,30 @@ class _LoginPageState extends State<LoginPage> {
   void iniciarSesion() {
     String usuario = controlUsuario.toString();
 
+    // SI NO ES NINGUN LOGIN, INCORRECTO
+    if (controlUsuario.text != "admin" || controlContrasena.text != "yuka") {
+      if (controlUsuario.text != "cliente" ||
+          controlContrasena.text != "cliente") {
+        Toast.show("LOGIN INCORRECTO", context,
+            duration: Toast.LENGTH_SHORT,
+            gravity: Toast.CENTER,
+            backgroundColor: Colors.red,
+            textColor: Colors.white);
+      }
+    }
+
     // LOGIN ADMIN
     if (controlUsuario.text == "admin" && controlContrasena.text == "yuka") {
+      Navigator.pushNamedAndRemoveUntil(
+          context, '/homepageadmin', (_) => false);
+
 //      Navigator.pushNamed(context, '/homepageadmin');
-      Navigator.push(
-        context,
-        MaterialPageRoute(builder: (context) => HomePageAdmin()),
-      );
+//      Navigator.push(
+//        context,
+//        MaterialPageRoute(builder: (context) => HomePageAdmin()),
+//      );
       Toast.show("LOGIN CORRECTO", context,
-          duration: Toast.LENGTH_LONG,
+          duration: Toast.LENGTH_SHORT,
           gravity: Toast.CENTER,
           backgroundColor: Colors.green,
           textColor: Colors.white);
@@ -94,29 +109,31 @@ class _LoginPageState extends State<LoginPage> {
     // LOGIN CLIENTE
     if (controlUsuario.text == "cliente" &&
         controlContrasena.text == "cliente") {
+      Navigator.pushNamedAndRemoveUntil(context, '/homepage', (_) => false);
+
 //      Navigator.pushNamed(context, '/homepageadmin');
-      Navigator.push(
-        context,
-        MaterialPageRoute(builder: (context) => HomePage()),
-      );
+//      Navigator.push(
+//        context,
+//        MaterialPageRoute(builder: (context) => HomePage()),
+//      );
       Toast.show("LOGIN CORRECTO", context,
-          duration: Toast.LENGTH_LONG,
+          duration: Toast.LENGTH_SHORT,
           gravity: Toast.CENTER,
           backgroundColor: Colors.green,
           textColor: Colors.white);
     }
 
-    // SI NO ES NINGUN LOGIN, INCORRECTO
-    if (controlUsuario.text != "admin" && controlContrasena.text != "yuka") {
-      if (controlUsuario.text != "cliente" &&
-          controlContrasena.text != "cliente") {
-        Toast.show("LOGIN INCORRECTO", context,
-            duration: Toast.LENGTH_LONG,
-            gravity: Toast.CENTER,
-            backgroundColor: Colors.red,
-            textColor: Colors.white);
-      }
-    }
+//    // SI NO ES NINGUN LOGIN, INCORRECTO
+//    if (controlUsuario.text != "admin" && controlContrasena.text != "yuka") {
+//      if (controlUsuario.text != "cliente" &&
+//          controlContrasena.text != "cliente") {
+//        Toast.show("LOGIN INCORRECTO", context,
+//            duration: Toast.LENGTH_SHORT,
+//            gravity: Toast.CENTER,
+//            backgroundColor: Colors.red,
+//            textColor: Colors.white);
+//      }
+//    }
 
     // SI NO ES NINGUN LOGIN, INCORRECTO
 //    if ((controlUsuario.text != "admin" && controlContrasena.text != "yuka") |
@@ -134,168 +151,185 @@ class _LoginPageState extends State<LoginPage> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: Colors.white,
-      body: ListView(
-        children: <Widget>[
-          Stack(
-            children: <Widget>[
-              ClipPath(
-                clipper: WaveClipper2(),
-                child: Container(
-                  child: Column(),
-                  width: double.infinity,
-                  height: 300,
-                  decoration: BoxDecoration(
-                      gradient: LinearGradient(
-                          colors: [Color(0x22ff3a5a), Color(0x22fe494d)])),
-                ),
-              ),
-              ClipPath(
-                clipper: WaveClipper3(),
-                child: Container(
-                  child: Column(),
-                  width: double.infinity,
-                  height: 300,
-                  decoration: BoxDecoration(
-                      gradient: LinearGradient(
-                          colors: [Color(0x44ff3a5a), Color(0x44fe494d)])),
-                ),
-              ),
-              ClipPath(
-                clipper: WaveClipper1(),
-                child: Container(
-                  child: Column(
-                    children: <Widget>[
-                      SizedBox(
-                        height: 40,
-                      ),
-                      Text(
-                        "YUKA",
-                        style: TextStyle(
-                            color: Colors.white,
-                            fontWeight: FontWeight.w700,
-                            fontSize: 40),
-                      ),
-                      SizedBox(
-                        height: 20,
-                      ),
-                      Icon(
-                        Icons.favorite_border,
-                        color: Colors.white,
-                        size: 60,
-                      ),
-                    ],
+    //Color de status bar
+//    SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(statusBarColor: Colors.transparent));
+
+//    SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle.light.copyWith(
+//      statusBarColor: Colors.red, //or set color with: Color(0xFF0000FF)
+////      statusBarColor: Colors.redAccent, //or set color with: Color(0xFF0000FF)
+////      systemNavigationBarColor: Colors.red,
+//    ));
+
+    return SafeArea(
+      top: true,
+      bottom: true,
+      left: true,
+      right: true,
+      child: Scaffold(
+        backgroundColor: Colors.white,
+        body: ListView(
+          children: <Widget>[
+            Stack(
+              children: <Widget>[
+                ClipPath(
+                  clipper: WaveClipper2(),
+                  child: Container(
+                    child: Column(),
+                    width: double.infinity,
+                    height: 300,
+                    decoration: BoxDecoration(
+                        gradient: LinearGradient(
+                            colors: [Color(0x22ff3a5a), Color(0x22fe494d)])),
                   ),
-                  width: double.infinity,
-                  height: 300,
-                  decoration: BoxDecoration(
-                      gradient: LinearGradient(
-                          colors: [Color(0xffff3a5a), Color(0xfffe494d)])),
                 ),
-              ),
-            ],
-          ),
-          SizedBox(
-            height: 23,
-          ),
-          Padding(
-            padding: EdgeInsets.symmetric(horizontal: 32),
-            child: Material(
-              elevation: 2.0,
-              borderRadius: BorderRadius.all(Radius.circular(30)),
-              child: TextFormField(
-//                autofocus: true,
-                onFieldSubmitted: (v) {
-                  FocusScope.of(context).requestFocus(focus);
-                },
-                textInputAction: TextInputAction.next,
-                controller: controlUsuario,
-                onChanged: (String value) {},
-                cursorColor: Colors.deepOrange,
-                decoration: InputDecoration(
-                    hintText: "Usuario",
-                    prefixIcon: Material(
-                      elevation: 0,
-                      borderRadius: BorderRadius.all(Radius.circular(30)),
-                      child: Icon(
-                        Icons.person,
-                        color: Colors.red,
-                      ),
+                ClipPath(
+                  clipper: WaveClipper3(),
+                  child: Container(
+                    child: Column(),
+                    width: double.infinity,
+                    height: 300,
+                    decoration: BoxDecoration(
+                        gradient: LinearGradient(
+                            colors: [Color(0x44ff3a5a), Color(0x44fe494d)])),
+                  ),
+                ),
+                ClipPath(
+                  clipper: WaveClipper1(),
+                  child: Container(
+                    child: Column(
+                      children: <Widget>[
+                        SizedBox(
+                          height: 40,
+                        ),
+                        Text(
+                          "YUKA",
+                          style: TextStyle(
+                              color: Colors.white,
+                              fontWeight: FontWeight.w700,
+                              fontSize: 40),
+                        ),
+                        SizedBox(
+                          height: 20,
+                        ),
+                        Icon(
+                          Icons.favorite_border,
+                          color: Colors.white,
+                          size: 60,
+                        ),
+                      ],
                     ),
-                    border: InputBorder.none,
-                    contentPadding:
-                        EdgeInsets.symmetric(horizontal: 25, vertical: 13)),
-              ),
+                    width: double.infinity,
+                    height: 300,
+                    decoration: BoxDecoration(
+                        gradient: LinearGradient(
+                            colors: [Color(0xffff3a5a), Color(0xfffe494d)])),
+                  ),
+                ),
+              ],
             ),
-          ),
-          SizedBox(
-            height: 20,
-          ),
-          Padding(
-            padding: EdgeInsets.symmetric(horizontal: 32),
-            child: Material(
-              elevation: 2.0,
-              borderRadius: BorderRadius.all(Radius.circular(30)),
-              child: TextFormField(
-                focusNode: focus,
-                onFieldSubmitted: (v) {
-                  obtenerUsuario();
-                },
-                controller: controlContrasena,
-                obscureText: true,
-                //Para ocultar texto
-                onChanged: (String value) {},
-                cursorColor: Colors.deepOrange,
-                decoration: InputDecoration(
-                    hintText: "Contraseña",
-                    prefixIcon: Material(
-                      elevation: 0,
-                      borderRadius: BorderRadius.all(Radius.circular(30)),
-                      child: Icon(
-                        Icons.lock,
-                        color: Colors.red,
-                      ),
-                    ),
-                    border: InputBorder.none,
-                    contentPadding:
-                        EdgeInsets.symmetric(horizontal: 25, vertical: 13)),
-              ),
+            SizedBox(
+              height: 23,
             ),
-          ),
-          SizedBox(
-            height: 35,
-          ),
-          Padding(
+            Padding(
               padding: EdgeInsets.symmetric(horizontal: 32),
-              child: Container(
-                decoration: BoxDecoration(
-                    borderRadius: BorderRadius.all(Radius.circular(100)),
-                    color: Color(0xffff3a5a)),
-                child: FlatButton(
-                  child: Text(
-                    "Iniciar Sesión",
-                    style: TextStyle(
-                        color: Colors.white,
-                        fontWeight: FontWeight.w700,
-                        fontSize: 18),
-                  ),
-                  onPressed: () {
-                    iniciarSesion();
-//                    obtenerUsuario();
+              child: Material(
+                elevation: 2.0,
+                borderRadius: BorderRadius.all(Radius.circular(30)),
+                child: TextFormField(
+//                autofocus: true,
+                  onFieldSubmitted: (v) {
+                    FocusScope.of(context).requestFocus(focus);
                   },
+                  textInputAction: TextInputAction.next,
+                  controller: controlUsuario,
+                  onChanged: (String value) {},
+                  cursorColor: Colors.deepOrange,
+                  decoration: InputDecoration(
+                      hintText: "Usuario",
+                      prefixIcon: Material(
+                        elevation: 0,
+                        borderRadius: BorderRadius.all(Radius.circular(30)),
+                        child: Icon(
+                          Icons.person,
+                          color: Colors.red,
+                        ),
+                      ),
+                      border: InputBorder.none,
+                      contentPadding:
+                          EdgeInsets.symmetric(horizontal: 25, vertical: 13)),
                 ),
-              )),
-          SizedBox(
-            height: 20,
-          ),
-          Center(
-            child: Text(
-              "¿Has olvidado tu contraseña?",
-              style: TextStyle(
-                  color: Colors.red, fontSize: 12, fontWeight: FontWeight.w700),
+              ),
             ),
-          ),
+            SizedBox(
+              height: 20,
+            ),
+            Padding(
+              padding: EdgeInsets.symmetric(horizontal: 32),
+              child: Material(
+                elevation: 2.0,
+                borderRadius: BorderRadius.all(Radius.circular(30)),
+                child: TextFormField(
+                  focusNode: focus,
+                  onFieldSubmitted: (v) {
+                    // Iniciar sesión
+                    iniciarSesion();
+                  },
+                  controller: controlContrasena,
+                  obscureText: true,
+                  //Para ocultar texto
+                  onChanged: (String value) {},
+                  cursorColor: Colors.deepOrange,
+                  decoration: InputDecoration(
+                      hintText: "Contraseña",
+                      prefixIcon: Material(
+                        elevation: 0,
+                        borderRadius: BorderRadius.all(Radius.circular(30)),
+                        child: Icon(
+                          Icons.lock,
+                          color: Colors.red,
+                        ),
+                      ),
+                      border: InputBorder.none,
+                      contentPadding:
+                          EdgeInsets.symmetric(horizontal: 25, vertical: 13)),
+                ),
+              ),
+            ),
+            SizedBox(
+              height: 35,
+            ),
+            Padding(
+                padding: EdgeInsets.symmetric(horizontal: 32),
+                child: Container(
+                  decoration: BoxDecoration(
+                      borderRadius: BorderRadius.all(Radius.circular(100)),
+                      color: Color(0xffff3a5a)),
+                  child: FlatButton(
+                    child: Text(
+                      "Iniciar Sesión",
+                      style: TextStyle(
+                          color: Colors.white,
+                          fontWeight: FontWeight.w700,
+                          fontSize: 18),
+                    ),
+                    onPressed: () {
+                      iniciarSesion();
+//                    obtenerUsuario();
+                    },
+                  ),
+                )),
+            SizedBox(
+              height: 20,
+            ),
+            Center(
+              child: Text(
+                "¿Has olvidado tu contraseña?",
+                style: TextStyle(
+                    color: Colors.red,
+                    fontSize: 12,
+                    fontWeight: FontWeight.w700),
+              ),
+            ),
 //          SizedBox(height: 40,),
 //          Row(
 //            mainAxisAlignment: MainAxisAlignment.center,
@@ -305,7 +339,8 @@ class _LoginPageState extends State<LoginPage> {
 //
 //            ],
 //          )
-        ],
+          ],
+        ),
       ),
     );
   }

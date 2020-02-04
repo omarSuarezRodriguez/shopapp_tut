@@ -86,64 +86,69 @@ class _HomePageState extends State<HomePage> {
     // Fin Widget Image Carousel
 
     // Scaffold
-    return Scaffold(
-      // AppBar
-      appBar: AppBar(
-        leading: Builder(
-          builder: (context) => IconButton(
-            // Icono Drawer Menu
-            icon: Icon(FontAwesomeIcons.bars),
-            onPressed: () => Scaffold.of(context).openDrawer(),
-          ),
-        ),
-        elevation: 0.1,
-        backgroundColor: Colors.red,
-        title: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Text(
-              widget.title, // Título de App
-              style: TextStyle(color: Colors.white, fontSize: 20.0),
+    return SafeArea(
+      top: true,
+      bottom: true,
+      left: true,
+      right: true,
+      child: Scaffold(
+        // AppBar
+        appBar: AppBar(
+          leading: Builder(
+            builder: (context) => IconButton(
+              // Icono Drawer Menu
+              icon: Icon(FontAwesomeIcons.bars),
+              onPressed: () => Scaffold.of(context).openDrawer(),
             ),
+          ),
+          elevation: 0.1,
+          backgroundColor: Colors.red,
+          title: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(
+                widget.title, // Título de App
+                style: TextStyle(color: Colors.white, fontSize: 20.0),
+              ),
+            ],
+          ),
+          actions: <Widget>[
+            // Icono de buscar
+            IconButton(icon: Icon(FontAwesomeIcons.search), onPressed: () {}),
+
+            // Icono de comprar
+            IconButton(
+                icon: Icon(FontAwesomeIcons.shoppingCart),
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    // Quienes somos Page
+                    MaterialPageRoute(builder: (context) => ProfileTwoPage()),
+                  );
+                }),
           ],
         ),
-        actions: <Widget>[
-          // Icono de buscar
-          IconButton(icon: Icon(FontAwesomeIcons.search), onPressed: () {}),
 
-          // Icono de comprar
-          IconButton(
-              icon: Icon(FontAwesomeIcons.shoppingCart),
-              onPressed: () {
-                Navigator.push(
-                  context,
-                  // Quienes somos Page
-                  MaterialPageRoute(builder: (context) => ProfileTwoPage()),
-                );
-              }),
-        ],
-      ),
-
-      // Menu Drawer
-      drawer: Drawer(
-        child: ListView(
-          children: <Widget>[
-            //header Menu Drawer
-            UserAccountsDrawerHeader(
-              accountName: Text(
-                "YUKA",
-                style: TextStyle(color: Colors.white, fontSize: 18.0),
-              ),
-              accountEmail: Text('App Tienda Virtual'),
-              currentAccountPicture: GestureDetector(
-                child: CircleAvatar(
-                  minRadius: 80,
-                  backgroundColor: Colors.blueGrey,
+        // Menu Drawer
+        drawer: Drawer(
+          child: ListView(
+            children: <Widget>[
+              //header Menu Drawer
+              UserAccountsDrawerHeader(
+                accountName: Text(
+                  "YUKA",
+                  style: TextStyle(color: Colors.white, fontSize: 18.0),
+                ),
+                accountEmail: Text('App Tienda Virtual'),
+                currentAccountPicture: GestureDetector(
                   child: CircleAvatar(
-                    backgroundImage: AssetImage("images/logo.jpg"),
-                    minRadius: 70,
-                  ),
+                    minRadius: 80,
+                    backgroundColor: Colors.blueGrey,
+                    child: CircleAvatar(
+                      backgroundImage: AssetImage("images/logo.jpg"),
+                      minRadius: 70,
+                    ),
 //                  backgroundColor: Colors.grey,
 //                  radius: ,
 //                  child: Image.asset(
@@ -152,40 +157,40 @@ class _HomePageState extends State<HomePage> {
 //                    height: 70.0,
 //                  ),
 //                  child: Icon(Icons.person, color: Colors.white),
+                  ),
+                ),
+                decoration: BoxDecoration(
+                  color: Colors.red,
                 ),
               ),
-              decoration: BoxDecoration(
-                color: Colors.red,
-              ),
-            ),
 
-            //body
-            InkWell(
-              onTap: () {
-                Navigator.pop(context);
-              },
-              child: ListTile(
-                title: Text('Catálogo'),
-                // Icono Home
-                leading: Icon(
-                  FontAwesomeIcons.home,
-                  color: Colors.redAccent,
+              //body
+              InkWell(
+                onTap: () {
+                  Navigator.pop(context);
+                },
+                child: ListTile(
+                  title: Text('Catálogo'),
+                  // Icono Home
+                  leading: Icon(
+                    FontAwesomeIcons.home,
+                    color: Colors.redAccent,
+                  ),
                 ),
               ),
-            ),
 
-            InkWell(
-              onTap: () {
-                Navigator.pushNamed(context, '/favoritos');
-              },
-              child: ListTile(
-                title: Text('Favoritos'),
-                leading: Icon(
-                  FontAwesomeIcons.heart,
-                  color: Colors.redAccent,
-                ),
-              ),
-            ),
+//            InkWell(
+//              onTap: () {
+//                Navigator.pushNamed(context, '/favoritos');
+//              },
+//              child: ListTile(
+//                title: Text('Favoritos'),
+//                leading: Icon(
+//                  FontAwesomeIcons.heart,
+//                  color: Colors.redAccent,
+//                ),
+//              ),
+//            ),
 
 //            InkWell(
 //              onTap: () {},
@@ -201,35 +206,36 @@ class _HomePageState extends State<HomePage> {
 //                leading: Icon(Icons.shopping_basket),
 //              ),
 //            ),
-            InkWell(
-              onTap: () {
-                Navigator.pushNamed(context, '/categorias');
-              },
-              child: ListTile(
-                title: Text('Categorías'),
-                // Icono de Categorias
+//            InkWell(
+//              onTap: () {
+//                Navigator.pushNamed(context, '/categorias');
+//              },
+//              child: ListTile(
+//                title: Text('Categorías'),
+//                // Icono de Categorias
+////                leading: Icon(
+////                  FontAwesomeIcons.boxes,
+////                  color: Colors.redAccent,
+////                ),
 //                leading: Icon(
-//                  FontAwesomeIcons.boxes,
-//                  color: Colors.redAccent,
+//                  Icons.dashboard,
+//                  color: Colors.lightBlueAccent,
 //                ),
-                leading: Icon(
-                  Icons.dashboard,
-                  color: Colors.lightBlueAccent,
+//              ),
+//            ),
+              InkWell(
+                onTap: () {
+                  Navigator.pushNamed(context, '/productosrecientes');
+                },
+                child: ListTile(
+                  title: Text('Productos'),
+                  leading: Icon(
+                    Icons.local_offer,
+//                  FontAwesomeIcons.history,
+                    color: Colors.lightBlueAccent,
+                  ),
                 ),
               ),
-            ),
-            InkWell(
-              onTap: () {
-                Navigator.pushNamed(context, '/productosrecientes');
-              },
-              child: ListTile(
-                title: Text('Productos Recientes'),
-                leading: Icon(
-                  FontAwesomeIcons.history,
-                  color: Colors.lightBlueAccent,
-                ),
-              ),
-            ),
 //            InkWell(
 //              onTap: () {},
 //              child: ListTile(
@@ -240,104 +246,123 @@ class _HomePageState extends State<HomePage> {
 //                ),
 //              ),
 //            ),
-            InkWell(
-              onTap: () {
-                Navigator.pushNamed(context, '/pedidos');
-              },
-              child: ListTile(
-                title: Text('Mis Pedidos'),
-                leading: Icon(
-                  FontAwesomeIcons.shoppingBag,
-                  color: Colors.greenAccent,
+//            InkWell(
+//              onTap: () {
+//                Navigator.pushNamed(context, '/pedidos');
+//              },
+//              child: ListTile(
+//                title: Text('Mis Pedidos'),
+//                leading: Icon(
+//                  FontAwesomeIcons.shoppingBag,
+//                  color: Colors.greenAccent,
+//                ),
+//              ),
+//            ),
+              InkWell(
+                onTap: () {
+                  Navigator.pushNamed(context, '/comprar');
+                },
+                child: ListTile(
+                  title: Text('Comprar'),
+                  leading: Icon(
+                    FontAwesomeIcons.shoppingCart,
+                    color: Colors.greenAccent,
+                  ),
                 ),
               ),
-            ),
-            InkWell(
-              onTap: () {
-                Navigator.pushNamed(context, '/cart');
-              },
-              child: ListTile(
-                title: Text('Carrito'),
-                leading: Icon(
-                  FontAwesomeIcons.shoppingCart,
-                  color: Colors.greenAccent,
-                ),
-              ),
-            ),
 
-            Divider(),
-            InkWell(
-              onTap: () {
-                Navigator.pushNamed(context, '/datos');
-              },
-              child: ListTile(
-                title: Text('Mis Datos Principales'),
-                leading: Icon(
-                  FontAwesomeIcons.user,
-                  color: Colors.indigoAccent,
+              Divider(),
+              InkWell(
+                onTap: () {
+                  Navigator.pushNamed(context, '/datos');
+                },
+                child: ListTile(
+                  title: Text('Mis Datos Principales'),
+                  leading: Icon(
+                    FontAwesomeIcons.user,
+                    color: Colors.indigoAccent,
+                  ),
                 ),
               ),
-            ),
-            InkWell(
-              onTap: () {
-                Navigator.pushNamed(context, '/ajustes');
-              },
-              child: ListTile(
-                title: Text('Ajustes'),
-                leading: Icon(
-                  FontAwesomeIcons.cog,
-                ),
-              ),
-            ),
-            InkWell(
-              onTap: () {
-                Navigator.pushNamed(context, '/quienessomos');
+//              InkWell(
+//                onTap: () {
+//                  Navigator.pushNamed(context, '/ajustes');
+//                },
+//                child: ListTile(
+//                  title: Text('Ajustes'),
+//                  leading: Icon(
+//                    FontAwesomeIcons.cog,
+//                  ),
+//                ),
+//              ),
+              InkWell(
+                onTap: () {
+                  Navigator.pushNamed(context, '/quienessomos');
 
 //                Navigator.push(
 //                  context,
 //                  // Quienes somos
 //                  MaterialPageRoute(builder: (context) => ChewieDemo()),
 //                );
-              },
-              child: ListTile(
-                title: Text('Quienes Somos'),
-                leading: Icon(FontAwesomeIcons.solidQuestionCircle,
-                    color: Colors.lightGreen),
-              ),
-            ),
-          ],
-        ),
-      ),
-
-      //body de la app, lo que va debajo de la AppBar, ListView
-      // Metodo para cerrar app si se da click hacia atrás
-      body: WillPopScope(
-        onWillPop: _onBackPressed,
-        child: ListView(
-          children: <Widget>[
-            // Image Carousel begins here
-            image_carousel,
-
-            // Padding Categorias Text Widget
-            Padding(
-              padding: const EdgeInsets.all(1.0),
-              child: FlatButton(
-                onPressed: () {
-                  Navigator.push(
-                    context,
-                    // Quienes somos
-                    MaterialPageRoute(builder: (context) => Categorias()),
-                  );
                 },
-                child: Align(
-                  alignment: Alignment.centerLeft,
-                  child: Text(
-                    "Categorías",
-                    style: TextStyle(fontSize: 19.0),
+                child: ListTile(
+                  title: Text('Quienes Somos'),
+                  leading: Icon(FontAwesomeIcons.solidQuestionCircle,
+                      color: Colors.lightGreen),
+                ),
+              ),
+              Divider(),
+              InkWell(
+                onTap: () {
+                  Navigator.pushNamedAndRemoveUntil(
+                      context, '/login', (_) => false);
+
+//                Navigator.push(
+//                  context,
+//                  // Quienes somos
+//                  MaterialPageRoute(builder: (context) => ChewieDemo()),
+//                );
+                },
+                child: ListTile(
+                  title: Text('Cerrar Sesión'),
+                  leading: Icon(Icons.exit_to_app,
+//                leading: Icon(FontAwesomeIcons.solidQuestionCircle,
+                      color: Colors.redAccent),
+                ),
+              ),
+            ],
+          ),
+        ),
+
+        //body de la app, lo que va debajo de la AppBar, ListView
+        // Metodo para cerrar app si se da click hacia atrás
+        body: WillPopScope(
+          onWillPop: _onBackPressed,
+          child: ListView(
+            children: <Widget>[
+              // Image Carousel begins here
+              image_carousel,
+
+              // Padding Categorias Text Widget
+              Padding(
+                padding: const EdgeInsets.all(1.0),
+                child: FlatButton(
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      // Quienes somos
+                      MaterialPageRoute(builder: (context) => Categorias()),
+                    );
+                  },
+                  child: Align(
+                    alignment: Alignment.centerLeft,
+                    child: Text(
+                      "Categorías",
+                      style: TextStyle(fontSize: 19.0),
+                    ),
                   ),
                 ),
               ),
-            ),
 
 //          // Padding Categorias Widget
 //          Padding(
@@ -351,15 +376,15 @@ class _HomePageState extends State<HomePage> {
 //            ),
 //          ),
 
-            // Horizontal ListView Begins
-            HorizontalList(),
+              // Horizontal ListView Begins
+              HorizontalList(),
 
-            // Padding Productos Recientes Text Widget
-            Padding(
-              padding: const EdgeInsets.all(1.0),
-              child: FlatButton(
-                onPressed: () {
-                  Navigator.pushNamed(context, '/productosrecientes');
+              // Padding Productos Recientes Text Widget
+              Padding(
+                padding: const EdgeInsets.all(1.0),
+                child: FlatButton(
+                  onPressed: () {
+                    Navigator.pushNamed(context, '/productosrecientes');
 
 //                  Navigator.push(
 //                    context,
@@ -373,23 +398,24 @@ class _HomePageState extends State<HomePage> {
 //                    PageTransition(
 //                        type: PageTransitionType.rightToLeft,
 //                        child: ProductosRecientes()));
-                },
-                child: Align(
-                  alignment: Alignment.centerLeft,
-                  child: Text(
-                    "Productos Recientes",
-                    style: TextStyle(fontSize: 19.0),
+                  },
+                  child: Align(
+                    alignment: Alignment.centerLeft,
+                    child: Text(
+                      "Productos Recientes",
+                      style: TextStyle(fontSize: 19.0),
+                    ),
                   ),
                 ),
               ),
-            ),
 
-            // Grid View
-            Container(
-              height: 320.0,
-              child: Products(),
-            ),
-          ],
+              // Grid View
+              Container(
+                height: 320.0,
+                child: Products(),
+              ),
+            ],
+          ),
         ),
       ),
     );
