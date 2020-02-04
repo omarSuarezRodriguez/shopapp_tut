@@ -56,7 +56,7 @@ class _HomePageAdminState extends State<HomePageAdmin> {
   int _selectedPage = 0;
   final _pageOptions = [
     //Clases donde están las pages
-    AdministrarPage(),
+    InicioPage(),
     InicioPage(),
   ];
 
