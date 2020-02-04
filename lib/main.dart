@@ -56,7 +56,7 @@ class _MyAppState extends State<MyApp> {
         platform: _platform ?? Theme.of(context).platform,
       ),
 
-      // ====================== RUTAS =====================
+      // ====================== RUTAS ======================
 
       // Ruta Inicial
       initialRoute: '/',
