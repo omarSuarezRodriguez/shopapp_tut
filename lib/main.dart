@@ -4,6 +4,7 @@ import 'dart:async';
 
 // My Own Imports
 import 'login.dart';
+import 'widgets/productos.dart';
 
 // Admin side imports
 import 'admin_side/home_page_admin.dart';
@@ -20,6 +21,8 @@ import 'pages/cart.dart';
 import 'pages/pedidos.dart';
 import 'pages/datos.dart';
 import 'pages/ajustes.dart';
+
+
 
 //
 // Classes here
@@ -94,6 +97,9 @@ class _MyAppState extends State<MyApp> {
 
         // When navigating to the "/second" route, build the SecondScreen widget.
         '/productosrecientes': (context) => ProductosRecientes(),
+
+        // PRODUCTOS WALLFY
+        '/productos': (context) => WallScreen(),
 
         // When navigating to the "/pedidos" route, build the SecondScreen widget.
         '/pedidos': (context) => Pedidos(),

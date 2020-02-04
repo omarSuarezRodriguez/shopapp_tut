@@ -15,6 +15,8 @@ import 'package:shopapp_tut/pages/quienes_somos.dart';
 import 'package:shopapp_tut/pages/categorias.dart';
 import 'package:shopapp_tut/pages/comprar.dart';
 
+
+
 import 'package:getflutter/colors/gf_color.dart';
 import 'package:getflutter/components/appbar/gf_appbar.dart';
 import 'package:getflutter/components/button/gf_button.dart';
@@ -225,7 +227,7 @@ class _HomePageState extends State<HomePage> {
 //            ),
               InkWell(
                 onTap: () {
-                  Navigator.pushNamed(context, '/productosrecientes');
+                  Navigator.pushNamed(context, '/productos');
                 },
                 child: ListTile(
                   title: Text('Productos'),
