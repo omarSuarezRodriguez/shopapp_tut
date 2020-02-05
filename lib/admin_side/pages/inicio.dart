@@ -39,6 +39,9 @@ class _InicioPageState extends State<InicioPage> {
                   TextStyle(color: Colors.black, fontWeight: FontWeight.w600),
             ),
           ),
+          SizedBox(
+            height: 10.0,
+          ),
           Expanded(
             child: GridView(
               gridDelegate:

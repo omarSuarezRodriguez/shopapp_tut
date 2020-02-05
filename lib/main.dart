@@ -8,6 +8,7 @@ import 'widgets/productos.dart';
 
 // Admin side imports
 import 'admin_side/home_page_admin.dart';
+import 'admin_side/pages/agregar_producto.dart';
 
 // Client side imports
 import 'home_page.dart';
@@ -74,11 +75,25 @@ class _MyAppState extends State<MyApp> {
         // ===== LOGIN ======
         '/login': (context) => LoginPage(),
 
+        //========================================
         // ========== ADMIN side Routes ==========
+        //=======================================
+        //HOMEPAGE
         '/homepageadmin': (context) => HomePageAdmin(),
 
-        // ========== USER side Routes ==========
+        //HOMEPAGE
+        '/agregarproducto': (context) => ProfilePage(),
 
+        //=======================================
+        //=======================================
+
+        //
+        //
+        //
+
+        //=======================================
+        // ========== USER side Routes ==========
+        //=======================================
         // HOMEPAGE, el CATALOGO
         // When navigating to the "/homepage" route, build the HomePage widget.
         '/homepage': (context) => HomePage(),
@@ -115,6 +130,9 @@ class _MyAppState extends State<MyApp> {
 
         // When navigating to the "/second" route, build the SecondScreen widget.
         '/cart': (context) => Cart(),
+
+        //=======================================
+        //=======================================
       },
     );
   }

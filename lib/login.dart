@@ -81,7 +81,7 @@ class _LoginPageState extends State<LoginPage> {
     if (controlUsuario.text != "admin" || controlContrasena.text != "yuka") {
       if (controlUsuario.text != "cliente" ||
           controlContrasena.text != "cliente") {
-        Toast.show("LOGIN INCORRECTO", context,
+        Toast.show("Usuario o Contraseña Incorrecto", context,
             duration: Toast.LENGTH_SHORT,
             gravity: Toast.CENTER,
             backgroundColor: Colors.red,
@@ -94,12 +94,7 @@ class _LoginPageState extends State<LoginPage> {
       Navigator.pushNamedAndRemoveUntil(
           context, '/homepageadmin', (_) => false);
 
-//      Navigator.pushNamed(context, '/homepageadmin');
-//      Navigator.push(
-//        context,
-//        MaterialPageRoute(builder: (context) => HomePageAdmin()),
-//      );
-      Toast.show("LOGIN CORRECTO", context,
+      Toast.show("Bienvenido", context,
           duration: Toast.LENGTH_SHORT,
           gravity: Toast.CENTER,
           backgroundColor: Colors.green,
@@ -116,7 +111,7 @@ class _LoginPageState extends State<LoginPage> {
 //        context,
 //        MaterialPageRoute(builder: (context) => HomePage()),
 //      );
-      Toast.show("LOGIN CORRECTO", context,
+      Toast.show("Bienvenido", context,
           duration: Toast.LENGTH_SHORT,
           gravity: Toast.CENTER,
           backgroundColor: Colors.green,

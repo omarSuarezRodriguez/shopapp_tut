@@ -57,7 +57,7 @@ class _HomePageAdminState extends State<HomePageAdmin> {
   final _pageOptions = [
     //Clases donde están las pages
     InicioPage(),
-    InicioPage(),
+    AdministrarPageAdmin(),
   ];
 
   @override
