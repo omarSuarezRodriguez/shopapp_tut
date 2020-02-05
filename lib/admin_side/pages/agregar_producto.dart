@@ -342,7 +342,7 @@ class _ProfilePageState extends State<ProfilePage> {
 //                    },
 //                    elevation: 4.0,
 //                    splashColor: Colors.blueGrey,
-//                    child: Text(
+//                    child: Text(s
 //                      'Cancel',
 //                      style: TextStyle(color: Colors.white, fontSize: 8.0),
 //                    ),
