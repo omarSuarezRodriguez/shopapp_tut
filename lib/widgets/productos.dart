@@ -1,4 +1,5 @@
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:shopapp_tut/widgets/fullscreen_image_details.dart';
 
 import 'fullscreen_image.dart';
 import 'package:flutter/material.dart';
@@ -102,7 +103,7 @@ class _WallScreenState extends State<WallScreen> {
                         context,
                         new MaterialPageRoute(
                             builder: (context) =>
-                                FullScreenImagePage(imgPath))),
+                                FullScreenImagePageDetails(imgPath))),
                     child: Hero(
                       tag: imgPath,
                       child: FadeInImage(
