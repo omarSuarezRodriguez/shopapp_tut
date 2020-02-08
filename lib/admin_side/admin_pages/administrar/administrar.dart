@@ -18,11 +18,11 @@ class Administrar extends StatelessWidget {
             title: Text("Agregar Producto"),
             onTap: () {
               //
-//              Navigator.pushNamed(context, '/agregarproducto');
-              Navigator.push(
-                context,
-                MaterialPageRoute(builder: (context) => UploadPage()),
-              );
+              Navigator.pushNamed(context, '/agregarproducto');
+//              Navigator.push(
+//                context,
+//                MaterialPageRoute(builder: (context) => UploadPage()),
+//              );
             },
           ),
           Divider(),

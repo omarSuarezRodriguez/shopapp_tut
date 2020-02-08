@@ -94,11 +94,11 @@ class _LoginPageState extends State<LoginPage> {
       Navigator.pushNamedAndRemoveUntil(
           context, '/homepageadmin', (_) => false);
 
-      Toast.show("Bienvenido", context,
-          duration: Toast.LENGTH_SHORT,
-          gravity: Toast.CENTER,
-          backgroundColor: Colors.green,
-          textColor: Colors.white);
+//      Toast.show("Bienvenido", context,
+//          duration: Toast.LENGTH_SHORT,
+//          gravity: Toast.CENTER,
+//          backgroundColor: Colors.green,
+//          textColor: Colors.white);
     }
 
     // LOGIN CLIENTE
@@ -111,11 +111,11 @@ class _LoginPageState extends State<LoginPage> {
 //        context,
 //        MaterialPageRoute(builder: (context) => HomePage()),
 //      );
-      Toast.show("Bienvenido", context,
-          duration: Toast.LENGTH_SHORT,
-          gravity: Toast.CENTER,
-          backgroundColor: Colors.green,
-          textColor: Colors.white);
+//      Toast.show("Bienvenido", context,
+//          duration: Toast.LENGTH_SHORT,
+//          gravity: Toast.CENTER,
+//          backgroundColor: Colors.green,
+//          textColor: Colors.white);
     }
 
 //    // SI NO ES NINGUN LOGIN, INCORRECTO
@@ -146,10 +146,10 @@ class _LoginPageState extends State<LoginPage> {
 
   @override
   Widget build(BuildContext context) {
-    SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(
-      systemNavigationBarColor: Color(0xffff3a5a), // navigation bar color
-      statusBarColor: Color(0xffff3a5a), // status bar color
-    ));
+//    SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(
+//      systemNavigationBarColor: Color(0xffff3a5a), // navigation bar color
+//      statusBarColor: Color(0xffff3a5a), // status bar color
+//    ));
     //Color de status bar
 //    SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(statusBarColor: Colors.transparent));
 
