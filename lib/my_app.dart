@@ -42,22 +42,22 @@ class _MyAppState extends State<MyApp> {
       // Disable Banner - Desactivar
       debugShowCheckedModeBanner: false,
 
-      // =======================================================
-      // ======================   RUTAS   ======================
-      // =======================================================
+      // ===========================================================
+      // ========================   RUTAS   ========================
+      // ===========================================================
 
-      // Ruta Inicial
+      // Ruta Inicial - MAIN
       initialRoute: '/',
 
       // Rutas
       routes: {
-        // ========== MAIN =========
+        // ============ MAIN ============
         // Main y logo inicial animación
         // When navigating to the "/" route, build the FirstScreen widget.
         '/': (context) => SafeArea(child: LogoScreen()),
 
-        // ===== LOGIN ======
-        '/login': (context) => SafeArea(child: LoginPage()),
+        // ============ Login ============
+        '/login': (context) => LoginPage(),
 
         //============================================
         // ============ ADMIN side Routes ============
@@ -69,8 +69,8 @@ class _MyAppState extends State<MyApp> {
         // AGREGAR PRODUCTO
         '/agregarproducto': (context) => SafeArea(child: ProfilePage()),
 
-        //=======================================
-        //=======================================
+        //============================================
+        //============================================
 
         //
         //
@@ -79,7 +79,7 @@ class _MyAppState extends State<MyApp> {
         //
 
         //============================================
-        // ============ USER side Routes ============
+        // ============ USER side Routes =============
         //============================================
         // HOMEPAGE, el CATALOGO
         // When navigating to the "/homepage" route, build the HomePage widget.
@@ -119,8 +119,8 @@ class _MyAppState extends State<MyApp> {
         // When navigating to the "/second" route, build the SecondScreen widget.
         '/cart': (context) => SafeArea(child: Cart()),
 
-        //=======================================
-        //=======================================
+        //============================================
+        //============================================
       },
     );
   }
