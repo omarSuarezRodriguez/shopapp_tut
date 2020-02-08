@@ -40,45 +40,44 @@ class _WallScreenState extends State<WallScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.red,
+        backgroundColor: Color(0xffff3a5a),
         title: Text("Productos"),
 
-        // Acciones AppBar
+        // ================ Acciones AppBar ================
         actions: <Widget>[
+          // ========== Icono Lista AppBar ==========
           PopupMenuButton(
             icon: Icon(FontAwesomeIcons.ellipsisV),
             itemBuilder: (context) => [
+              // ========== Catalogo ==========
               PopupMenuItem(
                 child: InkWell(
                   onTap: () {
-                    // CATALOGO
-
-                    // ================= IMPORTANTE ROUTE =============
-
-                    // Sirve para ir a la raiz de la ruta, cerrando el resto
-                    // This will basically push a home and remove all the routes
-                    // behind the new one
                     Navigator.pushNamedAndRemoveUntil(
                         context, '/homepage', (_) => false);
-
-//                    Navigator.pushReplacementNamed(context, '/homepage');
-//                    Navigator.pushNamed(context, '/homepage');
-//                    Navigator.popUntil(context, ModalRoute.withName(Navigator.defaultRouteName));
-
-//                    Navigator.popUntil(
-//                        context,
-//                        ModalRoute.withName(
-//                            "homepage"));
-//                    Navigator.push(
-//                        context,
-//                        MaterialPageRoute(
-//                            builder: (context) => new HomePage()));
                   },
                   child: ListTile(
                     title: Text('Catálogo'),
                     // Icono Home
                     leading: Icon(
                       FontAwesomeIcons.home,
+                      color: Color(0xffff3a5a),
+                    ),
+                  ),
+                ),
+              ),
+
+              // ========== COMPRAR ==========
+              PopupMenuItem(
+                child: InkWell(
+                  onTap: () {
+                    Navigator.pushReplacementNamed(context, '/comprar');
+                  },
+                  child: ListTile(
+                    title: Text('Comprar'),
+                    // Icono Home
+                    leading: Icon(
+                      FontAwesomeIcons.shoppingCart,
                       color: Colors.redAccent,
                     ),
                   ),

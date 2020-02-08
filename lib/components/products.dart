@@ -1,6 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:shopapp_tut/pages/product_details.dart';
 
+
+class Productazos extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: Products(),
+    );
+  }
+}
+
+
+
 class Products extends StatefulWidget {
   @override
   _ProductsState createState() => _ProductsState();

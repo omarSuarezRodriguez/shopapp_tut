@@ -146,6 +146,10 @@ class _LoginPageState extends State<LoginPage> {
 
   @override
   Widget build(BuildContext context) {
+    SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(
+      systemNavigationBarColor: Color(0xffff3a5a), // navigation bar color
+      statusBarColor: Color(0xffff3a5a), // status bar color
+    ));
     //Color de status bar
 //    SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(statusBarColor: Colors.transparent));
 
@@ -238,7 +242,7 @@ class _LoginPageState extends State<LoginPage> {
                   textInputAction: TextInputAction.next,
                   controller: controlUsuario,
                   onChanged: (String value) {},
-                  cursorColor: Colors.deepOrange,
+                  cursorColor: Color(0xffff3a5a),
                   decoration: InputDecoration(
                       hintText: "Usuario",
                       prefixIcon: Material(
@@ -246,7 +250,7 @@ class _LoginPageState extends State<LoginPage> {
                         borderRadius: BorderRadius.all(Radius.circular(30)),
                         child: Icon(
                           Icons.person,
-                          color: Colors.red,
+                          color: Color(0xffff3a5a),
                         ),
                       ),
                       border: InputBorder.none,
@@ -273,7 +277,7 @@ class _LoginPageState extends State<LoginPage> {
                   obscureText: true,
                   //Para ocultar texto
                   onChanged: (String value) {},
-                  cursorColor: Colors.deepOrange,
+                  cursorColor: Color(0xffff3a5a),
                   decoration: InputDecoration(
                       hintText: "Contraseña",
                       prefixIcon: Material(
@@ -281,7 +285,7 @@ class _LoginPageState extends State<LoginPage> {
                         borderRadius: BorderRadius.all(Radius.circular(30)),
                         child: Icon(
                           Icons.lock,
-                          color: Colors.red,
+                          color: Color(0xffff3a5a),
                         ),
                       ),
                       border: InputBorder.none,
@@ -316,13 +320,35 @@ class _LoginPageState extends State<LoginPage> {
             SizedBox(
               height: 20,
             ),
-            Center(
-              child: Text(
-                "¿Has olvidado tu contraseña?",
-                style: TextStyle(
-                    color: Colors.red,
-                    fontSize: 12,
-                    fontWeight: FontWeight.w700),
+            InkWell(
+              onTap: () {
+                showDialog(
+                    context: context,
+                    builder: (context) {
+                      return new AlertDialog(
+                        title: Text("Recuperar Contraseña"),
+                        content: Text(
+                            "Por favor contacte con Yudith Rodriguez\n\n" +
+                                "Telf: 317 4113119"),
+                        actions: <Widget>[
+                          MaterialButton(
+                            onPressed: () {
+                              Navigator.of(context).pop(context);
+                            },
+                            child: Text('Cerrar'),
+                          ),
+                        ],
+                      );
+                    });
+              },
+              child: Center(
+                child: Text(
+                  "¿Has olvidado tu contraseña?",
+                  style: TextStyle(
+                      color: Color(0xffff3a5a),
+                      fontSize: 12,
+                      fontWeight: FontWeight.w700),
+                ),
               ),
             ),
 //          SizedBox(height: 40,),

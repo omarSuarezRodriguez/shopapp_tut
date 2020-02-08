@@ -8,7 +8,7 @@ import 'widgets/productos.dart';
 
 // Admin side imports
 import 'admin_side/home_page_admin.dart';
-import 'admin_side/pages/agregar_producto.dart';
+import 'admin_side/admin_widgets/agregar_producto.dart';
 
 // Client side imports
 import 'home_page.dart';

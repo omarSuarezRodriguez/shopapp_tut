@@ -57,9 +57,9 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     //Color de status bar
-    SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle.light.copyWith(
-      statusBarColor: Colors.red, //or set color with: Color(0xFF0000FF)
-      systemNavigationBarColor: Colors.red,
+    SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(
+      systemNavigationBarColor: Color(0xffff3a5a), // navigation bar color
+      statusBarColor: Color(0xffff3a5a), // status bar color
     ));
     //Fin color status bar
 
@@ -77,7 +77,7 @@ class _HomePageState extends State<HomePage> {
         animationCurve: Curves.fastOutSlowIn,
         dotBgColor: Colors.transparent,
 //        dotColor: Colors.redAccent,
-        dotIncreasedColor: Colors.redAccent,
+        dotIncreasedColor: Color(0xffff3a5a),
         dotSize: 5.5,
         indicatorBgPadding: 4.0,
         autoplayDuration: Duration(milliseconds: 6000),
@@ -103,8 +103,8 @@ class _HomePageState extends State<HomePage> {
               onPressed: () => Scaffold.of(context).openDrawer(),
             ),
           ),
-          elevation: 0.1,
-          backgroundColor: Colors.red,
+//          elevation: 0.1,
+          backgroundColor: Color(0xffff3a5a),
           title: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.start,
@@ -162,7 +162,7 @@ class _HomePageState extends State<HomePage> {
                   ),
                 ),
                 decoration: BoxDecoration(
-                  color: Colors.red,
+                  color: Color(0xffff3a5a),
                 ),
               ),
 
@@ -176,7 +176,7 @@ class _HomePageState extends State<HomePage> {
                   // Icono Home
                   leading: Icon(
                     FontAwesomeIcons.home,
-                    color: Colors.redAccent,
+                    color: Color(0xffff3a5a),
                   ),
                 ),
               ),
@@ -412,10 +412,11 @@ class _HomePageState extends State<HomePage> {
               ),
 
               // Grid View
-              Container(
-                height: 320.0,
-                child: Products(),
-              ),
+              Productazos(),
+//              Container(
+//                height: 320.0,
+//                child: Productazos(),
+//              ),
             ],
           ),
         ),
