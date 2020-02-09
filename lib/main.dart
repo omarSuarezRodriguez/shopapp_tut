@@ -5,7 +5,7 @@ import 'my_app.dart';
 //
 // Classes here
 //
-// main
+// main() -> Clase main
 
 //
 //
@@ -15,9 +15,6 @@ void main() {
   SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(
     statusBarColor: Color(0xffff3a5a),
     systemNavigationBarColor: Color(0xffff3a5a),
-//    statusBarBrightness: Brightness.dark,
-//    statusBarIconBrightness: Brightness.light,
-//    systemNavigationBarIconBrightness: Brightness.light,
   ));
 
   // Para correr la App

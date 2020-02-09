@@ -83,6 +83,7 @@ flutter:
     - images/
     - images/cats/
     - images/products/
+    - assets/images/
     - videos/IntroVideo.mp4
 
   # An image asset can refer to one or more resolution-specific "variants", see

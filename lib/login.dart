@@ -1,29 +1,8 @@
 import 'package:flutter/material.dart';
-import 'dart:async';
 import 'package:toast/toast.dart';
-import 'package:http/http.dart' as http;
-
-//import 'Home.dart';
 import 'package:flutter/services.dart';
-import "admin_side/home_page_admin.dart";
-import 'package:shopapp_tut/home_page.dart';
 
-//void main() => runApp(MyApp());
-
-//class Login extends StatelessWidget {
-//  // This widget is the root of your application.
-//  @override
-//  Widget build(BuildContext context) {
-//    return MaterialApp(
-//      title: 'Login',
-//      theme: ThemeData(
-//        primarySwatch: Colors.blue,
-//      ),
-//      home: LoginPage(),
-//    );
-//  }
-//}
-
+// LoginPage
 class LoginPage extends StatefulWidget {
   static final String path = "lib/src/pages/login/login.dart";
 
@@ -36,44 +15,7 @@ class _LoginPageState extends State<LoginPage> {
   TextEditingController controlContrasena = new TextEditingController();
   final focus = FocusNode();
 
-  Future<List> obtenerUsuario() async {
-    var url = "https://provitalplus.com.co/obtenerUsuario.php";
-    final response = await http.post(url, body: {
-      "usuario": controlUsuario.text,
-      "contrasena": controlContrasena.text
-    });
-
-    if (controlUsuario.text.toString() == "admin" &&
-        controlContrasena.text.toString() == "yuka") {
-      Navigator.pushNamed(context, '/homepageadmin');
-      Toast.show("LOGIN CORRECTO", context,
-          duration: Toast.LENGTH_LONG,
-          gravity: Toast.CENTER,
-          backgroundColor: Colors.green,
-          textColor: Colors.white);
-    }
-
-//    if (response.body == "CORRECTO") {
-////      Navigator.pushReplacementNamed(context,'/Home');
-////      Navigator.push(
-////        context,
-////        MaterialPageRoute(builder: (context) => App()),
-////      );
-////      HomePage();
-//      Toast.show("LOGIN CORRECTO", context,
-//          duration: Toast.LENGTH_LONG,
-//          gravity: Toast.CENTER,
-//          backgroundColor: Colors.green,
-//          textColor: Colors.white);
-//    } else if (response.body == "ERROR") {
-//      Toast.show("LOGIN INCORRECTO", context,
-//          duration: Toast.LENGTH_LONG,
-//          gravity: Toast.CENTER,
-//          backgroundColor: Colors.red,
-//          textColor: Colors.white);
-//    }
-  }
-
+  // Método para iniciar sesión
   void iniciarSesion() {
     String usuario = controlUsuario.toString();
 
@@ -106,59 +48,16 @@ class _LoginPageState extends State<LoginPage> {
         controlContrasena.text == "cliente") {
       Navigator.pushNamedAndRemoveUntil(context, '/homepage', (_) => false);
 
-//      Navigator.pushNamed(context, '/homepageadmin');
-//      Navigator.push(
-//        context,
-//        MaterialPageRoute(builder: (context) => HomePage()),
-//      );
 //      Toast.show("Bienvenido", context,
 //          duration: Toast.LENGTH_SHORT,
 //          gravity: Toast.CENTER,
 //          backgroundColor: Colors.green,
 //          textColor: Colors.white);
     }
-
-//    // SI NO ES NINGUN LOGIN, INCORRECTO
-//    if (controlUsuario.text != "admin" && controlContrasena.text != "yuka") {
-//      if (controlUsuario.text != "cliente" &&
-//          controlContrasena.text != "cliente") {
-//        Toast.show("LOGIN INCORRECTO", context,
-//            duration: Toast.LENGTH_SHORT,
-//            gravity: Toast.CENTER,
-//            backgroundColor: Colors.red,
-//            textColor: Colors.white);
-//      }
-//    }
-
-    // SI NO ES NINGUN LOGIN, INCORRECTO
-//    if ((controlUsuario.text != "admin" && controlContrasena.text != "yuka") |
-//        (controlUsuario.text != "cliente" &&
-//            controlContrasena.text != "cliente")) {
-//      Toast.show("LOGIN INCORRECTO", context,
-//          duration: Toast.LENGTH_LONG,
-//          gravity: Toast.CENTER,
-//          backgroundColor: Colors.red,
-//          textColor: Colors.white);
-//    }
-
-//    print(usuario);
   }
 
   @override
   Widget build(BuildContext context) {
-//    SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(
-//      systemNavigationBarColor: Color(0xffff3a5a), // navigation bar color
-//      statusBarColor: Color(0xffff3a5a), // status bar color
-//    ));
-    //Color de status bar
-//    SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(statusBarColor: Colors.transparent));
-
-//    SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle.light.copyWith(
-//      statusBarColor: Colors.red, //or set color with: Color(0xFF0000FF)
-////      statusBarColor: Colors.redAccent, //or set color with: Color(0xFF0000FF)
-////      systemNavigationBarColor: Colors.red,
-//    ));
-
     return SafeArea(
       top: true,
       bottom: true,
@@ -351,15 +250,6 @@ class _LoginPageState extends State<LoginPage> {
                 ),
               ),
             ),
-//          SizedBox(height: 40,),
-//          Row(
-//            mainAxisAlignment: MainAxisAlignment.center,
-//            children: <Widget>[
-//              Text("Don't have an Account ? ", style: TextStyle(color:Colors.black,fontSize: 12 ,fontWeight: FontWeight.normal),),
-//              Text("Sign Up ", style: TextStyle(color:Colors.red, fontWeight: FontWeight.w500,fontSize: 12, decoration: TextDecoration.underline )),
-//
-//            ],
-//          )
           ],
         ),
       ),

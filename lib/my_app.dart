@@ -1,27 +1,36 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'dart:async';
 
 // My Own Imports
 import 'login.dart';
-import 'widgets/productos.dart';
 
 // Admin side imports
 import 'admin_side/home_page_admin.dart';
+import 'admin_side/admin_pages/administrar/administrar_productos/admin_productos.dart';
+import 'admin_side/admin_pages/administrar/administrar_categorias/admin_categorias.dart';
+import 'admin_side/admin_pages/administrar/administrar_clientes/admin_clientes.dart';
+import 'admin_side/admin_pages/administrar/administrar_contrasenas/admin_contrasenas.dart';
 import 'admin_side/admin_widgets/agregar_producto.dart';
 
 // Client side imports
-import 'home_page.dart';
-import 'pages/favoritos.dart';
-import 'pages/categorias.dart';
-import 'pages/comprar.dart';
-import 'pages/product_details.dart';
-import 'pages/productos_recientes.dart';
-import 'pages/quienes_somos.dart';
-import 'pages/cart.dart';
-import 'pages/pedidos.dart';
-import 'pages/datos.dart';
-import 'pages/ajustes.dart';
+import 'client_side/home_page_client.dart';
+import 'client_side/client_pages/favoritos.dart';
+import 'client_side/client_pages/categorias.dart';
+import 'client_side/client_pages/comprar.dart';
+import 'client_side/client_pages/product_details.dart';
+import 'client_side/client_pages/productos_recientes.dart';
+import 'client_side/client_pages/quienes_somos.dart';
+import 'client_side/client_pages/cart.dart';
+import 'client_side/client_pages/pedidos.dart';
+import 'client_side/client_pages/datos.dart';
+import 'client_side/client_pages/ajustes.dart';
+import 'client_side/client_widgets/productos.dart';
+
+//
+// Classes here
+//
+// MyApp() -> Clase/Widget principal de la App
+// LogoScreen() -> clase/widget del logo de la app, redirige al login
 
 //
 //
@@ -42,45 +51,110 @@ class _MyAppState extends State<MyApp> {
       // Disable Banner - Desactivar
       debugShowCheckedModeBanner: false,
 
+      //
+      //
+      //
+      //
+
       // ===========================================================
-      // ========================   RUTAS   ========================
+      // ======================== < RUTAS > ========================
       // ===========================================================
 
       // Ruta Inicial - MAIN
       initialRoute: '/',
 
-      // Rutas
+      // routes
       routes: {
-        // ============ MAIN ============
+        // ========== < MAIN > ==========
         // Main y logo inicial animación
         // When navigating to the "/" route, build the FirstScreen widget.
         '/': (context) => SafeArea(child: LogoScreen()),
+        // ========= < /MAIN > ==========
 
-        // ============ Login ============
-        '/login': (context) => LoginPage(),
+        // ========== < Login > ==========
+        '/login': (context) => SafeArea(child: LoginPage()),
+        // ========= < /Login > ==========
 
-        //============================================
-        // ============ ADMIN side Routes ============
-        //============================================
+        //
+        //
+        //
+        //
+        //
+        //
+        //
+        //
+        //
+        //
+        //
+        //
+        //
+        //
+
+        // ===========================================
+        // ========== < ADMIN side Routes > ==========
+        // ===========================================
 
         //HOMEPAGE
         '/homepageadmin': (context) => SafeArea(child: HomePageAdmin()),
 
+        // ======= < Tablero > =======
+        // ===========================
+
+        //
+        //
+
+        // ====== < /Tablero > =======
+        // ===========================
+
+        //
+        //
+        //
+        //
+
+        // ===== < Administrar > =====
+        // ===========================
+
+        // Administrar Productos, ruta de Productos en admin_side Administrar
+        '/adminproductos': (context) => SafeArea(child: AdminProductos()),
+
+        // Administrar Productos, ruta de Productos en admin_side Administrar
+        '/admincategorias': (context) => SafeArea(child: AdminCategorias()),
+
+        // Administrar Productos, ruta de Productos en admin_side Administrar
+        '/adminclientes': (context) => SafeArea(child: AdminClientes()),
+
+        // Administrar Productos, ruta de Productos en admin_side Administrar
+        '/admincontrasenas': (context) => SafeArea(child: AdminContrasenas()),
+
         // AGREGAR PRODUCTO
         '/agregarproducto': (context) => SafeArea(child: ProfilePage()),
 
-        //============================================
-        //============================================
+        // ==== < /Administrar > =====
+        // ===========================
+
+        // ===========================================
+        // ========= < /ADMIN side Routes > ==========
+        // ===========================================
 
         //
         //
         //
         //
         //
+        //
+        //
+        //
+        //
+        //
+        //
+        //
+        //
+        //
 
         //============================================
-        // ============ USER side Routes =============
+        // ========== < USER side Routes > ===========
         //============================================
+
         // HOMEPAGE, el CATALOGO
         // When navigating to the "/homepage" route, build the HomePage widget.
         '/homepage': (context) => SafeArea(child: HomePage()),
@@ -120,7 +194,17 @@ class _MyAppState extends State<MyApp> {
         '/cart': (context) => SafeArea(child: Cart()),
 
         //============================================
+        // ========= < /USER side Routes > ===========
         //============================================
+
+        // ===========================================================
+        // ======================= < /RUTAS > ========================
+        // ===========================================================
+
+        //
+        //
+        //
+        //
       },
     );
   }
@@ -129,7 +213,7 @@ class _MyAppState extends State<MyApp> {
 //
 //
 // ===============================================
-// ================= LOGO SCREEN =================
+// =============== < LOGO SCREEN > ===============
 // ===============================================
 // Esta clase es donde nos redirige hacia el resto de la app, es el logo
 class LogoScreen extends StatefulWidget {
@@ -138,11 +222,10 @@ class LogoScreen extends StatefulWidget {
 }
 
 class _LogoScreenState extends State<LogoScreen> {
-  // initState
   @override
   void initState() {
     super.initState();
-    // Logo Company - Image splash Screen
+    // Logo de la empresa - Image splash Screen
     Future.delayed(
       Duration(milliseconds: 1400), // Show logo for 1400 milliseconds
       () {
@@ -153,7 +236,6 @@ class _LogoScreenState extends State<LogoScreen> {
 
   @override
   Widget build(BuildContext context) {
-    // SafeArea y dentro la App
     return Scaffold(
       backgroundColor: Colors.white,
       body: Center(
@@ -166,3 +248,6 @@ class _LogoScreenState extends State<LogoScreen> {
     );
   }
 }
+// ===============================================
+// ============== < /LOGO SCREEN > ===============
+// ===============================================

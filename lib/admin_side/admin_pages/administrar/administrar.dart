@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'upload.dart';
 
-
-
 // ==================================
 // ==================================
 // =========== Administrar ==========
@@ -14,28 +12,39 @@ class Administrar extends StatelessWidget {
       body: ListView(
         children: <Widget>[
           ListTile(
-            leading: Icon(Icons.add_circle, color: Color(0xffff3a5a)),
-            title: Text("Agregar Producto"),
+            leading: Icon(Icons.local_offer, color: Color(0xffff3a5a)),
+            title: Text("Productos"),
             onTap: () {
-              //
-              Navigator.pushNamed(context, '/agregarproducto');
-//              Navigator.push(
-//                context,
-//                MaterialPageRoute(builder: (context) => UploadPage()),
-//              );
+              // Administrar Productos
+              Navigator.pushNamed(context, '/adminproductos');
             },
           ),
           Divider(),
           ListTile(
-            leading: Icon(Icons.add, color: Colors.blue),
-            title: Text("Agregar Clientes"),
-            onTap: () {},
+            leading: Icon(Icons.dashboard, color: Colors.teal),
+            title: Text("Categorías"),
+            onTap: () {
+              // Administrar Categorias
+              Navigator.pushNamed(context, '/admincategorias');
+            },
           ),
           Divider(),
           ListTile(
-            leading: Icon(Icons.library_books, color: Colors.green),
-            title: Text("Cambiar Contraseña"),
-            onTap: () {},
+            leading: Icon(Icons.face, color: Colors.indigoAccent),
+            title: Text("Clientes"),
+            onTap: () {
+              // Administrar Clientes
+              Navigator.pushNamed(context, '/adminclientes');
+            },
+          ),
+          Divider(),
+          ListTile(
+            leading: Icon(Icons.library_books, color: Colors.lightGreen),
+            title: Text("Contraseñas"),
+            onTap: () {
+              // Administrar Contraseñas
+              Navigator.pushNamed(context, '/admincontrasenas');
+            },
           ),
           Divider(),
           ListTile(
