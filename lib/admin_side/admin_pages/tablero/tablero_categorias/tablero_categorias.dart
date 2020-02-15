@@ -117,7 +117,7 @@ class _CategoriasTableroState extends State<CategoriasTablero> {
       child: Card(
         child: InkWell(
           onTap: () {
-            Navigator.pushNamed(context, '/productos');
+            Navigator.pushNamed(context, '/tablerocategoriaslistado');
           },
           child: Padding(
             padding: EdgeInsets.only(top: 8.0),

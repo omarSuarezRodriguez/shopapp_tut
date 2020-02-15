@@ -6,16 +6,16 @@ import 'user.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import '../../../admin_widgets/widgets.dart';
 
-class FireBaseFireStoreDemo extends StatefulWidget {
-  FireBaseFireStoreDemo() : super();
+class TableroClientesListado extends StatefulWidget {
+  TableroClientesListado() : super();
 
 //  final String title = "CloudFireStore Demo";
 
   @override
-  FireBaseFireStoreDemoState createState() => FireBaseFireStoreDemoState();
+  TableroClientesListadoState createState() => TableroClientesListadoState();
 }
 
-class FireBaseFireStoreDemoState extends State<FireBaseFireStoreDemo> {
+class TableroClientesListadoState extends State<TableroClientesListado> {
   //
   bool showTextField = false;
   TextEditingController controller = TextEditingController();
@@ -77,83 +77,19 @@ class FireBaseFireStoreDemoState extends State<FireBaseFireStoreDemo> {
     }
   }
 
-//  delete(User user) {
-//    // set up the buttons
-//    Widget cancelButton = FlatButton(
-//      child: Text("Si"),
-//      onPressed: () {
-//        Firestore.instance.runTransaction(
-//          (Transaction transaction) async {
-//            await transaction.delete(user.reference);
-//          },
-//        );
-//        Navigator.pop(context);
-//      },
-//    );
-//    Widget continueButton = FlatButton(
-//      child: Text("No"),
-//      onPressed: () {
-//        Navigator.pop(context);
-//      },
-//    );
-//
-//    // set up the AlertDialog
-//    AlertDialog alert = AlertDialog(
-//      title: Text("Eliminar"),
-//      content: Text("¿Desea eliminar la categoría?"),
-//      actions: [
-//        cancelButton,
-//        continueButton,
-//      ],
-//    );
-//
-//    // show the dialog
-//    showDialog(
-//      context: context,
-//      builder: (BuildContext context) {
-//        return alert;
-//      },
-//    );
-//  }
-
   delete(User user) {
     // set up the buttons
     Widget cancelButton = FlatButton(
       child: Text("Si"),
       onPressed: () {
-        check().then((intenet) {
-          if (intenet != null && intenet) {
-            // Internet Present Case
-            // AGREGAR!!!!!!!!!!!!!!!!!
-            Firestore.instance.runTransaction(
-              (Transaction transaction) async {
-                await transaction.delete(user.reference);
-              },
-            );
-            Navigator.pop(context);
-            Toast.show("Cliente Eliminado", context,
-                gravity: Toast.BOTTOM,
-                duration: Toast.LENGTH_LONG,
-                backgroundColor: Color(0xff4CAF50));
-//            setState(() {
-//              showTextField = false;
-//            });
-          } else {
-            Navigator.pop(context);
-            mostrarDialog(
-                context,
-                "Sin Conexión",
-                "Debe tener conexión a internet para modificar la información.",
-                "Cerrar",
-                "",
-                null,
-                null);
-//                  _showDialog();
-          }
-        });
+        Firestore.instance.runTransaction(
+          (Transaction transaction) async {
+            await transaction.delete(user.reference);
+          },
+        );
+        Navigator.pop(context);
       },
     );
-
     Widget continueButton = FlatButton(
       child: Text("No"),
       onPressed: () {
@@ -164,7 +100,7 @@ class FireBaseFireStoreDemoState extends State<FireBaseFireStoreDemo> {
     // set up the AlertDialog
     AlertDialog alert = AlertDialog(
       title: Text("Eliminar"),
-      content: Text("¿Desea eliminar el cliente?"),
+      content: Text("¿Desea eliminar la categoría?"),
       actions: [
         cancelButton,
         continueButton,
@@ -206,7 +142,7 @@ class FireBaseFireStoreDemoState extends State<FireBaseFireStoreDemo> {
     final user = User.fromSnapshot(data);
     return Padding(
       key: ValueKey(user.name),
-      padding: EdgeInsets.symmetric(vertical: 8.0),
+      padding: EdgeInsets.symmetric(vertical: 6.0),
       child: Container(
         decoration: BoxDecoration(
           border: Border.all(color: Colors.lightBlueAccent),
@@ -214,20 +150,20 @@ class FireBaseFireStoreDemoState extends State<FireBaseFireStoreDemo> {
         ),
         child: ListTile(
           title: Text(user.name),
-          trailing: IconButton(
-            icon: Icon(
-              Icons.delete,
-              color: Color(0xffff3a5a),
-            ),
-            onPressed: () {
-              // delete
-              delete(user);
-            },
-          ),
-          onTap: () {
-            // update
-            setUpdateUI(user);
-          },
+//          trailing: IconButton(
+//            icon: Icon(
+//              Icons.delete,
+//              color: Color(0xffff3a5a),
+//            ),
+////            onPressed: () {
+////              // delete
+////              delete(user);
+////            },
+//          ),
+//          onTap: () {
+//            // update
+//            setUpdateUI(user);
+//          },
         ),
       ),
     );
@@ -253,75 +189,6 @@ class FireBaseFireStoreDemoState extends State<FireBaseFireStoreDemo> {
     return false;
   }
 
-//  // PARA QUE SE MUESTRE EL BOTON DE AGREGAR Y DE CANCELAR,
-//  // ESTO SE MUESTRA AL DAR CLICK EN AGREGAR
-//  button() {
-//    return SizedBox(
-//      width: double.infinity,
-//      child: Row(
-////        mainAxisAlignment: MainAxisAlignment.start,
-////        scrollDirection: Axis.vertical,
-//        children: <Widget>[
-//          OutlineButton(
-//            child: Text(isEditing ? "Actualizar" : "Agregar"),
-//            onPressed: () {
-//              // AQUIIIIIIIIIIIII
-//
-//              // SI HAY INTERNET, AGREGUE, Si NO NO !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-//
-////          if(!controller.) {
-////
-////          }
-//
-//              setState(() {
-//                if (controller.text.isNotEmpty) {
-//                  check().then((intenet) {
-//                    if (intenet != null && intenet) {
-//                      // Internet Present Case
-//                      // AGREGAR!!!!!!!!!!!!!!!!!
-//                      add();
-//                      Toast.show("Cliente Añadido", context,
-//                          gravity: Toast.BOTTOM,
-//                          duration: Toast.LENGTH_LONG,
-//                          backgroundColor: Color(0xff4CAF50));
-//                      setState(() {
-//                        showTextField = false;
-//                      });
-//                    } else {
-//                      mostrarDialog(
-//                          context,
-//                          "Sin Conexión",
-//                          "Debe tener conexión a internet para modificar la información.",
-//                          "Cerrar",
-//                          "",
-//                          null,
-//                          null);
-//                    }
-//                  });
-//                } else {
-//                  mostrarDialog(context, "Error",
-//                      "Ingrese los datos por favor.", "Cerrar", "", null, null);
-//                }
-//              });
-//            },
-//          ),
-//          Padding(
-//            padding: EdgeInsets.only(left: 10.0, right: 10.0),
-//          ),
-//          OutlineButton(
-//            child: Text("Cancelar"),
-//            onPressed: () {
-//              setState(() {
-//                showTextField = false;
-//                controller.text = "";
-//              });
-//            },
-//          ),
-//        ],
-//      ),
-//    );
-//  }
-
   // PARA QUE SE MUESTRE EL BOTON DE AGREGAR Y DE CANCELAR,
   // ESTO SE MUESTRA AL DAR CLICK EN AGREGAR
   button() {
@@ -338,36 +205,24 @@ class FireBaseFireStoreDemoState extends State<FireBaseFireStoreDemo> {
 
               // SI HAY INTERNET, AGREGUE, Si NO NO !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
+//          if(!controller.) {
+//
+//          }
+
               setState(() {
                 if (controller.text.isNotEmpty) {
                   check().then((intenet) {
                     if (intenet != null && intenet) {
                       // Internet Present Case
                       // AGREGAR!!!!!!!!!!!!!!!!!
-
-                      // Comprobar si isEditing es true o false
-                      // Para mostrar toast si es añadida o modificada
-                      if (isEditing) {
-                        // CUANDO VA A AGREGAR EL EDITADO
-                        add();
-                        Toast.show("Cliente Modificado", context,
-                            gravity: Toast.BOTTOM,
-                            duration: Toast.LENGTH_LONG,
-                            backgroundColor: Color(0xff4CAF50));
-                        setState(() {
-                          showTextField = false;
-                        });
-                      } else {
-                        // CUANDO VA A AGREGAR UNO NUEVO
-                        add();
-                        Toast.show("Cliente Añadido", context,
-                            gravity: Toast.BOTTOM,
-                            duration: Toast.LENGTH_LONG,
-                            backgroundColor: Color(0xff4CAF50));
-                        setState(() {
-                          showTextField = false;
-                        });
-                      }
+                      add();
+                      Toast.show("Cliente Añadido", context,
+                          gravity: Toast.BOTTOM,
+                          duration: Toast.LENGTH_LONG,
+                          backgroundColor: Color(0xff4CAF50));
+                      setState(() {
+                        showTextField = false;
+                      });
                     } else {
                       mostrarDialog(
                           context,
@@ -393,7 +248,6 @@ class FireBaseFireStoreDemoState extends State<FireBaseFireStoreDemo> {
             child: Text("Cancelar"),
             onPressed: () {
               setState(() {
-                isEditing = false;
                 showTextField = false;
                 controller.text = "";
               });
@@ -442,9 +296,21 @@ class FireBaseFireStoreDemoState extends State<FireBaseFireStoreDemo> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        automaticallyImplyLeading: true,
         backgroundColor: Color(0xffff3a5a),
         title: Text("Clientes"),
+        leading: IconButton(
+          icon: Icon(
+            FontAwesomeIcons.arrowLeft,
+            color: Colors.white,
+          ),
+          onPressed: () {
+            Navigator.pop(context);
+          },
+        ),
         actions: <Widget>[
+          // Icono de buscar
+//            IconButton(icon: Icon(FontAwesomeIcons.search), onPressed: () {}),
           PopupMenuButton(
             icon: Icon(FontAwesomeIcons.ellipsisV),
             itemBuilder: (context) => [
@@ -470,7 +336,7 @@ class FireBaseFireStoreDemoState extends State<FireBaseFireStoreDemo> {
         ],
       ),
       body: Container(
-        padding: EdgeInsets.only(bottom: 33.0, left: 17, right: 17, top: 17),
+        padding: EdgeInsets.only(bottom: 0.0, left: 17, right: 17, top: 17),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
           mainAxisAlignment: MainAxisAlignment.start,
@@ -526,28 +392,28 @@ class FireBaseFireStoreDemoState extends State<FireBaseFireStoreDemo> {
 
       // Me muestra y no me muestra el floating action button dependiendo de
       // la propiedad visible
-      floatingActionButton: Visibility(
-        child: FloatingActionButton.extended(
-          onPressed: () {
-            setState(() {
-              showTextField = !showTextField;
-            });
-          },
-          label: Text(
-            'Agregar',
-            style: TextStyle(
-                color: Colors.white,
-                fontWeight: FontWeight.bold,
-                fontSize: 16.0),
-          ),
-          icon: Icon(
-            Icons.add_circle,
-            color: Colors.white,
-          ),
-          backgroundColor: Color(0xff00E676),
-        ),
-        visible: !showTextField, // set it to false
-      ),
+//      floatingActionButton: Visibility(
+//        child: FloatingActionButton.extended(
+//          onPressed: () {
+//            setState(() {
+//              showTextField = !showTextField;
+//            });
+//          },
+//          label: Text(
+//            'Agregar',
+//            style: TextStyle(
+//                color: Colors.white,
+//                fontWeight: FontWeight.bold,
+//                fontSize: 16.0),
+//          ),
+//          icon: Icon(
+//            Icons.add_circle,
+//            color: Colors.white,
+//          ),
+//          backgroundColor: Color(0xff00E676),
+//        ),
+//        visible: !showTextField, // set it to false
+//      ),
 
 //      floatingActionButton: FloatingActionButton.extended(
 //        onPressed: () {

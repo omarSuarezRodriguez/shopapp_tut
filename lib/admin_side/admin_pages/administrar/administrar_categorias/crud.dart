@@ -84,14 +84,39 @@ class FireBaseFireStoreDemoState extends State<FireBaseFireStoreDemo> {
     Widget cancelButton = FlatButton(
       child: Text("Si"),
       onPressed: () {
-        Firestore.instance.runTransaction(
-          (Transaction transaction) async {
-            await transaction.delete(user.reference);
-          },
-        );
-        Navigator.pop(context);
+        check().then((intenet) {
+          if (intenet != null && intenet) {
+            // Internet Present Case
+            // AGREGAR!!!!!!!!!!!!!!!!!
+            Firestore.instance.runTransaction(
+              (Transaction transaction) async {
+                await transaction.delete(user.reference);
+              },
+            );
+            Navigator.pop(context);
+            Toast.show("Categoría Eliminada", context,
+                gravity: Toast.BOTTOM,
+                duration: Toast.LENGTH_LONG,
+                backgroundColor: Color(0xff4CAF50));
+//            setState(() {
+//              showTextField = false;
+//            });
+          } else {
+            Navigator.pop(context);
+            mostrarDialog(
+                context,
+                "Sin Conexión",
+                "Debe tener conexión a internet para modificar la información.",
+                "Cerrar",
+                "",
+                null,
+                null);
+//                  _showDialog();
+          }
+        });
       },
     );
+
     Widget continueButton = FlatButton(
       child: Text("No"),
       onPressed: () {
@@ -248,13 +273,43 @@ class FireBaseFireStoreDemoState extends State<FireBaseFireStoreDemo> {
                     if (intenet != null && intenet) {
                       // Internet Present Case
                       // AGREGAR!!!!!!!!!!!!!!!!!
-                      add();
-                      Toast.show("Categoría Añadida", context,
-                          gravity: Toast.BOTTOM,
-                          backgroundColor: Color(0xff4CAF50));
-                      setState(() {
-                        showTextField = false;
-                      });
+
+                      // Comprobar si isEditing es true o false
+                      // Para mostrar toast si es añadida o modificada
+                      if (isEditing) {
+                        // CUANDO VA A AGREGAR EL EDITADO
+                        add();
+                        Toast.show("Categoria Modificada", context,
+                            gravity: Toast.BOTTOM,
+                            duration: Toast.LENGTH_LONG,
+                            backgroundColor: Color(0xff4CAF50));
+                        setState(() {
+                          showTextField = false;
+                        });
+                      } else {
+                        // CUANDO VA A AGREGAR UNO NUEVO
+                        add();
+                        Toast.show("Categoria Añadida", context,
+                            gravity: Toast.BOTTOM,
+                            duration: Toast.LENGTH_LONG,
+                            backgroundColor: Color(0xff4CAF50));
+                        setState(() {
+                          showTextField = false;
+                        });
+                      }
+
+//                      isEditing = false;
+//                      Toast.show(
+//                          isEditing
+//                              ? "Categoría Añadida"
+//                              : "Categoria Modificada",
+//                          context,
+//                          gravity: Toast.BOTTOM,
+//                          duration: Toast.LENGTH_LONG,
+//                          backgroundColor: Color(0xff4CAF50));
+//                      setState(() {
+//                        showTextField = false;
+//                      });
                     } else {
                       mostrarDialog(
                           context,
@@ -264,6 +319,14 @@ class FireBaseFireStoreDemoState extends State<FireBaseFireStoreDemo> {
                           "",
                           null,
                           null);
+//                      mostrarDialog(
+//                          context,
+//                          "Sin Conexión",
+//                          "Debe tener conexión a internet para modificar la información.",
+//                          "Cerrar",
+//                          "",
+//                          null,
+//                          null);
 //                  _showDialog();
                     }
                   });
@@ -283,6 +346,7 @@ class FireBaseFireStoreDemoState extends State<FireBaseFireStoreDemo> {
             child: Text("Cancelar"),
             onPressed: () {
               setState(() {
+                isEditing = false;
                 showTextField = false;
                 controller.text = "";
               });

@@ -3,6 +3,7 @@ import 'dart:async';
 
 //
 // == PRUEBAS ==
+import 'admin_side/admin_pages/tablero/tablero_categorias/tablero_categorias_listado.dart';
 import 'firebase_crud/firestore_crud.dart';
 import 'firestore_crud_mobile_programmer/crud.dart';
 import 'upload_multiple_image/upload_multiple_image_page.dart';
@@ -16,6 +17,7 @@ import 'admin_side/admin_pages/administrar/administrar_productos/admin_productos
 import 'admin_side/admin_pages/administrar/administrar_categorias/admin_categorias.dart';
 import 'admin_side/admin_pages/administrar/administrar_clientes/admin_clientes.dart';
 import 'admin_side/admin_pages/administrar/administrar_contrasenas/admin_contrasenas.dart';
+import 'admin_side/admin_pages/tablero/tablero_clientes/tablero_clientes_listado.dart';
 import 'admin_side/admin_widgets/agregar_producto.dart';
 
 // Client side imports
@@ -82,7 +84,7 @@ class _MyAppState extends State<MyApp> {
         // Original
         '/login': (context) => SafeArea(child: LoginPage()),
 
-      // Subir imagenes
+        // Subir imagenes
 //        '/login': (context) => SafeArea(child: UploadMultipleImageDemo()),
 
         // CRUD para guardar cosas de 1 dato en firestore
@@ -108,14 +110,18 @@ class _MyAppState extends State<MyApp> {
         // ========== < ADMIN side Routes > ==========
         // ===========================================
 
-        //HOMEPAGE
+        // HOMEPAGE
         '/homepageadmin': (context) => SafeArea(child: HomePageAdmin()),
 
         // ======= < Tablero > =======
         // ===========================
 
-        //
-        //
+        // Listado Categorías
+        '/tablerocategoriaslistado': (context) => SafeArea(child: TableroCategoriasListado()),
+
+        // Listado Clientes
+        '/tableroclienteslistado': (context) =>
+            SafeArea(child: TableroClientesListado()),
 
         // ====== < /Tablero > =======
         // ===========================

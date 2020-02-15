@@ -1,6 +1,7 @@
 // HomePageAdmin
 import 'dart:io';
 
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:flutter/services.dart';
@@ -89,6 +90,8 @@ class _HomePageAdminState extends State<HomePageAdmin>
           ),
         ),
         body: TabBarView(
+//          physics:  kMaxFlingVelocity(10.0),
+//        physics: ,
           controller: controller,
           children: <Widget>[
             Tablero(),

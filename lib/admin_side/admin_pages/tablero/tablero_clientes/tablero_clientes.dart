@@ -46,7 +46,7 @@ class _ClientesTableroState extends State<ClientesTablero> {
       child: Card(
         child: InkWell(
           onTap: () {
-            Navigator.pushNamed(context, '/productos');
+            Navigator.pushNamed(context, '/tableroclienteslistado');
           },
           child: Padding(
             padding: EdgeInsets.only(top: 8.0),
