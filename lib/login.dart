@@ -245,7 +245,7 @@ class _LoginPageState extends State<LoginPage> {
                   "¿Has olvidado tu contraseña?",
                   style: TextStyle(
                       color: Color(0xffff3a5a),
-                      fontSize: 12,
+                      fontSize: 13,
                       fontWeight: FontWeight.w700),
                 ),
               ),

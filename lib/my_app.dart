@@ -1,6 +1,12 @@
 import 'package:flutter/material.dart';
 import 'dart:async';
 
+//
+// == PRUEBAS ==
+import 'firebase_crud/firestore_crud.dart';
+import 'firestore_crud_mobile_programmer/crud.dart';
+import 'upload_multiple_image/upload_multiple_image_page.dart';
+
 // My Own Imports
 import 'login.dart';
 
@@ -68,11 +74,19 @@ class _MyAppState extends State<MyApp> {
         // ========== < MAIN > ==========
         // Main y logo inicial animación
         // When navigating to the "/" route, build the FirstScreen widget.
+//        '/': (context) => SafeArea(child: FirestoreCRUDPage()),
         '/': (context) => SafeArea(child: LogoScreen()),
         // ========= < /MAIN > ==========
 
         // ========== < Login > ==========
+        // Original
         '/login': (context) => SafeArea(child: LoginPage()),
+
+      // Subir imagenes
+//        '/login': (context) => SafeArea(child: UploadMultipleImageDemo()),
+
+        // CRUD para guardar cosas de 1 dato en firestore
+//        '/login': (context) => SafeArea(child: FireBaseFireStoreDemo()),
         // ========= < /Login > ==========
 
         //

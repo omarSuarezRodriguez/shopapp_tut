@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'tablero_categorias/tablero_categorias.dart';
+import 'tablero_clientes/tablero_clientes.dart';
+import 'tablero_productos/tablero_productos.dart';
 
 // ==================================
 // ==================================
@@ -20,113 +23,117 @@ class Tablero extends StatelessWidget {
                   SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 2),
               children: <Widget>[
                 // ======= RECUADRO PRODUCTOS =======
-                Padding(
-                  padding: const EdgeInsets.all(9.0),
-                  child: Card(
-                    child: InkWell(
-                      onTap: () {
-                        Navigator.pushNamed(context, '/productos');
-                      },
-                      child: Padding(
-                        padding: EdgeInsets.only(top: 8.0),
-                        child: ListTile(
-                          title: FlatButton.icon(
-                            color: Colors.black,
-                            icon: Icon(
-                              Icons.local_offer,
-                              color: Color(0xffff3a5a),
-                            ),
-                            label: Text(
-                              "Productos",
-                              style: TextStyle(
-                                  color: Colors.black, fontSize: 15.0),
-//                            style: TextStyle(fontWeight: FontWeight.bold),
-                            ),
-                          ),
-                          subtitle: Text(
-                            '30',
-                            textAlign: TextAlign.center,
-                            style:
-                                TextStyle(color: activeColor, fontSize: 55.0),
-                          ),
-                        ),
-                      ),
-                    ),
-                  ),
-                ),
+
+                ProductosTablero(),
+//                Padding(
+//                  padding: const EdgeInsets.all(9.0),
+//                  child: Card(
+//                    child: InkWell(
+//                      onTap: () {
+//                        Navigator.pushNamed(context, '/productos');
+//                      },
+//                      child: Padding(
+//                        padding: EdgeInsets.only(top: 8.0),
+//                        child: ListTile(
+//                          title: FlatButton.icon(
+//                            color: Colors.black,
+//                            icon: Icon(
+//                              Icons.local_offer,
+//                              color: Color(0xffff3a5a),
+//                            ),
+//                            label: Text(
+//                              "Productos",
+//                              style: TextStyle(
+//                                  color: Colors.black, fontSize: 15.0),
+////                            style: TextStyle(fontWeight: FontWeight.bold),
+//                            ),
+//                          ),
+//                          subtitle: Text(
+//                            '30',
+//                            textAlign: TextAlign.center,
+//                            style:
+//                                TextStyle(color: activeColor, fontSize: 55.0),
+//                          ),
+//                        ),
+//                      ),
+//                    ),
+//                  ),
+//                ),
 
                 // ========== RECUADRO CATEGORIAS ==============
 
-                Padding(
-                  padding: const EdgeInsets.all(9.0),
-                  child: Card(
-                    child: InkWell(
-                      onTap: () {
-                        Navigator.pushNamed(context, '/productos');
-                      },
-                      child: Padding(
-                        padding: EdgeInsets.only(top: 8.0),
-                        child: ListTile(
-                          title: FlatButton.icon(
-                            color: Colors.black,
-                            icon: Icon(
-                              Icons.dashboard,
-                              color: Colors.teal,
-                            ),
-                            label: Text(
-                              "Categorías",
-                              style: TextStyle(
-                                  color: Colors.black, fontSize: 15.0),
-                            ),
-                          ),
-                          subtitle: Text(
-                            '7',
-                            textAlign: TextAlign.center,
-                            style:
-                                TextStyle(color: activeColor, fontSize: 55.0),
-                          ),
-                        ),
-                      ),
-                    ),
-                  ),
-                ),
+                CategoriasTablero(),
+
+//                Padding(
+//                  padding: const EdgeInsets.all(9.0),
+//                  child: Card(
+//                    child: InkWell(
+//                      onTap: () {
+//                        Navigator.pushNamed(context, '/productos');
+//                      },
+//                      child: Padding(
+//                        padding: EdgeInsets.only(top: 8.0),
+//                        child: ListTile(
+//                          title: FlatButton.icon(
+//                            color: Colors.black,
+//                            icon: Icon(
+//                              Icons.dashboard,
+//                              color: Colors.teal,
+//                            ),
+//                            label: Text(
+//                              "Categorías",
+//                              style: TextStyle(
+//                                  color: Colors.black, fontSize: 15.0),
+//                            ),
+//                          ),
+//                          subtitle: Text(
+//                            '7',
+//                            textAlign: TextAlign.center,
+//                            style:
+//                                TextStyle(color: activeColor, fontSize: 55.0),
+//                          ),
+//                        ),
+//                      ),
+//                    ),
+//                  ),
+//                ),
 
                 // ============= RECUADRO CLIENTES ==============
 
-                Padding(
-                  padding: const EdgeInsets.all(9.0),
-                  child: Card(
-                    child: InkWell(
-                      onTap: () {
-                        Navigator.pushNamed(context, '/productos');
-                      },
-                      child: Padding(
-                        padding: EdgeInsets.only(top: 8.0),
-                        child: ListTile(
-                          title: FlatButton.icon(
-                            color: Colors.black,
-                            icon: Icon(
-                              Icons.face,
-                              color: Colors.indigoAccent,
-                            ),
-                            label: Text(
-                              "Clientes",
-                              style: TextStyle(
-                                  color: Colors.black, fontSize: 15.0),
-                            ),
-                          ),
-                          subtitle: Text(
-                            '50',
-                            textAlign: TextAlign.center,
-                            style:
-                                TextStyle(color: activeColor, fontSize: 55.0),
-                          ),
-                        ),
-                      ),
-                    ),
-                  ),
-                ),
-
+                ClientesTablero(),
+//                Padding(
+//                  padding: const EdgeInsets.all(9.0),
+//                  child: Card(
+//                    child: InkWell(
+//                      onTap: () {
+//                        Navigator.pushNamed(context, '/productos');
+//                      },
+//                      child: Padding(
+//                        padding: EdgeInsets.only(top: 8.0),
+//                        child: ListTile(
+//                          title: FlatButton.icon(
+//                            color: Colors.black,
+//                            icon: Icon(
+//                              Icons.face,
+//                              color: Colors.indigoAccent,
+//                            ),
+//                            label: Text(
+//                              "Clientes",
+//                              style: TextStyle(
+//                                  color: Colors.black, fontSize: 15.0),
+//                            ),
+//                          ),
+//                          subtitle: Text(
+//                            '50',
+//                            textAlign: TextAlign.center,
+//                            style:
+//                                TextStyle(color: activeColor, fontSize: 55.0),
+//                          ),
+//                        ),
+//                      ),
+//                    ),
+//                  ),
+//                ),
               ],
             ),
           ),

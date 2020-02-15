@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import '../../../admin_widgets/agregar_producto.dart';
 
 class AdminProductos extends StatelessWidget {
   @override
@@ -35,9 +36,7 @@ class AdminProductos extends StatelessWidget {
           ),
         ],
       ),
-      body: Center(
-        child: Text("En Desarrollo"),
-      ),
+      body: ProfilePage(),
     );
   }
 }
