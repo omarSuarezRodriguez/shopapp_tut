@@ -5,9 +5,16 @@ import 'package:toast/toast.dart';
 import 'user.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import '../../../admin_widgets/widgets.dart';
+import 'tablero_productos_por_categoria.dart';
 
 class TableroCategoriasListado extends StatefulWidget {
-  TableroCategoriasListado() : super();
+//  TableroCategoriasListado() : super();
+
+//  final nombre_cat;
+//
+//  TableroCategoriasListado({
+//    this.nombre_cat,
+//  });
 
 //  final String title = "CloudFireStore Demo";
 
@@ -24,6 +31,15 @@ class TableroCategoriasListadoState extends State<TableroCategoriasListado> {
   bool isEditing = false;
   User curUser;
   FocusNode f1 = FocusNode();
+
+  var nombre_cat;
+
+  TableroCategoriasListadoState({
+    this.nombre_cat,
+  });
+
+
+
 
   // Para verificar que el TextFormField no esté vacio
   @override
@@ -161,10 +177,59 @@ class TableroCategoriasListadoState extends State<TableroCategoriasListado> {
 ////              delete(user);
 ////            },
 //          ),
-//          onTap: () {
-//            // update
+          onTap: () {
+            // AL DARLE CLIC A UNA CATEGORIA!!!!!! !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+//            Navigator.push(
+//              context,
+//              MaterialPageRoute(builder: (context) => WallScreenCategoria()),
+//            );
+
+//          nombre_cat = "";
+//
+//            Navigator.of(context).push(
+//              new MaterialPageRoute(
+//                // Here we are passing the values of the product to the product
+//                // details page
+//                builder: (context) => new WallScreenCategoria(
+//                  nombre_categoria: nombre_cat,
+//                ),
+//              ),
+//            );
+
+
+//          Navigator.push(
+//              context,
+//              MaterialPageRoute(
+//                  builder: (context) => WallScreenCategoria(user.name)));
+
+
+          Navigator.of(context).push(MaterialPageRoute(builder:(context)=>WallScreenCategoria(user.name)));
+
+
+
+
+
+
+//            String nombre_cat = "";
+//            Navigator.of(context).push(
+//              new MaterialPageRoute(
+//                // Here we are passing the values of the product to the product
+//                // details page
+//                builder: (context) => new WallScreenCategoria(
+//                  nombre_categoria: nombre_cat,
+//                ),
+//              ),
+//            );
+
+
+
+
+
+
+//            mostrarDialog(context, "Prueba", "Esto es una prueba", "Cerrar", "", null, null);
+            // update
 //            setUpdateUI(user);
-//          },
+          },
         ),
       ),
     );
@@ -292,6 +357,8 @@ class TableroCategoriasListadoState extends State<TableroCategoriasListado> {
       }
     });
   }
+
+
 
   @override
   Widget build(BuildContext context) {
@@ -436,6 +503,97 @@ class TableroCategoriasListadoState extends State<TableroCategoriasListado> {
     );
   }
 }
+
+
+//
+//
+//class Single_prod extends StatelessWidget {
+//  @override
+//  Widget build(BuildContext context) {
+//    return Container();
+//  }
+//}
+
+//
+//class Nombre_Cat extends StatelessWidget {
+//  final nombre_cat;
+//
+//  Nombre_Cat({
+//    this.nombre_cat,
+//  });
+//
+//
+//
+//
+//
+//  @override
+//  Widget build(BuildContext context) {
+//    return Card(
+//      child: Hero(
+//        tag: Text("hero 1"),
+//        child: Material(
+//          child: InkWell(
+//            onTap: () =>
+//                Navigator.of(context).push(
+//              new MaterialPageRoute(
+//                // Here we are passing the values of the product to the product
+//                // details page
+//                builder: (context) => new WallScreenCategoria(
+//                  nombre_categoria: nombre_cat,
+//                ),
+//              ),
+//            ),
+//            child: GridTile(
+//                footer: Container(
+//                  color: Colors.white70,
+//
+//                  child: Row(
+//                    children: <Widget>[
+//                      Expanded(
+//                        child: Text(
+//                          prod_name,
+//                          style: TextStyle(
+//                              fontWeight: FontWeight.bold, fontSize: 16.0),
+//                        ),
+//                      ),
+//                      Text(
+//                        "\$${prod_price}",
+//                        style: TextStyle(
+//                            color: Colors.red, fontWeight: FontWeight.bold),
+//                      ),
+//                    ],
+//                  ),
+////                  child: ListTile(
+////                    leading: Text(
+////                      prod_name,
+////                      style: TextStyle(fontWeight: FontWeight.bold),
+////                    ),
+////                    title: Text(
+////                      "\$$prod_price",
+////                      style: TextStyle(
+////                          color: Colors.red, fontWeight: FontWeight.w800),
+////                    ),
+////                    subtitle: Text(
+////                      "\$$prod_old_price",
+////                      style: TextStyle(
+//////                        decoration: TextDecoration.lineThrough,
+////                        color: Colors.black54,
+////                        fontWeight: FontWeight.w800,
+////                        decoration: TextDecoration.lineThrough,
+////                      ),
+////                    ),
+////                  ),
+//                ),
+//                child: Image.asset(
+//                  prod_pricture,
+//                  fit: BoxFit.cover,
+//                )),
+//          ),
+//        ),
+//      ),
+//    );
+//  }
+//}
 
 //import 'package:flutter/material.dart';
 //import 'package:cloud_firestore/cloud_firestore.dart';

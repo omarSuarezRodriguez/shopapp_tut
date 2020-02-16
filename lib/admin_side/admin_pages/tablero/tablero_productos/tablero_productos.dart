@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 
+
 class ProductosTablero extends StatefulWidget {
   @override
   _ProductosTableroState createState() => _ProductosTableroState();
@@ -46,6 +47,16 @@ class _ProductosTableroState extends State<ProductosTablero> {
       child: Card(
         child: InkWell(
           onTap: () {
+
+//            Navigator.push(
+//              context,
+//              MaterialPageRoute(builder: (context) => WallScreenCategoria()),
+//            );
+
+
+
+
+
             Navigator.pushNamed(context, '/productos');
           },
           child: Padding(

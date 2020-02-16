@@ -331,7 +331,10 @@ class FireBaseFireStoreDemoState extends State<FireBaseFireStoreDemo> {
 //        mainAxisAlignment: MainAxisAlignment.start,
 //        scrollDirection: Axis.vertical,
         children: <Widget>[
-          OutlineButton(
+          RaisedButton(
+//            color: Color(0xffff3a5a),
+            color: Color(0xff00E676),
+            textColor: Colors.white,
             child: Text(isEditing ? "Actualizar" : "Agregar"),
             onPressed: () {
               // AQUIIIIIIIIIIIII

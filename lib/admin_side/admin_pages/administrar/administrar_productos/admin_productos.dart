@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:shopapp_tut/admin_side/admin_widgets/agregar_producto_2.dart';
 import '../../../admin_widgets/agregar_producto.dart';
 
 class AdminProductos extends StatelessWidget {

@@ -1,25 +1,86 @@
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'fullscreen_image_details.dart';
+//import 'fullscreen_image_details.dart';
 
-import 'fullscreen_image.dart';
+import '../../../../client_side/client_widgets/fullscreen_image_details.dart';
+import '../../../../client_side/client_widgets/fullscreen_image.dart';
 import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'dart:async';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 
-class WallScreen extends StatefulWidget {
+class WallScreenCategoria extends StatefulWidget {
+
+
+//  final String nombre_categoria;//if you have multiple values add here
+//  WallScreenCategoria(this.nombre_categoria, {Key key}): super(key: key);
+//  String nombre_categoria;
+//  WallScreenCategoria(this.nombre_categoria);
+
+
+  // Con esto recibimos los valores del otro Widget/Page
+//  var nombre_categoria;
+//
+//  WallScreenCategoria({this.nombre_categoria});
+  // Hasta aquí se reciben los valores del otro Widget/Page
+
+
+
+  String nombre_categoria;
+  WallScreenCategoria(this.nombre_categoria);
   @override
-  _WallScreenState createState() => _WallScreenState();
+  State<StatefulWidget> createState() {
+    return _WallScreenCategoriaState(this.nombre_categoria);
+  }
+
+
+
+
+//  @override
+//  _WallScreenCategoriaState createState() => _WallScreenCategoriaState();
+//  @override
+//  State<StatefulWidget> createState() {
+//    return _WallScreenCategoriaState(this.nombre_categoria);
+//  }
 }
 
-class _WallScreenState extends State<WallScreen> {
+class _WallScreenCategoriaState extends State<WallScreenCategoria> {
+
+  final String nombre_categoria;
+  _WallScreenCategoriaState(this.nombre_categoria);
+//  final nombre_categoria_final = widget.nombre_categoria;
   StreamSubscription<QuerySnapshot> subscription;
   List<DocumentSnapshot> wallpaperList;
-  final CollectionReference collectionReference =
-      Firestore.instance.collection("productos");
-  // Para referenciar una subcoleccion dentro de otra coleccion
+
 //  final CollectionReference collectionReference =
-//      Firestore.instance.collection("prod").document("Mari").collection("Mari");
+//  Firestore.instance.collection("productos");
+  // Para referenciar una subcoleccion dentro de otra coleccion
+
+//  static String nombre = nombre_categoria;
+
+//  final CollectionReference collectionReference =
+//      Firestore.instance.collection("prod").where('', isEqualTo: nombre)
+
+  final CollectionReference collectionReference =
+  Firestore.instance.collection("prod").document("Barisol").collection("Barisol");
+//
+//
+//  Future findBarcode() async {
+////    String searchBarcode = await BarcodeScanner.scan();
+//
+//    String idOfBarcodeValue;
+//    Stream<Query> stream = Firestore.instance
+//        .collection('prod').document('${nombre_categoria}').where('barcode', isEqualTo: '${searchBarcode}').snapshots();
+//    await for (Query q in stream) {
+//      idOfBarcodeValue = q.documents[0].documentID;
+//    }
+//
+//    print(idOfBarcodeValue);
+//    // if the stream had no results, this will be null
+//    // if the stream has one or more results, this will be the last result
+//    return idOfBarcodeValue;
+//  }
+
+
 //
   @override
   void initState() {
@@ -41,6 +102,10 @@ class _WallScreenState extends State<WallScreen> {
 
   @override
   Widget build(BuildContext context) {
+
+//    final CollectionReference collectionReference =
+//    Firestore.instance.collection("prod").document("${widget.nombre_categoria}").collection(widget.nombre_categoria);
+
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Color(0xffff3a5a),

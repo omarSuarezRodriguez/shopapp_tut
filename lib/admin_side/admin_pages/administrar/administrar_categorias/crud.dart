@@ -251,7 +251,9 @@ class FireBaseFireStoreDemoState extends State<FireBaseFireStoreDemo> {
 //        mainAxisAlignment: MainAxisAlignment.start,
 //        scrollDirection: Axis.vertical,
         children: <Widget>[
-          OutlineButton(
+          RaisedButton(
+            color: Color(0xff00E676),
+            textColor: Colors.white,
 //            shape:
 //                RoundedRectangleBorder(side: BorderSide(color: Colors.green)),
 //            highlightedBorderColor: Colors.green,
