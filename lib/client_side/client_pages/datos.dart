@@ -36,8 +36,17 @@ class Datos extends StatelessWidget {
       appBar: AppBar(
         //Con esta configuración podemos implementar boton para atras en AppBar
         automaticallyImplyLeading: true,
-        backgroundColor: Colors.red,
+        backgroundColor: Color(0xffff3a5a),
         title: Text("Mis Datos Principales"),
+        leading: IconButton(
+          icon: Icon(
+            FontAwesomeIcons.arrowLeft,
+            color: Colors.white,
+          ),
+          onPressed: () {
+            Navigator.pop(context);
+          },
+        ),
 //        title: Text(widget.title),
         actions: <Widget>[
           PopupMenuButton(
@@ -74,7 +83,7 @@ class Datos extends StatelessWidget {
                     // Icono Home
                     leading: Icon(
                       FontAwesomeIcons.home,
-                      color: Colors.redAccent,
+                      color: Color(0xffff3a5a),
                     ),
                   ),
                 ),
@@ -111,7 +120,7 @@ class Datos extends StatelessWidget {
                     // Icono Home
                     leading: Icon(
                       FontAwesomeIcons.shoppingCart,
-                      color: Colors.redAccent,
+                      color: Colors.greenAccent,
                     ),
                   ),
                 ),

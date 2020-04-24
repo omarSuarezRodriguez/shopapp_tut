@@ -61,7 +61,7 @@ class _WallScreenCategoriaState extends State<WallScreenCategoria> {
 //      Firestore.instance.collection("prod").where('', isEqualTo: nombre)
 
   final CollectionReference collectionReference =
-  Firestore.instance.collection("prod").document("Barisol").collection("Barisol");
+  Firestore.instance.collection("prod").document("Zapatos").collection("Zapatos");
 //
 //
 //  Future findBarcode() async {
@@ -122,10 +122,10 @@ class _WallScreenCategoriaState extends State<WallScreenCategoria> {
                 child: InkWell(
                   onTap: () {
                     Navigator.pushNamedAndRemoveUntil(
-                        context, '/homepage', (_) => false);
+                        context, '/homepageadmin', (_) => false);
                   },
                   child: ListTile(
-                    title: Text('Catálogo'),
+                    title: Text('Tablero'),
                     // Icono Home
                     leading: Icon(
                       FontAwesomeIcons.home,
@@ -136,21 +136,21 @@ class _WallScreenCategoriaState extends State<WallScreenCategoria> {
               ),
 
               // ========== COMPRAR ==========
-              PopupMenuItem(
-                child: InkWell(
-                  onTap: () {
-                    Navigator.pushReplacementNamed(context, '/comprar');
-                  },
-                  child: ListTile(
-                    title: Text('Comprar'),
-                    // Icono Home
-                    leading: Icon(
-                      FontAwesomeIcons.shoppingCart,
-                      color: Colors.redAccent,
-                    ),
-                  ),
-                ),
-              ),
+//              PopupMenuItem(
+//                child: InkWell(
+//                  onTap: () {
+//                    Navigator.pushReplacementNamed(context, '/comprar');
+//                  },
+//                  child: ListTile(
+//                    title: Text('Comprar'),
+//                    // Icono Home
+//                    leading: Icon(
+//                      FontAwesomeIcons.shoppingCart,
+//                      color: Colors.redAccent,
+//                    ),
+//                  ),
+//                ),
+//              ),
             ],
           ),
         ],

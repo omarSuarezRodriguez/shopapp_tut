@@ -48,14 +48,14 @@ class _ChewieDemoState extends State<ChewieDemo> {
 
   @override
   Widget build(BuildContext context) {
-    SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle.light.copyWith(
-      statusBarColor: Colors.red, //or set color with: Color(0xFF0000FF)
-    ));
+//    SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle.light.copyWith(
+//      statusBarColor: Colors.red, //or set color with: Color(0xFF0000FF)
+//    ));
     return Scaffold(
       appBar: AppBar(
         //Con esta configuración podemos implementar boton para atras en AppBar
         automaticallyImplyLeading: true,
-        backgroundColor: Colors.red,
+        backgroundColor: Color(0xffff3a5a),
 //          title: Text(widget.title),
 
         title: Text(widget.title),
@@ -109,7 +109,7 @@ class _ChewieDemoState extends State<ChewieDemo> {
                     // Icono Home
                     leading: Icon(
                       FontAwesomeIcons.home,
-                      color: Colors.redAccent,
+                      color: Color(0xffff3a5a),
                     ),
                   ),
                 ),
@@ -151,7 +151,7 @@ class _ChewieDemoState extends State<ChewieDemo> {
                     // Icono Home
                     leading: Icon(
                       FontAwesomeIcons.shoppingCart,
-                      color: Colors.redAccent,
+                      color: Colors.greenAccent,
                     ),
                   ),
                 ),

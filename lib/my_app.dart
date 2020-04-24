@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:shopapp_tut/admin_side/admin_pages/tablero/tablero_productos/tablero_productos_listado.dart';
 import 'dart:async';
 
 //
 // == PRUEBAS ==
 import 'admin_side/admin_pages/tablero/tablero_categorias/tablero_categorias_listado.dart';
+import 'client_side/client_pages/cliente_categorias_listado.dart';
 import 'firebase_crud/firestore_crud.dart';
 import 'firestore_crud_mobile_programmer/crud.dart';
 import 'upload_multiple_image/upload_multiple_image_page.dart';
@@ -126,6 +128,8 @@ class _MyAppState extends State<MyApp> {
         // ====== < /Tablero > =======
         // ===========================
 
+        // LISTADO GENERAL PRODUCTOS
+        '/productosadminside': (context) => SafeArea(child: WallScreenAdminSide()),
         //
         //
         //
@@ -194,6 +198,9 @@ class _MyAppState extends State<MyApp> {
         // When navigating to the "/second" route, build the SecondScreen widget.
         '/productosrecientes': (context) =>
             SafeArea(child: ProductosRecientes()),
+
+        // PRODUCTOS WALLFY
+        '/categoriasclientes': (context) => SafeArea(child: TableroCategoriasListadoCliente()),
 
         // PRODUCTOS WALLFY
         '/productos': (context) => SafeArea(child: WallScreen()),

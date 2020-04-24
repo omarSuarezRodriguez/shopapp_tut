@@ -102,6 +102,7 @@ class _ProfilePageState extends State<ProfilePage> {
 //      Scaffold.of(context).showSnackBar(
 //          SnackBar(content: Text('Producto Agregado Correctamente')));
 
+      
       setState(() async {
         // Guardamos en database
 
@@ -124,6 +125,9 @@ class _ProfilePageState extends State<ProfilePage> {
             duration: Toast.LENGTH_LONG,
             gravity: Toast.BOTTOM,
             backgroundColor: Color(0xff4CAF50));
+
+//        _image == null;
+//        category == null;
 
 //        Scaffold.of(context).showSnackBar(
 //            SnackBar(content: Text('Producto Agregado Correctamente')));
@@ -439,8 +443,8 @@ class _ProfilePageState extends State<ProfilePage> {
                               // Subir foto
                               print(category.toString());
                               uploadPic(context);
-                              _image == null;
-                              category == null;
+//                              _image == null;
+//                              category == null;
 //                            Toast.show("Foto Subida", context,
 //                                gravity: Toast.BOTTOM, backgroundColor: Color(0xff4CAF50));
 

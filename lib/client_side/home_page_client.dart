@@ -16,6 +16,7 @@ import 'client_pages/categorias.dart';
 import 'client_pages/comprar.dart';
 
 import 'client_models/movie_model.dart';
+import 'client_widgets/client_productos_listado.dart';
 
 //
 // Classes Here
@@ -42,101 +43,105 @@ class HomePage extends StatefulWidget {
 // Class _HomePageState
 class _HomePageState extends State<HomePage> {
   // Page Controller
-  PageController _pageController;
-
-  @override
-  void initState() {
-    super.initState();
-    _pageController = PageController(initialPage: 0, viewportFraction: 0.8);
-  }
+//  PageController _pageController;
+//
+//  @override
+//  void initState() {
+//    super.initState();
+//    _pageController = PageController(initialPage: 0, viewportFraction: 0.8);
+//  }
 
   // Widget para cerrar App
   Future<bool> _onBackPressed() {
     exit(0);
   }
 
-  // ==============  PRUEBA ================
-  // Selector de imagen para carta HD
-  _movieSelector(int index) {
-    return AnimatedBuilder(
-      animation: _pageController,
-      builder: (BuildContext context, Widget widget) {
-        double value = 1;
-        if (_pageController.position.haveDimensions) {
-          value = _pageController.page - index;
-          value = (1 - (value.abs() * 0.3) + 0.06).clamp(0.0, 1.0);
-        }
-        return Center(
-          child: SizedBox(
-            height: Curves.easeInOut.transform(value) * 270.0,
-            width: Curves.easeInOut.transform(value) * 400.0,
-            child: widget,
-          ),
-        );
-      },
-      child: GestureDetector(
-        onTap: () => Navigator.push(
-          context,
-          MaterialPageRoute(
-//            builder: (_) => MovieScreen(movie: movies[index]),
-          ),
-        ),
-        child: Stack(
-          children: <Widget>[
-            Center(
-              child: Container(
-                margin: EdgeInsets.symmetric(horizontal: 14.0, vertical: 14.0),
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(10.0),
-                  boxShadow: [
-                    BoxShadow(
-                      color: Colors.black54,
-                      offset: Offset(0.0, 5.0),
-                      blurRadius: 10.0,
-                    ),
-                  ],
-                ),
-                child: Center(
-                  child: Hero(
-                    tag: movies[index].imageUrl,
-                    child: ClipRRect(
-                      borderRadius: BorderRadius.circular(10.0),
-                      child: Image(
-                        image: AssetImage(movies[index].imageUrl),
-                        height: 220.0,
-                        fit: BoxFit.cover,
-                      ),
-                    ),
-                  ),
-                ),
-              ),
-            ),
-            Positioned(
-              left: 30.0,
-              bottom: 40.0,
-              child: Container(
-                width: 250.0,
-                child: Text(
-                  "Sisas",
-//                  movies[index].title.toUpperCase(),
-                  style: TextStyle(
-//                    backgroundColor: Color(0xffff3a5a),
-                    color: Colors.white,
-                    fontSize: 20.0,
-                    fontWeight: FontWeight.bold,
-                  ),
-                ),
-              ),
-            ),
-          ],
-        ),
-      ),
-    );
-  }
+//
+//  // ==============  PRUEBA ================
+//  // Selector de imagen para carta HD
+//  _movieSelector(int index) {
+//    return AnimatedBuilder(
+//      animation: _pageController,
+//      builder: (BuildContext context, Widget widget) {
+//        double value = 1;
+//        if (_pageController.position.haveDimensions) {
+//          value = _pageController.page - index;
+//          value = (1 - (value.abs() * 0.3) + 0.06).clamp(0.0, 1.0);
+//        }
+//        return Center(
+//          child: SizedBox(
+//            height: Curves.easeInOut.transform(value) * 270.0,
+//            width: Curves.easeInOut.transform(value) * 400.0,
+//            child: widget,
+//          ),
+//        );
+//      },
+//      child: GestureDetector(
+//        onTap: () => Navigator.push(
+//          context,
+//          MaterialPageRoute(
+////            builder: (_) => MovieScreen(movie: movies[index]),
+//          ),
+//        ),
+//        child: Stack(
+//          children: <Widget>[
+//            Center(
+//              child: Container(
+//                margin: EdgeInsets.symmetric(horizontal: 14.0, vertical: 14.0),
+//                decoration: BoxDecoration(
+//                  borderRadius: BorderRadius.circular(10.0),
+//                  boxShadow: [
+//                    BoxShadow(
+//                      color: Colors.black54,
+//                      offset: Offset(0.0, 5.0),
+//                      blurRadius: 10.0,
+//                    ),
+//                  ],
+//                ),
+//                child: Center(
+//                  child: Hero(
+//                    tag: movies[index].imageUrl,
+//                    child: ClipRRect(
+//                      borderRadius: BorderRadius.circular(10.0),
+//                      child: Image(
+//                        image: AssetImage(movies[index].imageUrl),
+//                        height: 220.0,
+//                        fit: BoxFit.cover,
+//                      ),
+//                    ),
+//                  ),
+//                ),
+//              ),
+//            ),
+//            Positioned(
+//              left: 30.0,
+//              bottom: 40.0,
+//              child: Container(
+//                width: 250.0,
+//                child: Text(
+//                  "Sisas",
+////                  movies[index].title.toUpperCase(),
+//                  style: TextStyle(
+////                    backgroundColor: Color(0xffff3a5a),
+//                    color: Colors.white,
+//                    fontSize: 20.0,
+//                    fontWeight: FontWeight.bold,
+//                  ),
+//                ),
+//              ),
+//            ),
+//          ],
+//        ),
+//      ),
+//    );
+//  }
 
   // Widget build
   @override
   Widget build(BuildContext context) {
+
+    final size = MediaQuery.of(context).size;
+
     //Color de status bar
     SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(
       systemNavigationBarColor: Color(0xffff3a5a), // navigation bar color
@@ -146,7 +151,8 @@ class _HomePageState extends State<HomePage> {
 
     // Inicio WidgetImage Carousel
     Widget image_carousel = Container(
-      height: 200.0,
+      height: size.height * 0.32,
+//      height: 200.0,
       child: Carousel(
         boxFit: BoxFit.cover,
         images: [
@@ -192,7 +198,8 @@ class _HomePageState extends State<HomePage> {
             children: [
               Text(
                 widget.title, // Título de App
-                style: TextStyle(color: Colors.white, fontSize: 20.0),
+                style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
+//                style: TextStyle(color: Colors.white, fontSize: size.height * 0.035, fontWeight: FontWeight.bold),
               ),
             ],
           ),
@@ -319,6 +326,24 @@ class _HomePageState extends State<HomePage> {
                   ),
                 ),
               ),
+
+
+
+              InkWell(
+                onTap: () {
+                  Navigator.pushNamed(context, '/categoriasclientes');
+                },
+                child: ListTile(
+                  title: Text('Categorías'),
+                  leading: Icon(
+                    Icons.dashboard,
+//                  FontAwesomeIcons.history,
+                    color: Colors.teal,
+                  ),
+                ),
+              ),
+
+
 //            InkWell(
 //              onTap: () {},
 //              child: ListTile(
@@ -427,42 +452,42 @@ class _HomePageState extends State<HomePage> {
               image_carousel,
 
               // Padding Categorias Text Widget
+              SizedBox(
+                height: size.height * 0.012,
+              ),
               Padding(
-                padding: const EdgeInsets.all(1.0),
+                padding:
+                    const EdgeInsets.only(top: 1.0, right: 1.0, bottom: 1.0),
                 child: FlatButton(
                   onPressed: () {
-                    Navigator.push(
-                      context,
-                      // Quienes somos
-                      MaterialPageRoute(builder: (context) => Categorias()),
-                    );
+                    Navigator.pushNamed(context, '/productos');
                   },
                   child: Align(
                     alignment: Alignment.centerLeft,
                     child: Text(
-                      "Categorías",
-                      style: TextStyle(fontSize: 19.0),
+                      "Todos los Productos",
+                      style: TextStyle(fontSize: size.height * 0.030, fontWeight: FontWeight.bold),
                     ),
                   ),
                 ),
               ),
 
-              // =========== PRUEBA =========
-              Container(
-                height: 200.0,
-                width: double.infinity,
-                child: PageView.builder(
-                  controller: _pageController,
-                  itemCount: movies.length,
-                  itemBuilder: (BuildContext context, int index) {
-                    return _movieSelector(index);
-                  },
-                ),
-              ),
+//              // =========== PRUEBA =========
+//              Container(
+//                height: 200.0,
+//                width: double.infinity,
+//                child: PageView.builder(
+//                  controller: _pageController,
+//                  itemCount: movies.length,
+//                  itemBuilder: (BuildContext context, int index) {
+//                    return _movieSelector(index);
+//                  },
+//                ),
+//              ),
 
-              SizedBox(
-                height: 30.0,
-              ),
+//              SizedBox(
+//                height: 30.0,
+//              ),
 //          // Padding Categorias Widget
 //          Padding(
 //            padding: const EdgeInsets.all(13.0),
@@ -476,40 +501,48 @@ class _HomePageState extends State<HomePage> {
 //          ),
 
               // Horizontal ListView Begins
-              HorizontalList(),
-
-              // Padding Productos Recientes Text Widget
-              Padding(
-                padding: const EdgeInsets.all(1.0),
-                child: FlatButton(
-                  onPressed: () {
-                    Navigator.pushNamed(context, '/productosrecientes');
-
-//                  Navigator.push(
-//                    context,
-//                    // Quienes somos
-//                    MaterialPageRoute(
-//                        builder: (context) => ProductosRecientes()),
-//                  );
-
-//                Navigator.push(
-//                    context,
-//                    PageTransition(
-//                        type: PageTransitionType.rightToLeft,
-//                        child: ProductosRecientes()));
-                  },
-                  child: Align(
-                    alignment: Alignment.centerLeft,
-                    child: Text(
-                      "Productos Recientes",
-                      style: TextStyle(fontSize: 19.0),
-                    ),
-                  ),
-                ),
+              Container(
+                padding: EdgeInsets.only(bottom: 0.0,left: 5.0,right: 5.0,top: 0.0),
+                height: size.height * 0.510,
+//                height: 320.0,
+                child: WallScreenCliente(),
+//                child: Productazos(),
               ),
 
+//              HorizontalList(),
+
+              // Padding Productos Recientes Text Widget
+//              Padding(
+//                padding: const EdgeInsets.all(1.0),
+//                child: FlatButton(
+//                  onPressed: () {
+//                    Navigator.pushNamed(context, '/productosrecientes');
+//
+////                  Navigator.push(
+////                    context,
+////                    // Quienes somos
+////                    MaterialPageRoute(
+////                        builder: (context) => ProductosRecientes()),
+////                  );
+//
+////                Navigator.push(
+////                    context,
+////                    PageTransition(
+////                        type: PageTransitionType.rightToLeft,
+////                        child: ProductosRecientes()));
+//                  },
+//                  child: Align(
+//                    alignment: Alignment.centerLeft,
+//                    child: Text(
+//                      "Productos Recientes",
+//                      style: TextStyle(fontSize: 19.0),
+//                    ),
+//                  ),
+//                ),
+//              ),
+
               // Grid View
-              Productazos(),
+//              Productazos(),
 //              Container(
 //                height: 320.0,
 //                child: Productazos(),

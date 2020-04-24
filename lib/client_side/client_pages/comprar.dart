@@ -41,12 +41,12 @@ class ProfileTwoPage extends StatelessWidget {
       appBar: AppBar(
         //Con esta configuración podemos implementar boton para atras en AppBar
         automaticallyImplyLeading: true,
-        backgroundColor: Colors.red,
+        backgroundColor: Color(0xffff3a5a),
         title: Text('Comprar'),
 //        title: Text(widget.title),
         leading: IconButton(
           icon: Icon(
-            Icons.arrow_back,
+            FontAwesomeIcons.arrowLeft,
             color: Colors.white,
           ),
           onPressed: () {
@@ -90,7 +90,7 @@ class ProfileTwoPage extends StatelessWidget {
                     // Icono Home
                     leading: Icon(
                       FontAwesomeIcons.home,
-                      color: Colors.redAccent,
+                      color: Color(0xffff3a5a),
                     ),
                   ),
                 ),
@@ -111,7 +111,7 @@ class ProfileTwoPage extends StatelessWidget {
           Container(
             height: 200.0,
             decoration: BoxDecoration(
-              gradient: LinearGradient(colors: [Colors.redAccent, Colors.red]),
+              gradient: LinearGradient(colors: [Color(0xffff3a5a), Color(0xffff3a5a)]),
             ),
           ),
           _buildHeader(context),

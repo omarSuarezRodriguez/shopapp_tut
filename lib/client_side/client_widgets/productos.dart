@@ -46,6 +46,16 @@ class _WallScreenState extends State<WallScreen> {
         backgroundColor: Color(0xffff3a5a),
         title: Text("Productos"),
 
+        leading: IconButton(
+          icon: Icon(
+            FontAwesomeIcons.arrowLeft,
+            color: Colors.white,
+          ),
+          onPressed: () {
+            Navigator.pop(context);
+          },
+        ),
+
         // ================ Acciones AppBar ================
         actions: <Widget>[
           // ========== Icono Lista AppBar ==========
@@ -81,7 +91,7 @@ class _WallScreenState extends State<WallScreen> {
                     // Icono Home
                     leading: Icon(
                       FontAwesomeIcons.shoppingCart,
-                      color: Colors.redAccent,
+                      color: Colors.greenAccent,
                     ),
                   ),
                 ),

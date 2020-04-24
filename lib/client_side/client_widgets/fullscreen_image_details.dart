@@ -152,6 +152,7 @@ class FullScreenImagePageDetails extends StatelessWidget {
 
     return Scaffold(
       appBar: AppBar(
+        backgroundColor: Color(0xffff3a5a),
         leading: IconButton(
           icon: Icon(
             FontAwesomeIcons.arrowLeft,

@@ -57,7 +57,7 @@ class _ProductosTableroState extends State<ProductosTablero> {
 
 
 
-            Navigator.pushNamed(context, '/productos');
+            Navigator.pushNamed(context, '/productosadminside');
           },
           child: Padding(
             padding: EdgeInsets.only(top: 8.0),
